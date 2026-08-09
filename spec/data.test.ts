@@ -144,6 +144,29 @@ describe("people", () => {
     }
   });
 
+  // Wikidata sometimes holds two items for one person: Henry De Wolf Smyth is
+  // both Q102077024 and Q451199, and both appear in Rutherford's students.
+  //
+  // They are not merged. Deciding that two records are one person is a claim,
+  // and matching on a normalised name would make that claim on a similarity
+  // score -- which is how you eventually merge two real people who happen to
+  // share a name. The duplicate is shown as the source has it and named in
+  // about/. What this test does is stop the number growing quietly: a refresh
+  // that pulls in a pile of new duplicates fails here instead of shipping.
+  it("does not quietly accumulate people who are probably each other", () => {
+    const seen = new Map<string, string[]>();
+    for (const person of snapshot.people) {
+      const key = person.name
+        .normalize("NFD")
+        .replace(/\p{Diacritic}/gu, "")
+        .toLowerCase()
+        .replace(/[^a-z]/g, "");
+      seen.set(key, [...(seen.get(key) ?? []), `${person.name} (${person.id})`]);
+    }
+    const collisions = [...seen.values()].filter((group) => group.length > 1);
+    expect(collisions.length, `name collisions: ${JSON.stringify(collisions)}`).toBeLessThanOrEqual(3);
+  });
+
   it("carries at least one non-laureate, or the graph is lying about its shape", () => {
     expect(snapshot.people.some((person) => !person.laureate)).toBe(true);
   });

@@ -248,8 +248,15 @@ function drawReadout(): void {
     source.className = `provenance provenance-${edge.provenance}`;
     source.href = edge.source;
     source.rel = "noreferrer";
-    source.textContent =
-      edge.references === 0 ? "no reference" : `${edge.references} ref`;
+    source.textContent = edge.references === 0 ? "no reference" : `${edge.references} ref`;
+    // Out of context a link called "1 ref" says nothing, and a screen reader
+    // reads links out of context all the time.
+    source.setAttribute(
+      "aria-label",
+      edge.references === 0
+        ? `Wikidata claim that ${person.name} ${describeEdge(edge, selected)} ${other.name}, with no reference behind it`
+        : `Wikidata claim that ${person.name} ${describeEdge(edge, selected)} ${other.name}, with ${edge.references} reference${edge.references === 1 ? "" : "s"}`,
+    );
     source.title =
       edge.references === 0
         ? "Wikidata records this claim with no reference behind it."

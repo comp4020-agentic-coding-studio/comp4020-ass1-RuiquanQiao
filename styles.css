@@ -294,6 +294,37 @@ body {
   font-size: 0.8rem;
 }
 
+/* At 390x844 -- a marking viewport -- the opening pushed the canvas down to
+   576px, so a visitor met three paragraphs before meeting the thing they are
+   meant to touch. The words are all still here; they are just sized so the
+   graph is on the first screen. */
+@media (width < 30rem) {
+  .layout {
+    gap: 1.1rem;
+    padding: 1rem 1rem 3rem;
+  }
+
+  .title {
+    margin-bottom: 0.5rem;
+  }
+
+  .lede {
+    margin-bottom: 0.45rem;
+    font-size: 0.94rem;
+    line-height: 1.45;
+  }
+
+  .lede-small {
+    margin-top: 0.65rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .results {
+    max-height: 11rem;
+  }
+}
+
 @media (width >= 60rem) {
   .layout {
     grid-template-columns: minmax(0, 1fr) 24rem;
