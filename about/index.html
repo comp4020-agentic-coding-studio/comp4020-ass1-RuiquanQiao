@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About the data — One Tree</title>
+    <meta
+      name="description"
+      content="Where the relations come from, what counts as one, and what this graph does not know."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="../">One Tree</a>
+        <a class="nav-link" href="./">About the data</a>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <div class="intro">
+        <h1 class="title">About the data</h1>
+        <p class="lede">
+          This page exists because the graph is only worth looking at if you can find out
+          what is behind each line in it.
+        </p>
+      </div>
+
+      <section class="notes">
+        <h2 class="notes-title">What counts as a relation</h2>
+        <p>
+          Two kinds, and only two, because these are the two that can be defined and
+          sourced:
+        </p>
+        <ul>
+          <li>
+            <strong>Academic supervision</strong> — Wikidata's <code>P184</code> (doctoral
+            advisor) and <code>P185</code> (doctoral student).
+          </li>
+          <li>
+            <strong>Kinship</strong> — parent, child, spouse and sibling
+            (<code>P22</code>, <code>P25</code>, <code>P40</code>, <code>P26</code>,
+            <code>P3373</code>), kept only where both people are already in the graph.
+          </li>
+        </ul>
+        <p>
+          <strong>Colleagues are deliberately absent.</strong> The first version of this
+          project was going to include them. It doesn't, because "colleague" has no
+          definition that survives contact with the data: everybody at the Cavendish was a
+          colleague of everybody, no such line could carry a source, and a graph that
+          looks well connected because of undefined edges is a made-up finding wearing a
+          real number's clothes. A third kind of relation would need a definition and a
+          source before it could be drawn.
+        </p>
+
+        <h2 class="notes-title">How sure each line is</h2>
+        <p>
+          Wikidata claims vary in how well they are backed, and in the raw data a claim
+          with three references looks exactly like a claim with none. That difference is
+          printed on every relation rather than smoothed away:
+        </p>
+        <ul>
+          <li><strong>n ref</strong> — Wikidata records at least one reference for it.</li>
+          <li>
+            <strong>no reference</strong> — somebody entered the claim and nobody has
+            cited anything for it. It is still shown, and still labelled.
+          </li>
+        </ul>
+
+        <h2 class="notes-title">What this graph does not know</h2>
+        <ul>
+          <li>
+            <strong>Literature and peace are not here.</strong> The four prizes shown are
+            physics, chemistry, medicine and economics.
+          </li>
+          <li>
+            <strong>Absence of a line is not absence of a relation.</strong> It means
+            Wikidata has no claim for one. A laureate who lights up nothing may have stood
+            alone, or may simply be poorly documented, and this page cannot tell you
+            which.
+          </li>
+          <li>
+            <strong>Coverage is uneven by era and by place.</strong> Older European
+            academic lineages are recorded in far more detail than recent ones or
+            non-Western ones, so the shape of the tree is partly the shape of who has been
+            written down.
+          </li>
+          <li>
+            <strong>Only ancestors were followed.</strong> Advisor chains were walked
+            upward from each laureate. Students who never won anything are not here, so
+            this is a picture of descent, not of influence.
+          </li>
+        </ul>
+
+        <h2 class="notes-title">This is not a replication</h2>
+        <p>
+          Richard Tol's <em>The Nobel family</em> (Scientometrics, 2024) reports that 696
+          of 727 laureates in these four categories belong to one academic family tree,
+          with 668 descending from Emmanuel Stupanus, a Basel professor who argued against
+          empirical evidence. That is a finding about Tol's dataset.
+        </p>
+        <p>
+          This page is built from a different source and reaches a different number of
+          people. Every figure shown on the front page is counted from the snapshot this
+          site ships with, at build time, so it cannot drift away from the file underneath
+          it. The two claims are kept in separate sentences on purpose.
+        </p>
+
+        <h2 class="notes-title">What this is</h2>
+        <p>
+          A student prototype for ANU COMP4020/8020, not affiliated with or endorsed by
+          the Nobel Foundation. The data is a dated snapshot, not a live feed; nothing is
+          fetched while the site is being built or while you are reading it.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

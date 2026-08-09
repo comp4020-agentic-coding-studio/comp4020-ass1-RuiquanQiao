@@ -3,22 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COMP4020 prototype</title>
+    <title>One Tree — the people Nobel laureates are related to</title>
+    <meta
+      name="description"
+      content="Pick a Nobel laureate and watch who lights up. Then try to find one who stands alone."
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <header>
-      <nav aria-label="Primary">
-        <a href="./">Home</a>
+    <header class="masthead">
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="./">One Tree</a>
+        <a class="nav-link" href="./about/">About the data</a>
       </nav>
     </header>
-    <main>
-      <h1>COMP4020 prototype</h1>
-      <p data-testid="intro">
-        Replace this with your prototype. This week's brief is on the course website;
-        <code>spec/README.md</code> explains how the checks in this repo relate to it.
-      </p>
+
+    <main class="layout">
+      <div class="intro">
+        <h1 class="title">Go and find a lone genius.</h1>
+        <p class="lede">
+          Every dot is someone who won a Nobel Prize in physics, chemistry, medicine or
+          economics — or who taught, married or fathered one. Pick anybody. Watch how
+          much of the picture lights up.
+        </p>
+        <p class="lede">
+          Then try to find somebody who lights up nothing at all.
+          <span class="lede-quiet" data-testid="orphan-count"></span>
+        </p>
+      </div>
+
+      <section class="stage" aria-label="Relationship graph">
+        <canvas class="canvas" data-testid="canvas" aria-hidden="true"></canvas>
+        <p class="stage-hint" data-testid="hint">
+          Click a dot, or search below. Gold dots are laureates; grey-ringed dots are the
+          teachers and relatives who hold them together.
+        </p>
+      </section>
+
+      <section class="panel" aria-label="Find a person">
+        <form class="finder" role="search" data-testid="finder">
+          <label class="finder-label" for="q">Search a name</label>
+          <input
+            class="finder-input"
+            id="q"
+            name="q"
+            type="search"
+            autocomplete="off"
+            placeholder="Curie, Rutherford, Bohr…"
+            data-testid="search"
+          />
+        </form>
+
+        <ul class="results" data-testid="results" aria-label="Search results"></ul>
+
+        <div
+          class="readout"
+          data-testid="readout"
+          role="region"
+          aria-live="polite"
+          aria-label="Selected person"
+        >
+          <p class="readout-empty">Nobody selected yet.</p>
+        </div>
+      </section>
+
+      <section class="notes">
+        <h2 class="notes-title">What this is, and what it isn't</h2>
+        <p>
+          A student prototype, not affiliated with the Nobel Foundation. Relations come
+          from Wikidata and are shown with the provenance they actually have: some claims
+          carry references and some carry none, and the difference is printed rather than
+          smoothed over.
+        </p>
+        <p>
+          Richard Tol's study <em>The Nobel family</em> (2024) reports that 696 of 727
+          laureates in these four categories sit in a single academic family tree. That is
+          his dataset, not this one. Every number on this page is counted from the file
+          this page ships with, and the two are not the same graph.
+        </p>
+        <p class="notes-quiet" data-testid="provenance"></p>
+      </section>
     </main>
+
     <script type="module" src="./main.ts"></script>
   </body>
 </html>
