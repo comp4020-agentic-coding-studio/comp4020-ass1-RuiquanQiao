@@ -282,8 +282,18 @@ const observer = new ResizeObserver(() => {
 });
 observer.observe(canvas);
 
-pick<HTMLElement>('[data-testid="orphan-count"]').textContent =
-  `In this snapshot, ${figures.lonelyLaureates} of ${figures.laureates} manage it.`;
+// The finding, as a pair of numbers rather than an adjective. Both are counted
+// from the snapshot at load, so neither can drift away from the file.
+pick<HTMLElement>('[data-testid="scale"]').textContent =
+  `There are ${figures.components} separate groups in this data. The largest holds ` +
+  `${figures.largestComponent} people. The next largest holds ${figures.secondLargestComponent}.`;
+
+// Printed at the same size as the claim, not tucked into a footnote: a third of
+// the laureates here are unattached, and that is a fact about the record.
+pick<HTMLElement>('[data-testid="caveat"]').textContent =
+  `${figures.isolatedLaureates} of the ${figures.laureates} laureates light up nobody at all. ` +
+  `That is not evidence they had no teacher — it means Wikidata records no relation for them. ` +
+  `An empty screen here is a gap in what was written down.`;
 
 pick<HTMLElement>('[data-testid="provenance"]').textContent =
   `Snapshot taken ${snapshot.fetchedAt}: ${figures.people} people, ${figures.laureates} of them laureates, ` +

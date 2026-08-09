@@ -114,4 +114,16 @@ describe("the page says what it is", () => {
     expect(text).toContain("696");
     expect(text.toLowerCase()).toContain("his dataset, not this one");
   });
+
+  // A third of the laureates here light up nobody, because Wikidata has no
+  // relation recorded for them. An earlier draft invited visitors to go and
+  // find such a person, which made a hole in the record read as a finding
+  // about science. The correction is that the caveat sits in the opening, at
+  // the size of the claim -- so this asserts the slot exists in the markup
+  // rather than trusting a layout pass not to quietly demote it.
+  it("reserves room for the gap in the record beside the claim", () => {
+    const caveat = home.doc.querySelector('[data-testid="caveat"]');
+    expect(caveat, "the caveat slot was removed from the intro").toBeTruthy();
+    expect(caveat?.closest(".intro"), "the caveat was moved out of the opening").toBeTruthy();
+  });
 });

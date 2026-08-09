@@ -171,8 +171,22 @@ describe("the snapshot that ships", () => {
     expect(sizes[0]).toBeGreaterThan((sizes[1] ?? 0) * 10);
   });
 
-  it("can still find someone standing alone", () => {
-    expect(figures.lonelyLaureates).toBeGreaterThan(0);
+  // The finding is the gap between first and second place, not the size of
+  // first place. One group holds well over a thousand people; the next holds
+  // fourteen. That is a cliff, and the page prints both numbers so a reader can
+  // see the cliff rather than take the word "connected" on trust.
+  it("has a second-largest group small enough for the gap to be the point", () => {
+    expect(figures.secondLargestComponent).toBeGreaterThan(0);
+    expect(figures.largestComponent).toBeGreaterThan(figures.secondLargestComponent * 20);
+  });
+
+  // Wikidata records no relation at all for a large minority of laureates.
+  // The page has to keep saying so: an empty screen is a hole in the record,
+  // and a version of this page that hid the count would be inviting visitors
+  // to read that hole as a finding about science.
+  it("knows how many laureates it has nothing on", () => {
+    expect(figures.isolatedLaureates).toBeGreaterThan(0);
+    expect(figures.isolatedLaureates).toBeLessThan(figures.laureates);
   });
 
   it("agrees with itself about the largest component", () => {

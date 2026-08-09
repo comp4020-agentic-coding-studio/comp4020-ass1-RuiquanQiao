@@ -132,10 +132,15 @@ export function summarise(graph: Graph) {
     components: groups.length,
     largestComponent: largest.length,
     largestComponentLaureates: largestLaureates,
-    // The ones you are invited to go and find.
-    lonelyLaureates: groups.filter(
-      (group) => group.filter((id) => graph.people.get(id)?.laureate).length === 1,
-    ).length,
+    // The gap between these two is the finding. It is a cliff, not a slope.
+    secondLargestComponent: groups[1]?.length ?? 0,
+    // Laureates with no recorded relation of any kind. This is a hole in the
+    // record, not evidence that anybody worked alone, and the page has to say
+    // so in the same breath as the number -- an earlier draft invited visitors
+    // to "find someone who lights up nothing", which a third of the laureates
+    // satisfy for reasons that have nothing to do with the argument.
+    isolatedLaureates: laureates.filter((person) => (graph.neighbours.get(person.id) ?? []).length === 0)
+      .length,
     unsourcedEdges: graph.edges.filter((edge) => edge.provenance === "wikidata-unsourced").length,
   };
 }

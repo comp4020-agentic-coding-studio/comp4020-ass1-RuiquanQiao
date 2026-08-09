@@ -82,7 +82,18 @@ body {
 }
 
 .lede-quiet {
-  color: var(--gold-quiet);
+  color: var(--gold);
+}
+
+/* The caveat is not a footnote. A third of the laureates on this page light up
+   nothing, and saying so quietly would be a way of not saying it. */
+.lede-small {
+  margin: 0.9rem 0 0;
+  max-width: 40rem;
+  padding-left: 0.7rem;
+  border-left: 2px solid var(--gold-quiet);
+  color: var(--ink-quiet);
+  font-size: 0.88rem;
 }
 
 .stage {
