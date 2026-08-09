@@ -20,15 +20,13 @@
 
     <main class="layout">
       <div class="intro">
-        <h1 class="title">Find a second tree.</h1>
+        <h1 class="title">Pick a Nobel laureate.</h1>
         <p class="lede">
-          Every dot is a Nobel laureate in physics, chemistry, medicine or economics — or
-          somebody who taught, married or fathered one. Pick anyone with a recorded
-          teacher and watch what lights up. Then go looking for a second lineage: one
-          that grew up apart from this one and got big.
-          <span class="lede-quiet" data-testid="scale"></span>
+          Gold dots are laureates in physics, chemistry, medicine or economics. Grey
+          rings are the teachers, parents and spouses who connect them. Choose anybody —
+          tap a dot or search a name — and see how many other laureates you can get to
+          from there.
         </p>
-        <p class="lede-small" data-testid="caveat"></p>
       </div>
 
       <section class="stage" aria-label="Relationship graph">
@@ -64,6 +62,17 @@
         >
           <p class="readout-empty">Nobody selected yet.</p>
         </div>
+      </section>
+
+      <section class="followup" aria-label="The other question">
+        <h2 class="followup-title">Now the other question.</h2>
+        <p class="followup-lede">
+          Once a few names have pulled up hundreds of others, the interesting question
+          flips: is there anyone who pulls up nobody? A laureate with no recorded tie to
+          any other laureate at all.
+          <span class="followup-strong" data-testid="scale"></span>
+        </p>
+        <p class="followup-caveat" data-testid="caveat"></p>
       </section>
 
       <section class="notes">

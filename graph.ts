@@ -100,6 +100,19 @@ export function reachedFrom(graph: Graph, id: string): string[] {
   return [...seen].sort();
 }
 
+/**
+ * How many of these people won a Nobel Prize.
+ *
+ * This is the number the page leads with, and the distinction matters: the
+ * graph is mostly *not* laureates. Reaching 1142 people sounds enormous and
+ * means less than it sounds, because two thirds of them are the teachers who
+ * carry the connection. "How many other laureates" is the question a visitor
+ * actually arrives with, so it is the one the readout answers first.
+ */
+export function laureatesAmong(graph: Graph, ids: string[]): number {
+  return ids.filter((id) => graph.people.get(id)?.laureate).length;
+}
+
 /** Every connected component, largest first. Used for the page's own figures. */
 export function components(graph: Graph): string[][] {
   const seen = new Set<string>();

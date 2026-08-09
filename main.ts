@@ -4,6 +4,7 @@ import {
   buildGraph,
   describeEdge,
   directOf,
+  laureatesAmong,
   otherEnd,
   reachedFrom,
   search,
@@ -69,13 +70,40 @@ const COLOURS = {
 let width = 0;
 let height = 0;
 
-function resizeCanvas(): void {
-  const rect = canvas.getBoundingClientRect();
+/**
+ * Bring the canvas backing store in line with its CSS box, if it isn't already.
+ *
+ * Called at the top of every draw rather than only on resize, because a canvas
+ * whose bitmap has drifted from its box renders at the wrong scale and there is
+ * nothing on screen to tell you so. It drifts more easily than you would think:
+ * a measurement taken while the tab is backgrounded or the pane is not
+ * compositing can come back as a few pixels, and if no further resize arrives
+ * the canvas simply stays wrong. Re-checking here means any later draw repairs
+ * it, and the check is two integer comparisons.
+ *
+ * `size` is the observed box when a ResizeObserver hands one over. Trusting the
+ * observer beats re-measuring: the observer reports the size it actually saw,
+ * while a fresh getBoundingClientRect races whatever layout is in flight.
+ */
+function syncCanvas(size?: { width: number; height: number }): void {
+  const box = size ?? canvas.getBoundingClientRect();
   const ratio = Math.min(window.devicePixelRatio || 1, 2);
-  width = Math.max(1, Math.floor(rect.width));
-  height = Math.max(1, Math.floor(rect.height));
-  canvas.width = Math.floor(width * ratio);
-  canvas.height = Math.floor(height * ratio);
+  const nextWidth = Math.max(1, Math.round(box.width));
+  const nextHeight = Math.max(1, Math.round(box.height));
+  const bitmapWidth = Math.max(1, Math.round(nextWidth * ratio));
+  const bitmapHeight = Math.max(1, Math.round(nextHeight * ratio));
+  if (
+    width === nextWidth &&
+    height === nextHeight &&
+    canvas.width === bitmapWidth &&
+    canvas.height === bitmapHeight
+  ) {
+    return;
+  }
+  width = nextWidth;
+  height = nextHeight;
+  canvas.width = bitmapWidth;
+  canvas.height = bitmapHeight;
   const context = canvas.getContext("2d");
   if (context) context.setTransform(ratio, 0, 0, ratio, 0, 0);
 }
@@ -89,6 +117,7 @@ function at(id: string): [number, number] {
 }
 
 function draw(): void {
+  syncCanvas();
   const context = canvas.getContext("2d");
   if (!context) return;
   context.fillStyle = COLOURS.background;
@@ -210,15 +239,33 @@ function drawReadout(): void {
   heading.textContent = label(person);
   readout.append(heading);
 
+  // The headline number is laureates, not people. Reaching 1142 people sounds
+  // enormous and means less than it sounds: two thirds of them are the teachers
+  // carrying the connection. "How many other laureates" is what a visitor came
+  // to find out, so it goes first and the rest goes after it.
+  const reachedLaureates = laureatesAmong(graph, [...reached]);
+  const others = person.laureate ? "other Nobel laureates" : "Nobel laureates";
+
   const counts = document.createElement("p");
   counts.className = "readout-counts";
   counts.dataset.testid = "counts";
   counts.dataset.direct = String(direct.size);
   counts.dataset.reached = String(reached.size);
-  counts.textContent =
-    reached.size === 0
-      ? "Nobody at all. This one stands alone in the data we have."
-      : `${direct.size} directly related. ${reached.size} reached, following the chain as far as it goes.`;
+  counts.dataset.laureates = String(reachedLaureates);
+  if (reached.size === 0) {
+    counts.textContent = "Nobody at all — no recorded relation to anyone here.";
+  } else {
+    const big = document.createElement("strong");
+    big.className = "readout-number";
+    big.textContent = `${reachedLaureates} ${others}`;
+    counts.append(
+      big,
+      document.createTextNode(
+        `, reached through ${reached.size - reachedLaureates} teachers and relatives who never won one. ` +
+          `${direct.size} of them ${direct.size === 1 ? "is" : "are"} directly related.`,
+      ),
+    );
+  }
   readout.append(counts);
 
   const list = document.createElement("ul");
@@ -283,29 +330,29 @@ canvas.addEventListener("click", (event) => {
 
 // A resize must not clear the selection: the marker resizes mid-interaction,
 // and losing state there reads as a broken page, not a responsive one.
-const observer = new ResizeObserver(() => {
-  resizeCanvas();
+const observer = new ResizeObserver((entries) => {
+  syncCanvas(entries.at(-1)?.contentRect);
   draw();
 });
 observer.observe(canvas);
 
-// The finding, as a pair of numbers rather than an adjective. Both are counted
-// from the snapshot at load, so neither can drift away from the file.
+// The answer to the second question, and the shape behind it. Both counted from
+// the snapshot at load, so neither can drift away from the file underneath.
 pick<HTMLElement>('[data-testid="scale"]').textContent =
-  `There are ${figures.components} separate groups in this data. The largest holds ` +
-  `${figures.largestComponent} people. The next largest holds ${figures.secondLargestComponent}.`;
+  ` There are ${figures.isolatedLaureates}, out of ${figures.laureates}. ` +
+  `Nearly everyone else ends up in the same place: of ${figures.components} separate groups, ` +
+  `the largest holds ${figures.largestComponent} people and the next holds ${figures.secondLargestComponent}.`;
 
-// Printed at the same size as the claim, not tucked into a footnote: a third of
-// the laureates here are unattached, and that is a fact about the record.
+// Sits with the answer, not in a footnote. An empty screen is a hole in the
+// record and the page has to say so wherever it reports the count.
 pick<HTMLElement>('[data-testid="caveat"]').textContent =
-  `${figures.isolatedLaureates} of the ${figures.laureates} laureates light up nobody at all. ` +
-  `That is not evidence they had no teacher — it means Wikidata records no relation for them. ` +
-  `An empty screen here is a gap in what was written down.`;
+  `An empty screen is not evidence that somebody worked alone. It means Wikidata records no ` +
+  `relation for them, and coverage is far thinner for recent laureates and for anyone outside ` +
+  `the old European universities. What you are looking at there is a gap in what was written down.`;
 
 pick<HTMLElement>('[data-testid="provenance"]').textContent =
   `Snapshot taken ${snapshot.fetchedAt}: ${figures.people} people, ${figures.laureates} of them laureates, ` +
   `${figures.edges} relations, of which ${figures.unsourcedEdges} carry no reference on Wikidata. ` +
   `The largest connected group holds ${figures.largestComponentLaureates} laureates.`;
 
-resizeCanvas();
 select(null);

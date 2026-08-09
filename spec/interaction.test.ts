@@ -2,7 +2,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { beforeAll, describe, expect, it } from "vitest";
-import { buildGraph, directOf, reachedFrom } from "../graph.ts";
+import { buildGraph, directOf, laureatesAmong, reachedFrom } from "../graph.ts";
 import type { Snapshot } from "../graph.ts";
 
 // The core interaction, end to end through the real page.
@@ -106,6 +106,17 @@ describe("selecting somebody", () => {
 
   it("reports exactly the reached tier the data says", () => {
     expect(counts()?.dataset.reached).toBe(String(reachedFrom(graph, wellConnected.id).length));
+  });
+
+  // The number a visitor came for. Reaching 1142 people sounds enormous and
+  // means less than it sounds, because two thirds of them never won anything --
+  // so the readout leads with how many *laureates* are on the far end.
+  it("leads with how many other laureates were reached", () => {
+    const reached = reachedFrom(graph, wellConnected.id);
+    const expected = laureatesAmong(graph, reached);
+    expect(counts()?.dataset.laureates).toBe(String(expected));
+    expect(expected).toBeLessThan(reached.length);
+    expect(document.querySelector(".readout-number")?.textContent).toContain(String(expected));
   });
 
   it("lists every direct relation with a source you can open", () => {

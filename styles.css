@@ -59,6 +59,7 @@ body {
     "intro"
     "stage"
     "panel"
+    "followup"
     "notes";
 }
 
@@ -81,15 +82,36 @@ body {
   font-size: 1.02rem;
 }
 
-.lede-quiet {
+/* The second question, and it comes second on purpose. Nobody arrives wondering
+   whether some laureate is disconnected from every other one; they arrive
+   wondering how far one name reaches. This block is what they want once the
+   graph has answered that, so it sits below the graph rather than in front of
+   it -- but at the size of a real question, not as small print. */
+.followup {
+  grid-area: followup;
+  max-width: 44rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.25rem;
+}
+
+.followup-title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  letter-spacing: -0.01em;
+}
+
+.followup-lede {
+  margin: 0;
+  color: var(--ink-quiet);
+  font-size: 1rem;
+}
+
+.followup-strong {
   color: var(--gold);
 }
 
-/* The caveat is not a footnote. A third of the laureates on this page light up
-   nothing, and saying so quietly would be a way of not saying it. */
-.lede-small {
-  margin: 0.9rem 0 0;
-  max-width: 40rem;
+.followup-caveat {
+  margin: 0.8rem 0 0;
   padding-left: 0.7rem;
   border-left: 2px solid var(--gold-quiet);
   color: var(--ink-quiet);
@@ -314,8 +336,12 @@ body {
     line-height: 1.45;
   }
 
-  .lede-small {
-    margin-top: 0.65rem;
+  .followup-lede {
+    font-size: 0.94rem;
+    line-height: 1.45;
+  }
+
+  .followup-caveat {
     font-size: 0.82rem;
     line-height: 1.4;
   }
@@ -331,6 +357,7 @@ body {
     grid-template-areas:
       "intro panel"
       "stage panel"
+      "followup followup"
       "notes notes";
     align-items: start;
     padding: 2rem 2rem 5rem;

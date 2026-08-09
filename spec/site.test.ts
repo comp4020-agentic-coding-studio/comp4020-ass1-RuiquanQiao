@@ -116,14 +116,28 @@ describe("the page says what it is", () => {
   });
 
   // A third of the laureates here light up nobody, because Wikidata has no
-  // relation recorded for them. An earlier draft invited visitors to go and
-  // find such a person, which made a hole in the record read as a finding
-  // about science. The correction is that the caveat sits in the opening, at
-  // the size of the claim -- so this asserts the slot exists in the markup
-  // rather than trusting a layout pass not to quietly demote it.
-  it("reserves room for the gap in the record beside the claim", () => {
+  // relation recorded for them. Wherever that count is reported, what it means
+  // has to be reported with it -- otherwise a hole in the record reads as a
+  // finding about science. The count and the caveat both live in the follow-up
+  // section, which is a real question with a heading, not small print.
+  it("keeps the count of unattached laureates and its meaning together", () => {
+    const scale = home.doc.querySelector('[data-testid="scale"]');
     const caveat = home.doc.querySelector('[data-testid="caveat"]');
-    expect(caveat, "the caveat slot was removed from the intro").toBeTruthy();
-    expect(caveat?.closest(".intro"), "the caveat was moved out of the opening").toBeTruthy();
+    expect(scale?.closest(".followup"), "the count left the follow-up section").toBeTruthy();
+    expect(caveat?.closest(".followup"), "the caveat left the follow-up section").toBeTruthy();
+    expect(caveat?.closest(".notes"), "the caveat was demoted into the small print").toBeFalsy();
+    expect(home.doc.querySelector(".followup-title")?.textContent?.trim()).toBeTruthy();
+  });
+
+  // The page has to ask its question before it answers it. An earlier headline
+  // was "Find a second tree", which is the question you have after playing with
+  // this for a minute, not the one you arrive with -- nobody turns up wondering
+  // whether a rival lineage exists. They turn up wondering how far one name
+  // reaches. The invitation comes first and the follow-up comes after the graph.
+  it("puts the invitation before the graph and the second question after it", () => {
+    const order = [...home.doc.querySelectorAll(".intro, .stage, .followup")].map(
+      (section) => section.className.split(" ")[0],
+    );
+    expect(order).toEqual(["intro", "stage", "followup"]);
   });
 });
