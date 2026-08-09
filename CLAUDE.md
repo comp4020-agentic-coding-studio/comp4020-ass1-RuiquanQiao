@@ -160,3 +160,177 @@ catching you out, a fact about the stack the agent keeps getting wrong --- write
 it down here. Growing this file is the work of harness engineering, and the gap
 between this boilerplate and your own version is part of what your prototype
 says about the developer you're becoming.
+
+## This prototype: one tree
+
+An interactive explainer about who Nobel laureates are related to.
+
+The finding it is built on, in one line: **696 of the 727 Nobel laureates in
+physics, chemistry, medicine and economics belong to a single academic family
+tree, and 668 of them descend from one 17th-century Basel professor**
+(Tol, *Scientometrics* 2024, <https://doi.org/10.1007/s11192-024-04936-1>).
+Twenty-five trees hold exactly one laureate. Four hold two. One holds 696.
+
+So the page does not argue that science is collaborative. It invites you to go
+and find someone who isn't in the tree, and lets the data refuse you.
+
+The argument the structure has to serve: **a lone genius is a thing you cannot
+find, not a thing we assert.** If a change makes it easier to read the claim
+than to test it, it is the wrong change.
+
+### The core interaction
+
+Stated plainly enough to write a test for, because that is what the spec asks:
+
+- Selecting a laureate --- by clicking a node, or by searching a name and
+  choosing a result --- lights the graph in **two tiers**:
+  - **direct**: every node holding a documented relation to that laureate;
+  - **reached**: every node connected to them by any chain of documented
+    relations, however long.
+- **Both sets must equal what the data says.** `direct` equals the laureate's
+  edge endpoints; `reached` equals the breadth-first closure over all edges.
+  Highlighting is a readout, never decoration, and a spec test holds both.
+- Selection survives a viewport resize. The marker resizes mid-interaction.
+
+The two tiers exist because they answer different questions and the page needs
+both. `direct` is the precise answer --- who actually taught or married whom.
+`reached` is the *impression*, and the impression is the argument: at thumbnail
+scale nobody is reading names, they are reading how much of the screen just lit
+up. A first draft of this section specified only `direct`, which is typically
+one to three people and would have made the page look like the tree is small.
+That was wrong about the finding, not just about the visuals.
+
+### Honesty rules --- these outrank every visual decision
+
+This page makes claims about real people, most of them dead, some of them not.
+Getting an edge wrong is not a failed test, it is a lie about who taught whom.
+
+- **Every edge carries a source the reader can open.** No edge ships without
+  one. The three provenance values are `official` (a nobelprize.org page),
+  `wikidata-sourced` (a claim carrying at least one reference), and
+  `wikidata-unsourced` (a claim carrying none). All three are legitimate; only
+  hiding which one you have is not. The page shows the value.
+- **Wikidata's P184 is uneven and must be treated as such.** Many doctoral
+  advisor statements carry zero references, and in the raw data they look
+  identical to sourced ones. The refresh script records the reference count per
+  claim; do not collapse that distinction anywhere downstream.
+- **A relation type that cannot be defined does not ship.** Only two kinds of
+  edge exist here: academic supervision (Wikidata P184/P185) and kinship
+  (P22/P25/P26/P40/P3373, cross-checked against nobelprize.org's own family and
+  couples pages). "Colleague" was in the first scope and was cut --- not to save
+  effort, but because it has no definition. Everyone at the Cavendish was a
+  colleague of everyone, every such edge would be uncitable, and a headline of
+  "96% connected" propped up by undefined edges would be a fabricated finding
+  wearing a real number's clothes. If a future change wants a third relation
+  type, it must come with a definition and a source first.
+- **Non-laureates stay in the graph.** The tree is held together by people who
+  never won anything, Stupanus included. Collapsing a chain that runs through
+  them into a direct laureate-to-laureate edge would invent a supervision that
+  never happened. They render differently (smaller, unlabelled), they are never
+  presented as laureates, and the path display names them.
+- **An award statement is not evidence of a person.** Wikidata's P166 will
+  happily tell you that Sheldon Cooper (Q629583) won the Nobel Prize in physics,
+  because he does on television, and that Q56509417 -- a *family*, not a member
+  of one -- won as well. Both were in the first pull and would have been drawn
+  as laureates. Every entity admitted must be `instance of: human` (P31/Q5); of
+  1686 entities in that pull exactly two failed it, and both were these. A
+  regression test in `spec/data.test.ts` names them, so dropping the clause
+  fails loudly rather than quietly.
+- **Ask Wikidata for English labels and you will not get Niels Bohr.** Labels
+  that do not vary between languages have moved to the `mul` code, and Q7085 has
+  no `en` label at all -- his name is `mul: Niels Bohr`. Querying `"en"` alone
+  fell back to the QID, so the first snapshot listed the founder of half this
+  graph as "Q7085", along with twelve others including Hermann Staudinger and
+  François Englert. The label service asks for `en,mul,de,fr,nl,sv,da,it,es,la`,
+  in that order. The spec test that forbids a bare QID as a name is what caught
+  this; it stays.
+- **Missing is `null`, never `0` or an empty string.** Two award statements
+  carry no date qualifier, and the importer first wrote them as year `0`. A zero
+  survives a type check, passes a range test nobody wrote, and renders as
+  "physics 0" on a page about real people. Undated prizes say `(undated)`.
+- **Never state a count the snapshot cannot produce.** Figures quoted from the
+  literature are attributed to the paper and dated; figures about this graph are
+  computed from `data/` at build time. The two are never mixed in one sentence.
+- **The site states what it is**: a student prototype built over published data,
+  not affiliated with the Nobel Foundation, snapshot-dated, with known gaps.
+  Literature and peace are outside Tol's dataset and the page says so rather
+  than quietly implying the tree covers all six prizes.
+
+### What this prototype deliberately does not do
+
+The brief asks for one idea and nothing else, and the response band penalises
+over-scoping in the same sentence as under-scoping. These were wanted and cut:
+
+- **Geographic migration of academic centres.** Real and well documented
+  (Chariker et al. 2017 find communities centred on Cambridge in the late 19th
+  century and Columbia in the early 20th), and it is a second idea. It gets its
+  own build or none.
+- **A separate statistics page.** The 696 / 25 / 4 fragmentation *is* the
+  finding. Moving it to a subpage would demote the headline to an appendix.
+- **Colleague edges.** See above.
+
+### The graph is a view, not the control surface
+
+The force graph is the main visual and it is allowed to be a hairball --- at
+thumbnail scale it is answering "how many", not "who", and a hairball answers
+that well. What it is not allowed to be is the only way in.
+
+So the state is "which laureate is selected", and two things can set it: the
+canvas, and a search field plus a keyboard-reachable result list. The canvas
+renders state; it does not own it. Canvas content is invisible to the tab order,
+and the artefact band names the keyboard explicitly --- the marker tabs through
+it. Every capability reachable by clicking must be reachable by typing.
+
+Corollary: never move state into the renderer. If a fact about the current
+selection only exists inside the canvas draw loop, the keyboard path cannot
+reach it and a test cannot assert it.
+
+### The build touches no network, ever
+
+`data/` holds a committed snapshot, refreshed on demand by a script that is
+never run during a build. Wikidata's SPARQL endpoint rate-limits and occasionally
+502s; betting a deploy on someone else's query service is the same mistake as
+scraping a live site in CI. The snapshot carries its own fetch date and the page
+displays it.
+
+### The toolchain here (carried forward from C1 and C2)
+
+- **Node must be 24.** `pnpm check:evidence` runs `node scripts/check-evidence.ts`
+  directly and needs native type stripping; Node 22 cannot run it. Every shell
+  needs
+  `export PATH="/e/ANU/COMP8020/.tools/node-v24.18.1-win-x64:/e/ANU/COMP8020/.tools:$PATH"`
+  because the machine's system node is 22 and shell state does not persist
+  between commands.
+- **`pnpm install`'s `prepare` script fails silently on Windows** --- it prints a
+  path error and leaves `core.hooksPath` unset, so the hook that blocks
+  committing an API key is not installed. Run
+  `git config core.hooksPath .githooks` after any fresh clone.
+- **Do not add `scripts` to `tsconfig.json`'s `include`.** It looks like an
+  oversight and is not: `scripts/check-evidence.ts` uses ES2023 methods while
+  `lib` is ES2022, so widening the include turns the course's own code red. Code
+  that wants typechecking goes in the repo root, which `*.ts` already covers.
+- **`linkinator` cannot be run locally in this checkout** --- its own dependency
+  fails to resolve under this pnpm store. A spec test asserts every internal
+  reference resolves to a file that exists in `dist/`, which is the part worth
+  having before a push. The rest is only knowable from CI, which is why this repo
+  goes public early rather than the night before.
+- **Outbound links are an allowlist.** CI runs `linkinator ./dist` from a
+  datacentre IP and validates external links too, so every outbound link is a
+  chance for someone else's server to fail the deploy. A spec test holds the
+  allowlist.
+- **Never trust a screenshot for geometry.** The preview tool renders at the
+  pane's physical size, not the emulated viewport, so a correctly centred page at
+  1920x1080 can look like a narrow column in the corner. Measure with
+  `preview_inspect` / `preview_eval`, and read `location.pathname` back in the
+  same call as the measurement --- its navigation is unreliable here and a
+  measurement can silently describe the previous page. Screenshots judge the
+  look, never the size.
+- **Dev server runs on 5199.** Port 5173 is permanently occupied by another
+  project on this machine. `preview_start` reads `.claude/launch.json` from the
+  session's working directory (`E:\ANU\COMP8020`), *not* from this repo --- in C2
+  that quietly pointed the first measurement at the previous week's site. Check
+  which entry is running before believing a number.
+- **Write CSS with class selectors only.** `stylelint`'s
+  `no-descending-specificity` fires on component-ordered CSS that styles bare
+  elements, and reordering rules to satisfy it makes the stylesheet worse. Give
+  the element a class and the rule goes quiet honestly.
