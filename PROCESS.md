@@ -1,83 +1,64 @@
 # Process overview
 
-<!-- TEMPLATE: this file is a shape to fill in, not a form. Replace everything
-     in it with your own overview, and delete this comment — `pnpm
-     check:evidence` will remind you if it's still here. -->
-
-A reading-guide to how the work came together --- a map to your process, not an
-essay about it. Markers read this file and follow its citations; they don't
-trawl the repo for evidence you didn't point at, so if a moment mattered, cite
-it.
-
-This file is the shape; the course site's
-[assessment page](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/topics/assessment/#what-you-submit)
-is the requirement, and each brief adds its own word count and moment count.
-
 ## What I built
 
-One paragraph: the thing, and the idea behind it.
+**One Tree**, an interactive explainer about who Nobel laureates are related to.
+Every dot is a laureate in physics, chemistry, medicine or economics, or
+somebody who taught, married or fathered one. Selecting anybody lights two
+tiers: the people a documented relation connects them to, and everybody
+reachable by any chain of them. The page invites you to go and find a second
+lineage. There are 356 separate groups in the data; the largest holds 1143
+people and the next holds 14.
 
 ## The moments that mattered
 
-Three or four for an assignment; fewer is fine for a weekly prototype. Keep the
-list short so each moment has room to do all four jobs:
+### The contract was written before the data it constrains
 
-1. **what happened** --- the problem, or the thing the agent got wrong
-2. **what you did instead of the obvious thing** --- the call you made, and why
-   it beat the obvious one
-3. **how you knew it was right** --- the check you ran, the viewport you looked
-   at, what you read before accepting the diff
-4. **the citation** --- a commit or commit range, a `CLAUDE.md` change, a check
-   that went from red to green, a prompt paired with the commit it produced
+The obvious order is to pull the data, look at it, and then decide what counts.
+I wrote the rules first — `CLAUDE.md` and `spec/data.test.ts` in
+[`46ffa76`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass1-RuiquanQiao/commit/46ffa76),
+before a single query ran. Every edge carries a source. A relation type that
+cannot be defined does not ship, which is why colleagues are absent: everyone at
+the Cavendish was a colleague of everyone, so no such edge could be cited, and a
+well-connected graph built from undefined edges is a made-up finding wearing a
+real number's clothes.
 
-Jobs 2 and 3 are the ones the repo can't tell a reader on its own, so they're
-where the marks are. The strongest moments are the ones where a correction
-landed in the **harness** rather than in another prompt --- a rule added to
-`CLAUDE.md`, a check wired up, an attempt thrown away: re-prompting until it
-passes is the routine case, and changing what the agent works against is the
-skilled one.
+One line of that contract said a person's name must not be a bare QID. It looked
+like a formality. It caught three unrelated things
+([`93c2bcf`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass1-RuiquanQiao/commit/93c2bcf)).
+Wikidata records that Sheldon Cooper won the Nobel Prize in physics, because he
+does on television, and that Q56509417 — a *family*, not a member of one — won
+as well; both were drawn as laureates until the importer began requiring
+instance-of-human. The same test then failed on Q7085, which turned out to be
+Niels Bohr. Wikidata has moved language-invariant names to a `mul` code and he
+has no English label at all, so asking for English had quietly rendered the
+founder of half this graph as a hash, with twelve others behind him.
 
-Cite each moment as a link whose text is the commit hash or range and whose
-target is this repo's commit or compare URL, so a reader clicks straight to the
-evidence:
+I knew it was fixed because the red test went green across all 1684 people and
+the pull shrank by exactly two: the two entities that were not people.
 
-- one commit: [`a1b2c3d`](https://github.com/YOUR-ORG/YOUR-REPO/commit/a1b2c3d)
-- a range:
-  [`a1b2c3d...e4f5a6b`](https://github.com/YOUR-ORG/YOUR-REPO/compare/a1b2c3d...e4f5a6b)
+### The picture was drawing my spatial index, not the data
 
-To pair a prompt with the commit it produced, quote the prompt (curated, not a
-full transcript) next to the citation:
+The first graph came out as a lattice, neat rows and columns like halftone, and
+it was plausible enough to accept. It was an artefact. Repulsion was bucketed
+into cells 0.06 wide and cut off at a three-by-three neighbourhood, but the ideal
+edge length is about 0.027, so the truncation acted as a periodic potential. The
+obvious fix was to tune constants until it looked organic. I deleted the spatial
+index instead and computed every pair exactly — six seconds, in a script that
+runs by hand
+([`c767934`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass1-RuiquanQiao/commit/c767934)).
+The lattice went, and the clusters that appeared were the ones the component
+analysis had already counted.
 
-> the prompt, verbatim
+### The data refused the headline, so the headline changed
 
-Screenshots are welcome where one carries the verification better than a
-sentence does. Commit the file to this repo and link it with a **relative**
-path, which is what makes it render on GitHub: `![alt text](docs/before.png)`.
-Images don't count towards the word count and don't replace the citation.
+The page opened with *go and find a lone genius*, meaning you can't. Then I
+counted: 247 of 757 laureates light up nobody at all. You can find one on the
+first try, a third of the time.
 
-### A worked moment, for shape
-
-Delete this section along with the rest of the boilerplate --- it's here to show
-the four jobs in one paragraph, not to be imitated in content.
-
-> The date formatter kept coming back with `toLocaleDateString()` and no locale
-> argument, so the same build rendered differently on my machine and in CI. I'd
-> already re-prompted it twice, which fixed the line but not the habit, so the
-> third time I put the rule in `CLAUDE.md` instead
-> ([`3f9ac21`](https://github.com/YOUR-ORG/YOUR-REPO/commit/3f9ac21)) and added
-> a spec test that fails on a bare `toLocaleDateString`. That's what told me it
-> had actually taken: the test went red against the old code and green against
-> the new, and the next two features it wrote passed it without prompting
-> ([`3f9ac21...b7e0d14`](https://github.com/YOUR-ORG/YOUR-REPO/compare/3f9ac21...b7e0d14)).
-
-## Before you ship
-
-`pnpm check:evidence` verifies your citations resolve to real commits, that the
-current reflection entry is in `reflections/`, and that your `CLAUDE.md` is
-there --- before a marker ever opens the file. It checks that your map is
-traceable, not that it is good: the marker judges whether your small,
-deliberately chosen set of moments shows real judgement and reflection. A green
-check is not a substitute for that curation.
-
-Images are deliberately not checked, because whether one renders is visible the
-moment you look. Open this file on GitHub and look at it before you ship.
+Hiding those dots would have rescued the sentence. Instead the claim moved to the
+one the data supports, 1143 against 14, and the count of unattached laureates
+now sits in the opening at the size of the claim, saying what it means — a gap in
+what was written down, not evidence that anybody worked alone. A test holds that
+slot in the markup so a later layout pass cannot demote it to a footnote
+([`ed96a14`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass1-RuiquanQiao/commit/ed96a14)).
