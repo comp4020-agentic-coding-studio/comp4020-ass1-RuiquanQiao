@@ -12,15 +12,16 @@ import {
 } from "./graph.ts";
 import type { Edge, Person, Snapshot } from "./graph.ts";
 import {
-  BACKGROUND,
   EDGE_ORDER,
   NODE_ORDER,
+  background,
   edgeStyle,
   edgeTier,
   nodeStyle,
   tierOf,
 } from "./render.ts";
 import type { EdgeTier, Tier } from "./render.ts";
+import { currentTheme, onThemeChange } from "./theme.ts";
 
 // The page. Everything it knows about who is related to whom comes from
 // graph.ts; this file only turns that into pixels and DOM. CLAUDE.md's rule:
@@ -128,7 +129,11 @@ function draw(): void {
   syncCanvas();
   const context = canvas.getContext("2d");
   if (!context) return;
-  context.fillStyle = BACKGROUND;
+  // Read once per draw rather than per dot. The canvas paints its own
+  // background because a transparent one would show the page through the
+  // hollow non-laureate rings.
+  const theme = currentTheme();
+  context.fillStyle = background(theme);
   context.fillRect(0, 0, width, height);
 
   const edgeTiers = new Map<EdgeTier, Edge[]>();
@@ -145,7 +150,7 @@ function draw(): void {
   for (const tier of EDGE_ORDER) {
     const bucket = edgeTiers.get(tier);
     if (!bucket) continue;
-    const style = edgeStyle(tier);
+    const style = edgeStyle(tier, theme);
     context.strokeStyle = style.stroke;
     context.lineWidth = style.width;
     context.beginPath();
@@ -167,7 +172,7 @@ function draw(): void {
   }
   for (const tier of NODE_ORDER) {
     for (const id of nodeTiers.get(tier) ?? []) {
-      const style = nodeStyle(graph.people.get(id)!.laureate, tier);
+      const style = nodeStyle(graph.people.get(id)!.laureate, tier, theme);
       const [nx, ny] = at(id);
 
       if (style.halo !== null) {
@@ -360,6 +365,11 @@ const observer = new ResizeObserver((entries) => {
   draw();
 });
 observer.observe(canvas);
+
+// The canvas is the one thing on the page CSS cannot repaint, so it has to be
+// told. Selection is untouched by this: a theme change is a change of palette,
+// never of state.
+onThemeChange(draw);
 
 // The answer to the second question, and the shape behind it. Both counted from
 // the snapshot at load, so neither can drift away from the file underneath.

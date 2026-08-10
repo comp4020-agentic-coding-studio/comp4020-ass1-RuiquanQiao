@@ -3,14 +3,64 @@
    styles bare elements, and reordering rules to satisfy it makes the sheet
    worse. Giving the element a class makes the rule go quiet honestly. */
 
+/* Two themes, one variable list.
+   Dark is the default and the only state a cold visit ever sees -- the system
+   preference is deliberately not consulted, so a marker opening the URL gets
+   the version this was tuned in. theme.ts explains that choice.
+
+   Every colour the page uses is named here, including the ones that used to sit
+   loose in a rule. A theme that forgets one silently inherits the other theme's
+   value, which is how you get grey-on-grey badges on a white page, so
+   spec/theme.test.ts asserts both blocks declare the same names -- and holds
+   every text pair to WCAG AA 4.5:1 in both. */
 :root {
+  color-scheme: dark;
+
   --bg: #0d0f14;
+  --panel: #141821;
   --ink: #e6e8ec;
   --ink-quiet: #9aa1ad;
+
+  /* Was #6b7280, which is 3.97:1 on this background at 0.8rem -- under AA and
+     nothing was measuring it. Still the quietest text on the page, now legibly
+     so at 5.16:1. */
+  --ink-faint: #7d8593;
   --gold: #e8b552;
   --gold-quiet: #7a6334;
   --line: #232833;
-  --panel: #141821;
+  --hover: #1d2430;
+  --current-bg: #2a2113;
+  --sourced-bg: #1b2a1c;
+  --sourced-ink: #86b98a;
+  --unsourced-bg: #2e2418;
+  --unsourced-ink: #c39a5c;
+  --official-bg: #17232e;
+  --official-ink: #7fb2d6;
+}
+
+/* Warm paper rather than a white box, because the gold has to stay gold: it is
+   the page's word for "laureate" and cannot be traded for a hue that sits more
+   comfortably on white. #e8b552 is a 1.9:1 smear here, so light mode darkens
+   the same colour to #8a5f00 (5.29:1) instead of replacing it. */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #faf7f2;
+  --panel: #fff;
+  --ink: #1b1f26;
+  --ink-quiet: #5a616e;
+  --ink-faint: #656c79;
+  --gold: #8a5f00;
+  --gold-quiet: #b08a3a;
+  --line: #e3ddd2;
+  --hover: #f0ece4;
+  --current-bg: #f6ecd6;
+  --sourced-bg: #e4f0e4;
+  --sourced-ink: #1f5b26;
+  --unsourced-bg: #f6ecd8;
+  --unsourced-ink: #6d4a05;
+  --official-bg: #e2edf6;
+  --official-ink: #1b4d70;
 }
 
 * {
@@ -47,6 +97,38 @@ body {
 .nav-link:hover,
 .nav-link:focus-visible {
   color: var(--gold);
+}
+
+/* Injected by theme.ts, never present in the markup, so it cannot sit there
+   looking operable on a page whose JavaScript failed. Sized and coloured as a
+   third nav item rather than as a widget: it is a preference, not the point. */
+.theme-toggle {
+  /* Padding out to a ~45px tall tap target, pulled back by an equal negative
+     margin so the masthead does not grow. At 390 wide the text alone is 21px
+     tall, which is a thumb-sized miss. */
+  margin: -0.75rem 0 -0.75rem auto;
+  padding: 0.75rem 0;
+  border: 0;
+  background: none;
+  color: var(--ink-quiet);
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--gold);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.theme-toggle-mark {
+  margin-right: 0.4rem;
 }
 
 .layout {
@@ -205,7 +287,7 @@ body {
 }
 
 .result:hover {
-  background: #1d2430;
+  background: var(--hover);
 }
 
 .result:focus-visible {
@@ -214,7 +296,7 @@ body {
 }
 
 .result[aria-current="true"] {
-  background: #2a2113;
+  background: var(--current-bg);
   color: var(--gold);
 }
 
@@ -301,18 +383,18 @@ body {
 }
 
 .provenance-wikidata-sourced {
-  background: #1b2a1c;
-  color: #86b98a;
+  background: var(--sourced-bg);
+  color: var(--sourced-ink);
 }
 
 .provenance-wikidata-unsourced {
-  background: #2e2418;
-  color: #c39a5c;
+  background: var(--unsourced-bg);
+  color: var(--unsourced-ink);
 }
 
 .provenance-official {
-  background: #17232e;
-  color: #7fb2d6;
+  background: var(--official-bg);
+  color: var(--official-ink);
 }
 
 .notes {
@@ -330,7 +412,7 @@ body {
 }
 
 .notes-quiet {
-  color: #6b7280;
+  color: var(--ink-faint);
   font-size: 0.8rem;
 }
 

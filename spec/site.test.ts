@@ -44,6 +44,35 @@ describe("the built site", () => {
   });
 });
 
+describe("the theme is settled before the first paint", () => {
+  // theme.ts is a module and therefore deferred, so without this snippet a
+  // visitor who chose light would be shown a dark page and watch it change
+  // under them. It is duplicated by hand in both pages; these assertions are
+  // what stops the two copies drifting apart, or one of them being dropped in
+  // a later edit. spec/theme.test.ts holds the module's half of the contract.
+  for (const { name, doc } of pages) {
+    it(`${name} sets the stored theme in the head, before the stylesheet`, () => {
+      const inline = [...doc.querySelectorAll("head script:not([src])")].map(
+        (script) => script.textContent ?? "",
+      );
+      const snippet = inline.find((text) => text.includes("one-tree-theme"));
+      expect(snippet, "no pre-paint theme script in the head").toBeTruthy();
+      expect(snippet).toContain("dataset.theme");
+      // Reading localStorage throws outright in some privacy modes, and an
+      // uncaught throw here would stop the parser before the page renders.
+      expect(snippet).toContain("try");
+    });
+  }
+
+  it("loads the theme module on the about page, which has no main.ts", () => {
+    const about = pages.find((page) => page.name === "about/index.html")!;
+    const modules = [...about.doc.querySelectorAll('script[type="module"][src]')].map(
+      (script) => script.getAttribute("src")!,
+    );
+    expect(modules.length).toBeGreaterThan(0);
+  });
+});
+
 describe("links", () => {
   it("resolves every internal reference to a file that exists", () => {
     for (const { name, dir, doc } of pages) {

@@ -8,6 +8,15 @@
       name="description"
       content="Where the relations come from, what counts as one, and what this graph does not know."
     />
+    <!-- Kept in step with index.html and theme.ts by hand. See the note there. -->
+    <script>
+      try {
+        if (localStorage.getItem("one-tree-theme") === "light")
+          document.documentElement.dataset.theme = "light";
+      } catch (error) {
+        // Private modes throw on read. Dark is the default anyway.
+      }
+    </script>
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
@@ -122,5 +131,8 @@
         </p>
       </section>
     </main>
+
+    <!-- The only script this page needs. Everything else here is text. -->
+    <script type="module" src="../theme.ts"></script>
   </body>
 </html>

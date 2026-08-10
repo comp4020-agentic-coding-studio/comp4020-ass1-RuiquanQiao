@@ -297,6 +297,25 @@ may render dimmer or smaller than it does at rest, and everything out of reach
 must render dimmer than both. If a visual rule is worth arguing about, it
 belongs in that table where a test can read it, never in the draw loop.
 
+**The theme is a parameter to that table, never a branch inside `draw()` and
+never read back out of the DOM.** Adding light mode also broke the invariant
+above and had to restate it: "nothing in reach may render *dimmer* than at
+rest" is exactly backwards on paper, where lit means darker. The claim that
+survives both themes is about **contrast against the background**, which is
+what was meant in the first place. `render.ts` exports `contrast()` and both
+`spec/render.test.ts` and `spec/theme.test.ts` count in it.
+
+Light mode may darken the gold but may never replace it: `#e8b552` is 1.76:1
+on paper, and `#8a5f00` is 5.29:1, but a hue that sat more comfortably on white
+would break the one thing the colour says. A test holds the hue ordering.
+
+**Colours belong in the variable block, not loose in a rule.** A theme that
+omits one silently inherits the other's value, which is how a white page gets
+grey-on-grey badges, so `spec/theme.test.ts` asserts both blocks declare the
+same names and holds every text pair to WCAG AA. Adding that sensor immediately
+found a colour that had been under AA since the first commit --- `.notes-quiet`
+at 3.96:1 --- in the *dark* theme, which nothing had ever measured.
+
 Two consequences worth keeping. Painter's order is load-bearing, not tidiness:
 a thousand-odd dots overlap at this scale, so drawing them in id order lets an
 out-of-reach dot paint over a lit one and eats the effect the click exists to

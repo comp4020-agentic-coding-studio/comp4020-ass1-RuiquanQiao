@@ -8,6 +8,19 @@
       name="description"
       content="Pick a Nobel laureate and watch who lights up. Then try to find one who stands alone."
     />
+    <!-- theme.ts is a module and therefore deferred, so a visitor who chose the
+         light theme would be shown a dark page first and watch it change under
+         them. This runs before the stylesheet does anything. Kept in step with
+         theme.ts by hand: it is five lines, and a build step to share them
+         would cost more than it saves. -->
+    <script>
+      try {
+        if (localStorage.getItem("one-tree-theme") === "light")
+          document.documentElement.dataset.theme = "light";
+      } catch (error) {
+        // Private modes throw on read. Dark is the default anyway.
+      }
+    </script>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>

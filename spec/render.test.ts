@@ -6,15 +6,16 @@ import type { Snapshot } from "../graph.ts";
 import {
   EDGE_ORDER,
   NODE_ORDER,
+  background,
+  contrast,
   edgeStyle,
   edgeTier,
-  luminance,
   nodeStyle,
   tierOf,
 } from "../render.ts";
-import type { NodeStyle, Tier } from "../render.ts";
+import type { NodeStyle, Theme, Tier } from "../render.ts";
 
-// What clicking somebody actually does to the picture.
+// What clicking somebody actually does to the picture, in either theme.
 //
 // spec/graph.test.ts proves the two tiers are computed right and
 // spec/interaction.test.ts proves the readout is wired to them. Neither could
@@ -25,14 +26,23 @@ import type { NodeStyle, Tier } from "../render.ts";
 // lights up, was inverted at the last step, inside a canvas call jsdom does
 // not implement.
 //
-// The fix was to make appearance data. These are the claims that data has to
-// keep true.
+// These claims are stated in **contrast against the background**, not
+// brightness. That is not pedantry: the first version of this file said
+// "not dimmer than at rest", which is precisely backwards on paper, where lit
+// means darker. Contrast is the thing that was meant, and it is the only
+// phrasing that can hold both themes to the same promise.
 
 const snapshot = JSON.parse(readFileSync(resolve("data/nobel.json"), "utf8")) as Snapshot;
 const graph = buildGraph(snapshot);
 
+const THEMES: Theme[] = ["dark", "light"];
+const LIT: Tier[] = ["resting", "reached", "direct", "seed"];
+
 /** The colour a dot actually reads as: its ring if it has one, else its fill. */
-const ink = (style: NodeStyle) => luminance(style.stroke ?? style.fill);
+const ink = (style: NodeStyle) => style.stroke ?? style.fill;
+
+/** How hard a dot is to miss against the page it sits on. */
+const standout = (style: NodeStyle, theme: Theme) => contrast(ink(style), background(theme));
 
 /** A laureate with more documented relations than anybody else in the file. */
 const wellConnected = [...graph.people.values()]
@@ -70,74 +80,96 @@ describe("tiers follow the selection", () => {
   });
 });
 
-describe("clicking never dims what it reaches", () => {
-  // The regression, stated as the thing that was false. A laureate you can
-  // still get to must not be painted darker than they were before you clicked;
-  // that is what #7a6334-where-#e8b552-belongs did, and it made a selection
-  // look like it had *shrunk* the tree.
-  for (const laureate of [true, false]) {
-    const who = laureate ? "a laureate" : "a teacher or relative";
+for (const theme of THEMES) {
+  describe(`${theme}: clicking never hides what it reaches`, () => {
+    // The regression, stated as the thing that was false. A laureate you can
+    // still get to must not stand out less than they did before you clicked;
+    // that is what #7a6334-where-#e8b552-belongs did, and it made a selection
+    // look like it had *shrunk* the tree.
+    for (const laureate of [true, false]) {
+      const who = laureate ? "a laureate" : "a teacher or relative";
 
-    it(`keeps ${who} in the reached tier at least as bright as at rest`, () => {
-      expect(ink(nodeStyle(laureate, "reached"))).toBeGreaterThanOrEqual(
-        ink(nodeStyle(laureate, "resting")),
-      );
+      it(`keeps ${who} in the reached tier at least as visible as at rest`, () => {
+        expect(standout(nodeStyle(laureate, "reached", theme), theme)).toBeGreaterThanOrEqual(
+          standout(nodeStyle(laureate, "resting", theme), theme),
+        );
+      });
+
+      it(`keeps ${who} in the reached tier at least as large as at rest`, () => {
+        expect(nodeStyle(laureate, "reached", theme).radius).toBeGreaterThanOrEqual(
+          nodeStyle(laureate, "resting", theme).radius,
+        );
+      });
+
+      it(`pushes ${who} out of reach below every lit tier`, () => {
+        const out = standout(nodeStyle(laureate, "out", theme), theme);
+        for (const tier of LIT) {
+          expect(out).toBeLessThan(standout(nodeStyle(laureate, tier, theme), theme));
+        }
+      });
+
+      it(`keeps ${who} out of reach faint rather than invisible`, () => {
+        // Still a dot. The picture is showing you a graph you cannot get to,
+        // not deleting it -- the shape of the rest of the tree is information.
+        expect(standout(nodeStyle(laureate, "out", theme), theme)).toBeGreaterThan(1.05);
+      });
+
+      it(`sizes ${who} seed over direct over reached`, () => {
+        expect(nodeStyle(laureate, "seed", theme).radius).toBeGreaterThan(
+          nodeStyle(laureate, "direct", theme).radius,
+        );
+        expect(nodeStyle(laureate, "direct", theme).radius).toBeGreaterThan(
+          nodeStyle(laureate, "reached", theme).radius,
+        );
+      });
+    }
+
+    it("marks only the seed, so a selection is findable in a hairball", () => {
+      for (const tier of NODE_ORDER) {
+        expect(nodeStyle(true, tier, theme).halo === null).toBe(tier !== "seed");
+        expect(nodeStyle(false, tier, theme).halo === null).toBe(tier !== "seed");
+      }
     });
+  });
 
-    it(`keeps ${who} in the reached tier at least as large as at rest`, () => {
-      expect(nodeStyle(laureate, "reached").radius).toBeGreaterThanOrEqual(
-        nodeStyle(laureate, "resting").radius,
-      );
-    });
-
-    it(`pushes ${who} out of reach below every lit tier`, () => {
-      const out = ink(nodeStyle(laureate, "out"));
-      for (const tier of ["resting", "reached", "direct", "seed"] as Tier[]) {
-        expect(out).toBeLessThan(ink(nodeStyle(laureate, tier)));
+  describe(`${theme}: laureates and everybody else never look alike`, () => {
+    // CLAUDE.md: non-laureates stay in the graph and are never dressed up as
+    // somebody who won something. Hollow versus solid says that before colour
+    // does, which is also what the relations list borrows.
+    it("draws a lit non-laureate hollow and a lit laureate solid", () => {
+      for (const tier of ["resting", "reached", "direct"] as Tier[]) {
+        expect(nodeStyle(false, tier, theme).stroke).not.toBeNull();
+        expect(nodeStyle(true, tier, theme).stroke).toBeNull();
       }
     });
 
-    it(`sizes ${who} seed over direct over reached`, () => {
-      expect(nodeStyle(laureate, "seed").radius).toBeGreaterThan(
-        nodeStyle(laureate, "direct").radius,
+    it("never lends a non-laureate the gold that means laureate", () => {
+      const golds = new Set(
+        NODE_ORDER.map((tier) => nodeStyle(true, tier, theme).fill.toLowerCase()),
       );
-      expect(nodeStyle(laureate, "direct").radius).toBeGreaterThan(
-        nodeStyle(laureate, "reached").radius,
-      );
+      for (const tier of ["resting", "reached", "direct"] as Tier[]) {
+        expect(golds.has(ink(nodeStyle(false, tier, theme)).toLowerCase())).toBe(false);
+      }
     });
-  }
 
-  it("marks only the seed, so a selection is findable in a hairball", () => {
-    for (const tier of NODE_ORDER) {
-      expect(nodeStyle(true, tier).halo === null).toBe(tier !== "seed");
-      expect(nodeStyle(false, tier).halo === null).toBe(tier !== "seed");
-    }
-  });
-});
-
-describe("laureates and everybody else never look alike", () => {
-  // CLAUDE.md: non-laureates stay in the graph and are never dressed up as
-  // somebody who won something. Hollow versus solid says that before colour
-  // does, which is also what the relations list borrows.
-  it("draws a lit non-laureate hollow and a lit laureate solid", () => {
-    for (const tier of ["resting", "reached", "direct"] as Tier[]) {
-      expect(nodeStyle(false, tier).stroke).not.toBeNull();
-      expect(nodeStyle(true, tier).stroke).toBeNull();
-    }
+    it("fills a hollow dot with the page, so no edge shows through it", () => {
+      for (const tier of ["resting", "reached", "direct", "seed"] as Tier[]) {
+        expect(nodeStyle(false, tier, theme).fill).toBe(background(theme));
+      }
+    });
   });
 
-  it("never lends a non-laureate the gold that means laureate", () => {
-    const golds = new Set(
-      NODE_ORDER.map((tier) => nodeStyle(true, tier).fill.toLowerCase()),
-    );
-    for (const tier of ["resting", "reached", "direct"] as Tier[]) {
-      const style = nodeStyle(false, tier);
-      expect(golds.has((style.stroke ?? style.fill).toLowerCase())).toBe(false);
-    }
+  describe(`${theme}: relations are drawn by how far they are from the selection`, () => {
+    it("brightens a relation the closer it is to the person selected", () => {
+      const against = (tier: "resting" | "reached" | "direct") =>
+        contrast(edgeStyle(tier, theme).stroke, background(theme));
+      expect(against("direct")).toBeGreaterThan(against("reached"));
+      expect(against("reached")).toBeGreaterThan(against("resting"));
+    });
   });
-});
+}
 
-describe("relations are drawn by how far they are from the selection", () => {
+describe("edge tiers, which do not depend on the theme", () => {
   it("calls an edge resting, direct, reached or out", () => {
     const seed = "A";
     const reached = new Set(["B", "C"]);
@@ -148,15 +180,6 @@ describe("relations are drawn by how far they are from the selection", () => {
     expect(edgeTier("Y", "Z", seed, reached)).toBe("out");
   });
 
-  it("brightens a relation the closer it is to the person selected", () => {
-    expect(luminance(edgeStyle("direct").stroke)).toBeGreaterThan(
-      luminance(edgeStyle("reached").stroke),
-    );
-    expect(luminance(edgeStyle("reached").stroke)).toBeGreaterThan(
-      luminance(edgeStyle("resting").stroke),
-    );
-  });
-
   it("draws lit things last, so an unreachable dot cannot paint over them", () => {
     expect(NODE_ORDER.at(0)).toBe("out");
     expect(NODE_ORDER.at(-1)).toBe("seed");
@@ -164,5 +187,14 @@ describe("relations are drawn by how far they are from the selection", () => {
     // Every tier is drawn exactly once, or something silently never appears.
     expect(new Set(NODE_ORDER).size).toBe(NODE_ORDER.length);
     expect(NODE_ORDER).toHaveLength(5);
+  });
+});
+
+describe("contrast, since every claim above is counted with it", () => {
+  it("agrees with the WCAG worked examples", () => {
+    expect(contrast("#ffffff", "#000000")).toBeCloseTo(21, 5);
+    expect(contrast("#000000", "#ffffff")).toBeCloseTo(21, 5);
+    expect(contrast("#777777", "#ffffff")).toBeCloseTo(4.48, 2);
+    expect(contrast("#e8b552", "#e8b552")).toBeCloseTo(1, 5);
   });
 });
