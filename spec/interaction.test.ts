@@ -137,6 +137,31 @@ describe("selecting somebody", () => {
     expect(shown).toBe(unsourced);
   });
 
+  // The list is direct relations only -- the precise answer to "who actually
+  // taught or married whom". But a reader cannot be expected to know which of
+  // those names won something and which merely held the chain together, and
+  // most of them did not win. It says so in the canvas's own two shapes.
+  it("says which direct relations are laureates and which are not", () => {
+    const items = [...document.querySelectorAll<HTMLLIElement>(".relation")];
+    expect(items.length).toBe(graph.neighbours.get(wellConnected.id)!.length);
+    for (const item of items) {
+      const link = item.querySelector<HTMLButtonElement>(".relation-link")!;
+      const person = graph.people.get(link.dataset.id!)!;
+      expect(item.dataset.laureate).toBe(String(person.laureate));
+      expect(item.querySelector(".relation-mark")?.textContent).toBe(person.laureate ? "●" : "○");
+      expect(link.classList.contains("relation-link-laureate")).toBe(person.laureate);
+    }
+  });
+
+  it("puts that distinction in words as well, so it is not carried by colour alone", () => {
+    for (const link of document.querySelectorAll<HTMLButtonElement>(".relation-link")) {
+      const person = graph.people.get(link.dataset.id!)!;
+      expect(link.getAttribute("aria-label")).toBe(
+        person.laureate ? `${person.name}, Nobel laureate` : `${person.name}, no Nobel Prize`,
+      );
+    }
+  });
+
   it("marks the selection in the result list, so the keyboard can see it too", () => {
     const current = results().find((button) => button.getAttribute("aria-current") === "true");
     expect(current?.dataset.id).toBe(wellConnected.id);

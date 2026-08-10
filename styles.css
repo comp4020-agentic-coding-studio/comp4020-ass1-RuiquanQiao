@@ -257,6 +257,19 @@ body {
   color: var(--ink-quiet);
 }
 
+/* Gold solid dot / grey hollow ring -- the canvas's own two shapes, so the
+   list needs no legend. Shape carries it as well as colour. */
+.relation-mark {
+  margin-right: 0.25rem;
+  color: var(--ink-quiet);
+  font-size: 0.62rem;
+  vertical-align: 0.1em;
+}
+
+.relation-mark-laureate {
+  color: var(--gold);
+}
+
 .relation-link {
   padding: 0;
   border: 0;
@@ -267,6 +280,10 @@ body {
   text-decoration: underline;
   text-underline-offset: 2px;
   cursor: pointer;
+}
+
+.relation-link-laureate {
+  color: var(--gold);
 }
 
 .relation-link:focus-visible {

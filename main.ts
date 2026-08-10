@@ -10,7 +10,17 @@ import {
   search,
   summarise,
 } from "./graph.ts";
-import type { Person, Snapshot } from "./graph.ts";
+import type { Edge, Person, Snapshot } from "./graph.ts";
+import {
+  BACKGROUND,
+  EDGE_ORDER,
+  NODE_ORDER,
+  edgeStyle,
+  edgeTier,
+  nodeStyle,
+  tierOf,
+} from "./render.ts";
+import type { EdgeTier, Tier } from "./render.ts";
 
 // The page. Everything it knows about who is related to whom comes from
 // graph.ts; this file only turns that into pixels and DOM. CLAUDE.md's rule:
@@ -54,18 +64,6 @@ function select(id: string | null): void {
 }
 
 // --- canvas ----------------------------------------------------------------
-
-const COLOURS = {
-  background: "#0d0f14",
-  edge: "#1c2029",
-  edgeLit: "#5d4a24",
-  dim: "#252932",
-  laureate: "#7a6334",
-  laureateLit: "#e8b552",
-  ring: "#6b7280",
-  ringLit: "#cbd5e1",
-  seed: "#ffffff",
-};
 
 let width = 0;
 let height = 0;
@@ -116,65 +114,79 @@ function at(id: string): [number, number] {
   return [(width - size) / 2 + point[0] * size, (height - size) / 2 + point[1] * size];
 }
 
+/**
+ * Two passes, each in painter's order, each batching one path per tier.
+ *
+ * The order is load-bearing rather than tidy. A thousand-odd dots overlap at
+ * this scale, so drawing them in id order lets an out-of-reach dot paint over
+ * a lit one, and the whole point of a click is how much of the screen answers
+ * it. Which colour each tier gets is render.ts's business, not this loop's --
+ * that decision used to live here, where no test could see it, and it was
+ * wrong for months.
+ */
 function draw(): void {
   syncCanvas();
   const context = canvas.getContext("2d");
   if (!context) return;
-  context.fillStyle = COLOURS.background;
+  context.fillStyle = BACKGROUND;
   context.fillRect(0, 0, width, height);
 
-  const inReach = (id: string) => id === selected || reached.has(id);
-
-  context.lineWidth = 0.6;
+  const edgeTiers = new Map<EdgeTier, Edge[]>();
   for (const edge of graph.edges) {
     if (!layout.positions[edge.from] || !layout.positions[edge.to]) continue;
-    const lit = selected !== null && inReach(edge.from) && inReach(edge.to);
-    // With a selection, unlit edges vanish instead of muddying the picture.
-    if (selected !== null && !lit) continue;
-    const [ax, ay] = at(edge.from);
-    const [bx, by] = at(edge.to);
-    context.strokeStyle = lit ? COLOURS.edgeLit : COLOURS.edge;
+    const tier = edgeTier(edge.from, edge.to, selected, reached);
+    // An out-of-reach relation is not dimmed, it is not drawn: dimming it would
+    // only muddy the picture it is not part of.
+    if (tier === "out") continue;
+    const bucket = edgeTiers.get(tier);
+    if (bucket) bucket.push(edge);
+    else edgeTiers.set(tier, [edge]);
+  }
+  for (const tier of EDGE_ORDER) {
+    const bucket = edgeTiers.get(tier);
+    if (!bucket) continue;
+    const style = edgeStyle(tier);
+    context.strokeStyle = style.stroke;
+    context.lineWidth = style.width;
     context.beginPath();
-    context.moveTo(ax, ay);
-    context.lineTo(bx, by);
+    for (const edge of bucket) {
+      const [ax, ay] = at(edge.from);
+      const [bx, by] = at(edge.to);
+      context.moveTo(ax, ay);
+      context.lineTo(bx, by);
+    }
     context.stroke();
   }
 
+  const nodeTiers = new Map<Tier, string[]>();
   for (const id of ids) {
-    const person = graph.people.get(id)!;
-    const [nx, ny] = at(id);
-    const isSeed = id === selected;
-    const isDirect = direct.has(id);
-    const lit = selected === null || isSeed || isDirect || reached.has(id);
+    const tier = tierOf(id, selected, direct, reached);
+    const bucket = nodeTiers.get(tier);
+    if (bucket) bucket.push(id);
+    else nodeTiers.set(tier, [id]);
+  }
+  for (const tier of NODE_ORDER) {
+    for (const id of nodeTiers.get(tier) ?? []) {
+      const style = nodeStyle(graph.people.get(id)!.laureate, tier);
+      const [nx, ny] = at(id);
 
-    let radius = person.laureate ? 2.6 : 1.7;
-    if (isDirect) radius = 4.2;
-    if (isSeed) radius = 6;
+      if (style.halo !== null) {
+        context.beginPath();
+        context.arc(nx, ny, style.radius + 5, 0, Math.PI * 2);
+        context.strokeStyle = style.halo;
+        context.lineWidth = 1;
+        context.stroke();
+      }
 
-    context.beginPath();
-    context.arc(nx, ny, radius, 0, Math.PI * 2);
-
-    if (!lit) {
-      context.fillStyle = COLOURS.dim;
+      context.beginPath();
+      context.arc(nx, ny, style.radius, 0, Math.PI * 2);
+      context.fillStyle = style.fill;
       context.fill();
-      continue;
-    }
-
-    if (person.laureate) {
-      let fill = COLOURS.laureate;
-      if (isSeed) fill = COLOURS.seed;
-      else if (isDirect || selected === null) fill = COLOURS.laureateLit;
-      context.fillStyle = fill;
-      context.fill();
-    } else {
-      // Non-laureates are hollow with a grey ring: present, load-bearing, and
-      // never dressed up as somebody who won something.
-      context.fillStyle = COLOURS.background;
-      context.fill();
-      context.lineWidth = 1.1;
-      context.strokeStyle = isSeed || isDirect ? COLOURS.ringLit : COLOURS.ring;
-      context.stroke();
-      context.lineWidth = 0.6;
+      if (style.stroke !== null) {
+        context.strokeStyle = style.stroke;
+        context.lineWidth = style.strokeWidth;
+        context.stroke();
+      }
     }
   }
 }
@@ -277,16 +289,29 @@ function drawReadout(): void {
     if (!other) continue;
     const item = document.createElement("li");
     item.className = "relation";
+    item.dataset.laureate = String(other.laureate);
 
     const verb = document.createElement("span");
     verb.className = "relation-verb";
     verb.textContent = `${describeEdge(edge, selected)} `;
 
+    // The same distinction the canvas draws, in the same two shapes: a solid
+    // gold dot won something, a hollow grey ring did not. Reusing the picture's
+    // own vocabulary means the list needs no key. It is shape as well as
+    // colour, because a third of this page's readers on a bad monitor will not
+    // separate #e8b552 from #9aa1ad, and the accessible name below says it in
+    // words regardless.
+    const mark = document.createElement("span");
+    mark.className = other.laureate ? "relation-mark relation-mark-laureate" : "relation-mark";
+    mark.textContent = other.laureate ? "●" : "○";
+    mark.setAttribute("aria-hidden", "true");
+
     const who = document.createElement("button");
     who.type = "button";
-    who.className = "relation-link";
+    who.className = other.laureate ? "relation-link relation-link-laureate" : "relation-link";
     who.textContent = other.name;
     who.dataset.id = other.id;
+    who.setAttribute("aria-label", other.laureate ? `${other.name}, Nobel laureate` : `${other.name}, no Nobel Prize`);
     who.addEventListener("click", () => select(other.id));
 
     // Provenance is printed, not smoothed over: a claim with no reference
@@ -309,7 +334,7 @@ function drawReadout(): void {
         ? "Wikidata records this claim with no reference behind it."
         : "Wikidata records this claim with at least one reference.";
 
-    item.append(verb, who, document.createTextNode(" "), source);
+    item.append(verb, mark, who, document.createTextNode(" "), source);
     list.append(item);
   }
   if (list.childElementCount) readout.append(list);

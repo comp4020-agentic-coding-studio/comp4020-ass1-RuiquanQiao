@@ -285,6 +285,25 @@ Corollary: never move state into the renderer. If a fact about the current
 selection only exists inside the canvas draw loop, the keyboard path cannot
 reach it and a test cannot assert it.
 
+The same rule covers **appearance**, and it took a real bug to learn that.
+Both tiers were computed correctly and the readout reported both correctly,
+and then `draw()` painted every reached laureate `#7a6334` where a resting one
+is `#e8b552` --- *darker* after the click than before it. Clicking somebody
+made the tree look smaller, which is the exact inverse of the argument, and
+every test stayed green throughout because the decision was a branch inside a
+canvas call jsdom does not implement. Appearance now lives in `render.ts` as a
+table of tiers, and `spec/render.test.ts` holds the ordering: nothing in reach
+may render dimmer or smaller than it does at rest, and everything out of reach
+must render dimmer than both. If a visual rule is worth arguing about, it
+belongs in that table where a test can read it, never in the draw loop.
+
+Two consequences worth keeping. Painter's order is load-bearing, not tidiness:
+a thousand-odd dots overlap at this scale, so drawing them in id order lets an
+out-of-reach dot paint over a lit one and eats the effect the click exists to
+produce. And the canvas's two shapes --- solid gold won something, hollow ring
+did not --- are the page's vocabulary for that distinction, so the relations
+list spells it with the same two marks rather than inventing a second key.
+
 ### The build touches no network, ever
 
 `data/` holds a committed snapshot, refreshed on demand by a script that is
