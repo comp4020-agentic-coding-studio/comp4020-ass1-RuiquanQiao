@@ -103,17 +103,18 @@ body {
    looking operable on a page whose JavaScript failed. Sized and coloured as a
    third nav item rather than as a widget: it is a preference, not the point. */
 .theme-toggle {
-  /* Padding out to a ~45px tall tap target, pulled back by an equal negative
-     margin so the masthead does not grow. At 390 wide the text alone is 21px
-     tall, which is a thumb-sized miss. */
-  margin: -0.75rem 0 -0.75rem auto;
-  padding: 0.75rem 0;
+  /* A 44px square tap target around a 16px icon, pulled back by negative
+     margins so the masthead does not grow around it and the icon still lines
+     up with the right edge of the nav rather than floating 14px inside it. */
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  margin: -0.75rem -0.875rem -0.75rem auto;
+  padding: 0;
   border: 0;
   background: none;
   color: var(--ink-quiet);
-  font: inherit;
-  letter-spacing: inherit;
-  text-transform: inherit;
   cursor: pointer;
 }
 
@@ -127,8 +128,10 @@ body {
   outline-offset: 3px;
 }
 
-.theme-toggle-mark {
-  margin-right: 0.4rem;
+.theme-toggle-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
 }
 
 .layout {

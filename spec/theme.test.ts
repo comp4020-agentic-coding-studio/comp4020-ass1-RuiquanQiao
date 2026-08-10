@@ -132,6 +132,7 @@ async function load(stored?: string) {
 }
 
 const toggle = () => document.querySelector<HTMLButtonElement>('[data-testid="theme-toggle"]');
+const iconName = () => toggle()?.querySelector("svg")?.getAttribute("data-icon");
 
 describe("the toggle", () => {
   it("opens dark when nothing has been chosen, whatever the system prefers", async () => {
@@ -149,10 +150,38 @@ describe("the toggle", () => {
     expect(toggle()?.closest("nav")).toBeTruthy();
   });
 
-  it("names the action it will perform, not just the state it shows", async () => {
+  // The icon says where you are; the accessible name says what pressing it
+  // does. With no visible text left, that name is the button's only name, so
+  // its absence would leave a screen reader announcing "button" and nothing
+  // else -- which is why it is asserted rather than assumed.
+  it("names the action it will perform, since the icon names the state", async () => {
     await load();
     expect(toggle()?.getAttribute("aria-label")).toBe("Switch to the light theme");
-    expect(toggle()?.textContent).toContain("Dark");
+    expect(toggle()?.title).toBe("Switch to the light theme");
+    expect(toggle()?.textContent?.trim()).toBe("");
+    expect(iconName()).toBe("moon");
+  });
+
+  it("hides the icon from assistive technology rather than naming it twice", async () => {
+    await load();
+    expect(toggle()?.querySelector("svg")?.getAttribute("aria-hidden")).toBe("true");
+  });
+
+  it("draws the icon rather than typing it, so it cannot change width", async () => {
+    // ☀ and ☽ measure 13.6px and 7.76px in this nav's font, so a glyph pair
+    // would shift the nav on every toggle; the emoji forms are 1.37em and in
+    // colour. A path in a fixed viewBox is the same box in both states.
+    const source = readFileSync(resolve("theme.ts"), "utf8");
+    for (const glyph of ["☀", "☽", "☀️", "🌙", "◐"]) {
+      expect(source, `${glyph} is a font's problem, not ours`).not.toContain(glyph);
+    }
+    await load();
+    expect(toggle()?.querySelector("svg")?.getAttribute("viewBox")).toBe("0 0 16 16");
+  });
+
+  it("inherits the text colour, so it follows the theme and the hover", async () => {
+    await load();
+    expect(toggle()?.querySelector("svg")?.getAttribute("stroke")).toBe("currentColor");
   });
 
   it("flips the page and remembers it", async () => {
@@ -162,7 +191,7 @@ describe("the toggle", () => {
     expect(localStorage.getItem("one-tree-theme")).toBe("light");
     expect(theme.currentTheme()).toBe("light");
     expect(toggle()?.getAttribute("aria-label")).toBe("Switch to the dark theme");
-    expect(toggle()?.textContent).toContain("Light");
+    expect(iconName()).toBe("sun");
   });
 
   it("flips back, and records the choice rather than clearing it", async () => {
@@ -179,7 +208,7 @@ describe("the toggle", () => {
   it("honours a stored choice on load", async () => {
     const theme = await load("light");
     expect(theme.currentTheme()).toBe("light");
-    expect(toggle()?.textContent).toContain("Light");
+    expect(iconName()).toBe("sun");
   });
 
   it("tells the canvas, which is the one thing CSS cannot repaint", async () => {
