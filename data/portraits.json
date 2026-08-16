@@ -1,0 +1,5113 @@
+{
+  "fetchedAt": "2026-08-10",
+  "width": 96,
+  "source": {
+    "note": "Portraits are Wikidata P18 resolved through Wikimedia Commons. Every one carries its creator and licence; the page shows both. GFDL 1.2 and CC SA 1.0 are excluded."
+  },
+  "laureates": 757,
+  "portraits": {
+    "Q1002250": {
+      "file": "Duncan Haldane.jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Duncan_Haldane.jpg",
+      "ext": "jpg"
+    },
+    "Q102034": {
+      "file": "Ronald Ross.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ronald_Ross.jpg",
+      "ext": "jpg"
+    },
+    "Q102250": {
+      "file": "Peter Agre.jpg",
+      "artist": "Nobel Media",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Peter_Agre.jpg",
+      "ext": "jpg"
+    },
+    "Q102266": {
+      "file": "Sidney Altman crop.jpg",
+      "artist": "NIH",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Sidney_Altman_crop.jpg",
+      "ext": "jpg"
+    },
+    "Q102278": {
+      "file": "Christian B. Anfinsen, NIH portrait, 1969.jpg",
+      "artist": "Hubbard, Edward A.; National Institutes of Health",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Christian_B._Anfinsen,_NIH_portrait,_1969.jpg",
+      "ext": "jpg"
+    },
+    "Q102291": {
+      "file": "Francis William Aston.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Francis_William_Aston.jpg",
+      "ext": "jpg"
+    },
+    "Q102379": {
+      "file": "Paul Berg in 1980.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Paul_Berg_in_1980.jpg",
+      "ext": "jpg"
+    },
+    "Q102395": {
+      "file": "Paul D. Boyer.jpg",
+      "artist": "GBHayes",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Paul_D._Boyer.jpg",
+      "ext": "jpg"
+    },
+    "Q102406": {
+      "file": "33. Tagung 1983 Chemiker Herbert C. Brown - W134Nr.120809d - Willy Pragher (cropped).jpg",
+      "artist": "Willy Pragher",
+      "licence": "CC BY 3.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:33._Tagung_1983_Chemiker_Herbert_C._Brown_-_W134Nr.120809d_-_Willy_Pragher_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q102419": {
+      "file": "Derek-Harold-Richard-Barton.jpg",
+      "artist": "National Portrait Gallery",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Derek-Harold-Richard-Barton.jpg",
+      "ext": "jpg"
+    },
+    "Q102454": {
+      "file": "Paul Samuelson.gif",
+      "artist": "Innovation & Business Architectures, Inc.",
+      "licence": "CC BY 1.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Paul_Samuelson.gif",
+      "ext": "gif"
+    },
+    "Q102804": {
+      "file": "Henri Moissan.jpg",
+      "artist": "sv:Generalstabens litografiska anstalt",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Henri_Moissan.jpg",
+      "ext": "jpg"
+    },
+    "Q102822": {
+      "file": "Vant Hoff.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Vant_Hoff.jpg",
+      "ext": "jpg"
+    },
+    "Q102830": {
+      "file": "Frederick Soddy.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Frederick_Soddy.jpg",
+      "ext": "jpg"
+    },
+    "Q103835": {
+      "file": "Debye100.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Debye100.jpg",
+      "ext": "jpg"
+    },
+    "Q103854": {
+      "file": "Aage Bohr.jpg",
+      "artist": "Royal Danish Academy of Sciences",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Aage_Bohr.jpg",
+      "ext": "jpg"
+    },
+    "Q104104": {
+      "file": "Andre Geim 2010-1.jpg",
+      "artist": "Prolineserver (talk)",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Andre_Geim_2010-1.jpg",
+      "ext": "jpg"
+    },
+    "Q104575": {
+      "file": "Paul Sabatier.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Paul_Sabatier.jpg",
+      "ext": "jpg"
+    },
+    "Q104582": {
+      "file": "Viktor-grignard (cropped).jpg",
+      "artist": "Fotograv. - Generalstabens Litografiska Anstalt Stockholm",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Viktor-grignard_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q104592": {
+      "file": "Nobel Prize 2011-Press Conference KI-DSC 7512.jpg",
+      "artist": "Holger Motzkau",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Prize_2011-Press_Conference_KI-DSC_7512.jpg",
+      "ext": "jpg"
+    },
+    "Q104600": {
+      "file": "Nobel Prize 2009-Press Conference Physiology or Medicine-16.jpg",
+      "artist": "Prolineserver (talk)",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Prize_2009-Press_Conference_Physiology_or_Medicine-16.jpg",
+      "ext": "jpg"
+    },
+    "Q104607": {
+      "file": "Andrew Fielding Huxley nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Andrew_Fielding_Huxley_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q104651": {
+      "file": "Webb First Images Broadcast (52272775759).jpg",
+      "artist": "NASA's James Webb Space Telescope from Greenbelt, MD, USA",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Webb_First_Images_Broadcast_(52272775759).jpg",
+      "ext": "jpg"
+    },
+    "Q104779": {
+      "file": "Simon van der Meer in the AA Control Room (cropped).jpg",
+      "artist": "CERN",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Simon_van_der_Meer_in_the_AA_Control_Room_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q104913": {
+      "file": "Robert Geoffrey Edwards (2010).jpg",
+      "artist": "Susannny",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Geoffrey_Edwards_(2010).jpg",
+      "ext": "jpg"
+    },
+    "Q105494": {
+      "file": "RMSt.jpg",
+      "artist": "Kupal123",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:RMSt.jpg",
+      "ext": "jpg"
+    },
+    "Q105572": {
+      "file": "Empfang für Benjamin List im Rathaus Köln-7597-crop.jpg",
+      "artist": "Raimond Spekking",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Empfang_f%C3%BCr_Benjamin_List_im_Rathaus_K%C3%B6ln-7597-crop.jpg",
+      "ext": "jpg"
+    },
+    "Q105605": {
+      "file": "Nobel Prize 2011-Press Conference KI-DSC 7584.jpg",
+      "artist": "Holger Motzkau",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Prize_2011-Press_Conference_KI-DSC_7584.jpg",
+      "ext": "jpg"
+    },
+    "Q105830": {
+      "file": "Baruch Samuel Blumberg by Tom Trower (NASA) (cropped).jpg",
+      "artist": "Tom Trower (NASA)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Baruch_Samuel_Blumberg_by_Tom_Trower_(NASA)_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q105927": {
+      "file": "Nobel Prize 2010-Press Conference KVA-DSC 7398.jpg",
+      "artist": "Holger Motzkau",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Prize_2010-Press_Conference_KVA-DSC_7398.jpg",
+      "ext": "jpg"
+    },
+    "Q105937": {
+      "file": "Wendell Meredith Stanley.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Wendell_Meredith_Stanley.jpg",
+      "ext": "jpg"
+    },
+    "Q105949": {
+      "file": "Akira Suzuki 20111212.jpg",
+      "artist": "日本学士院",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Akira_Suzuki_20111212.jpg",
+      "ext": "jpg"
+    },
+    "Q105962": {
+      "file": "ALLAIS PN Maurice-24x30-2001b.jpg",
+      "artist": "ALLAIS_PN_Maurice-24x30-2001.jpg: Studio Harcourt derivative work: Materialscientist (talk)",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:ALLAIS_PN_Maurice-24x30-2001b.jpg",
+      "ext": "jpg"
+    },
+    "Q106399": {
+      "file": "John Howard Northrop.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_Howard_Northrop.jpg",
+      "ext": "jpg"
+    },
+    "Q106454": {
+      "file": "Nobel Prize 2011-Press Conference KVA-DSC 7707.jpg",
+      "artist": "Holger Motzkau",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Prize_2011-Press_Conference_KVA-DSC_7707.jpg",
+      "ext": "jpg"
+    },
+    "Q106471": {
+      "file": "Richard Fred Heck cropped.jpg",
+      "artist": "Richard_Fred_Heck_2.jpg: BloodIce derivative work: ukexpat (talk)",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Richard_Fred_Heck_cropped.jpg",
+      "ext": "jpg"
+    },
+    "Q106494": {
+      "file": "Konstantin Novoselov portrait.jpg",
+      "artist": "Zp2010",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Konstantin_Novoselov_portrait.jpg",
+      "ext": "jpg"
+    },
+    "Q106547": {
+      "file": "Paul Lauterbur 2003 cropped.jpg",
+      "artist": "Bush6NobelLaureates.jpg: Tina Hager derivative work: Elinnea (talk)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Paul_Lauterbur_2003_cropped.jpg",
+      "ext": "jpg"
+    },
+    "Q106624": {
+      "file": "Ahmed Zewail HD2009 Othmer Gold Medal portrait.JPG",
+      "artist": "Douglas A. Lockard",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ahmed_Zewail_HD2009_Othmer_Gold_Medal_portrait.JPG",
+      "ext": "jpg"
+    },
+    "Q106733": {
+      "file": "Jerome Karle.jpg",
+      "artist": "United States Office of Naval Research",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Jerome_Karle.jpg",
+      "ext": "jpg"
+    },
+    "Q106738": {
+      "file": "John B Fenn01.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_B_Fenn01.jpg",
+      "ext": "jpg"
+    },
+    "Q106746": {
+      "file": "Richard Smalley.png",
+      "artist": "RonnieV",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Richard_Smalley.png",
+      "ext": "png"
+    },
+    "Q106751": {
+      "file": "Heeger, Alan J. (1936).jpg",
+      "artist": "Vogler",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Heeger,_Alan_J._(1936).jpg",
+      "ext": "jpg"
+    },
+    "Q106756": {
+      "file": "James Batcheller Sumner.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:James_Batcheller_Sumner.jpg",
+      "ext": "jpg"
+    },
+    "Q106762": {
+      "file": "George Porter Nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:George_Porter_Nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q106949": {
+      "file": "Nobel Prize 2011-Press Conference KVA-DSC 7744.jpg",
+      "artist": "Holger Motzkau",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Prize_2011-Press_Conference_KVA-DSC_7744.jpg",
+      "ext": "jpg"
+    },
+    "Q107264": {
+      "file": "La Revolución Industrial Pasado y Futuro, Robert E. Lucas Jr. screenshot (cropped).jpg",
+      "artist": "Centro de Estudios Públicos",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:La_Revoluci%C3%B3n_Industrial_Pasado_y_Futuro,_Robert_E._Lucas_Jr._screenshot_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q107402": {
+      "file": "Rosalyn Yalow.jpg",
+      "artist": "US Information Agency (see image credits at the end)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Rosalyn_Yalow.jpg",
+      "ext": "jpg"
+    },
+    "Q107405": {
+      "file": "Onsager 1968.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Onsager_1968.jpg",
+      "ext": "jpg"
+    },
+    "Q107407": {
+      "file": "H.D. Politzer.jpg",
+      "artist": "University of Hawaii High Energy Physics Group, courtesy AIP Emilio Segrè Visual Archives",
+      "licence": "Attribution",
+      "commons": "https://commons.wikimedia.org/wiki/File:H.D._Politzer.jpg",
+      "ext": "jpg"
+    },
+    "Q107416": {
+      "file": "Martin Perl - tau.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Martin_Perl_-_tau.jpg",
+      "ext": "jpg"
+    },
+    "Q107419": {
+      "file": "HD.4G.049 (10537741015) crop.jpg",
+      "artist": "ENERGY.GOV",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:HD.4G.049_(10537741015)_crop.jpg",
+      "ext": "jpg"
+    },
+    "Q107420": {
+      "file": "Sheldon Glashow at Harvard.jpg",
+      "artist": "Luboš Motl - Lumidek",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Sheldon_Glashow_at_Harvard.jpg",
+      "ext": "jpg"
+    },
+    "Q107422": {
+      "file": "Herbert Hauptman - UB 2009.jpg",
+      "artist": "Dave Pape",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Herbert_Hauptman_-_UB_2009.jpg",
+      "ext": "jpg"
+    },
+    "Q107423": {
+      "file": "Mottelson,Ben 1963 Kopenhagen.jpg",
+      "artist": "GFHund",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Mottelson,Ben_1963_Kopenhagen.jpg",
+      "ext": "jpg"
+    },
+    "Q107441": {
+      "file": "Leonid Kantorovich 1975.jpg",
+      "artist": "Андрей Богданов (Andrei-bogdanoffyandex.ru)",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Leonid_Kantorovich_1975.jpg",
+      "ext": "jpg"
+    },
+    "Q107450": {
+      "file": "Frank Wilczek. 01.jpg",
+      "artist": "Bengt Oberger",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Frank_Wilczek._01.jpg",
+      "ext": "jpg"
+    },
+    "Q107462": {
+      "file": "Har Gobind Khorana.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Har_Gobind_Khorana.jpg",
+      "ext": "jpg"
+    },
+    "Q107609": {
+      "file": "Christiaan Eijkman.jpg",
+      "artist": "Unknown author",
+      "licence": "Copyrighted free use",
+      "commons": "https://commons.wikimedia.org/wiki/File:Christiaan_Eijkman.jpg",
+      "ext": "jpg"
+    },
+    "Q107690": {
+      "file": "Jean-Marie Lehn par Claude Truong-Ngoc octobre 2018.jpg",
+      "artist": "Photo Claude TRUONG-NGOC",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Jean-Marie_Lehn_par_Claude_Truong-Ngoc_octobre_2018.jpg",
+      "ext": "jpg"
+    },
+    "Q107964": {
+      "file": "Nobel Prize 2011-Press Conference KVA-DSC 7717.jpg",
+      "artist": "Holger Motzkau",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Prize_2011-Press_Conference_KVA-DSC_7717.jpg",
+      "ext": "jpg"
+    },
+    "Q108576": {
+      "file": "Daniel Carleton Gajdusek 2bw.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Daniel_Carleton_Gajdusek_2bw.jpg",
+      "ext": "jpg"
+    },
+    "Q108602": {
+      "file": "Susumu Tonegawa Photo.jpg",
+      "artist": "User9131986 A cropped version",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Susumu_Tonegawa_Photo.jpg",
+      "ext": "jpg"
+    },
+    "Q108880": {
+      "file": "Drfurchgott.jpg",
+      "artist": "Jzubrovich at English Wikipedia",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Drfurchgott.jpg",
+      "ext": "jpg"
+    },
+    "Q108891": {
+      "file": "Robert Holley.jpg",
+      "artist": "Sol Goldberg",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Holley.jpg",
+      "ext": "jpg"
+    },
+    "Q108896": {
+      "file": "Hamilton Smith, 2.jpg",
+      "artist": "Jane Gitschier",
+      "licence": "CC BY 2.5",
+      "commons": "https://commons.wikimedia.org/wiki/File:Hamilton_Smith,_2.jpg",
+      "ext": "jpg"
+    },
+    "Q109553": {
+      "file": "Renato Dulbecco crop.jpg",
+      "artist": "Renato_Dulbecco.jpg: Unknown, gift Dr. Dulbecco derivative work: Materialscientist (talk)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Renato_Dulbecco_crop.jpg",
+      "ext": "jpg"
+    },
+    "Q109559": {
+      "file": "Thomas A. Steitz.jpg",
+      "artist": "Prolineserver (talk)",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Thomas_A._Steitz.jpg",
+      "ext": "jpg"
+    },
+    "Q109570": {
+      "file": "Peter Diamond (economist).jpg",
+      "artist": "The White House from Washington, DC",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Peter_Diamond_(economist).jpg",
+      "ext": "jpg"
+    },
+    "Q109582": {
+      "file": "Christopher Pissarides.jpg",
+      "artist": "Nigel Stead",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Christopher_Pissarides.jpg",
+      "ext": "jpg"
+    },
+    "Q109588": {
+      "file": "Serge Haroche at Techfest, IIT Bombay.jpg",
+      "artist": "Techfest",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Serge_Haroche_at_Techfest,_IIT_Bombay.jpg",
+      "ext": "jpg"
+    },
+    "Q109721": {
+      "file": "Dale Mortensen 2.jpg",
+      "artist": "US Embassy Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Dale_Mortensen_2.jpg",
+      "ext": "jpg"
+    },
+    "Q109726": {
+      "file": "Edmond Fischer Nobel Laureate 1992.jpg",
+      "artist": "Betsythedevine",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Edmond_Fischer_Nobel_Laureate_1992.jpg",
+      "ext": "jpg"
+    },
+    "Q109737": {
+      "file": "Nobel Prize 2011-Press Conference KVA-DSC 7720.jpg",
+      "artist": "Holger Motzkau",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Prize_2011-Press_Conference_KVA-DSC_7720.jpg",
+      "ext": "jpg"
+    },
+    "Q1097475": {
+      "file": "Claudia Goldin (cropped).jpg",
+      "artist": "Editing1088",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Claudia_Goldin_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q110060": {
+      "file": "Marshall Nirenberg.jpg",
+      "artist": "Hecht, Gerald V. (National Institutes of Health).",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Marshall_Nirenberg.jpg",
+      "ext": "jpg"
+    },
+    "Q110101": {
+      "file": "Edward Calvin Kendall 1940s.jpg",
+      "artist": "Unknown (Mondadori Publishers)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Edward_Calvin_Kendall_1940s.jpg",
+      "ext": "jpg"
+    },
+    "Q110106": {
+      "file": "Julius Axelrod 3.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Julius_Axelrod_3.jpg",
+      "ext": "jpg"
+    },
+    "Q110916": {
+      "file": "Hideki Shirakawa.jpg",
+      "artist": "日本学士院",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Hideki_Shirakawa.jpg",
+      "ext": "jpg"
+    },
+    "Q110925": {
+      "file": "Barry Sharpless 02.jpg",
+      "artist": "Bengt Oberger",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Barry_Sharpless_02.jpg",
+      "ext": "jpg"
+    },
+    "Q110930": {
+      "file": "Robert Curl crop 2009 CHAO.jpg",
+      "artist": "Douglas A. Lockard",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Curl_crop_2009_CHAO.jpg",
+      "ext": "jpg"
+    },
+    "Q110935": {
+      "file": "William n lipscomb jr.jpg",
+      "artist": "Jslipscomb James S. Lipscomb",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:William_n_lipscomb_jr.jpg",
+      "ext": "jpg"
+    },
+    "Q110942": {
+      "file": "Alan MacDiarmid 2005.017.004e crop.tif",
+      "artist": "Unknown",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Alan_MacDiarmid_2005.017.004e_crop.tif",
+      "ext": "jpg"
+    },
+    "Q110947": {
+      "file": "Bush7NobelLaureates.jpg",
+      "artist": "Tina Hager",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Bush7NobelLaureates.jpg",
+      "ext": "jpg"
+    },
+    "Q110957": {
+      "file": "Kurt wuethrich.jpg",
+      "artist": "Markus Pössel (User: Mapos)",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Kurt_wuethrich.jpg",
+      "ext": "jpg"
+    },
+    "Q110963": {
+      "file": "Koichi Tanaka 2003.jpg",
+      "artist": "内閣官房内閣広報室",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Koichi_Tanaka_2003.jpg",
+      "ext": "jpg"
+    },
+    "Q110968": {
+      "file": "TjallingKoopmans1967.jpg",
+      "artist": "Eric Koch for Anefo",
+      "licence": "CC0",
+      "commons": "https://commons.wikimedia.org/wiki/File:TjallingKoopmans1967.jpg",
+      "ext": "jpg"
+    },
+    "Q110974": {
+      "file": "James Black (pharmacologist).jpg",
+      "artist": "Unknown author",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:James_Black_(pharmacologist).jpg",
+      "ext": "jpg"
+    },
+    "Q111190": {
+      "file": "F. Sherwood Rowland.jpg",
+      "artist": "Markus Pössel (Mapos)",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:F._Sherwood_Rowland.jpg",
+      "ext": "jpg"
+    },
+    "Q11401680": {
+      "file": "Susumu Kitagawa cropped Susumu Kitagawa 20191212.jpg",
+      "artist": "日本学士院",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Susumu_Kitagawa_cropped_Susumu_Kitagawa_20191212.jpg",
+      "ext": "jpg"
+    },
+    "Q11443689": {
+      "file": "Hiroshi Amano.jpg",
+      "artist": "Alain Herzog",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Hiroshi_Amano.jpg",
+      "ext": "jpg"
+    },
+    "Q114564137": {
+      "file": "Mary Brunkow - US Embassy Sweden Nobel Reception 2025.jpg",
+      "artist": "US Embassy Sweden",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Mary_Brunkow_-_US_Embassy_Sweden_Nobel_Reception_2025.jpg",
+      "ext": "jpg"
+    },
+    "Q11538917": {
+      "file": "Takaaki Kajita cropped 1 Takaaki Kajita 202010.jpg",
+      "artist": "日本学術会議",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Takaaki_Kajita_cropped_1_Takaaki_Kajita_202010.jpg",
+      "ext": "jpg"
+    },
+    "Q115448": {
+      "file": "Daniel Bovet nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Daniel_Bovet_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q115470": {
+      "file": "Walter Hess.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Walter_Hess.jpg",
+      "ext": "jpg"
+    },
+    "Q115475": {
+      "file": "Paul Hermann Müller nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Paul_Hermann_M%C3%BCller_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q115478": {
+      "file": "Emil Theodor Kocher.jpg",
+      "artist": "User Magnus Manske on en.wikipedia; Unknown photographer",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Emil_Theodor_Kocher.jpg",
+      "ext": "jpg"
+    },
+    "Q115490": {
+      "file": "Thadeus Reichstein ETH-Bib Portr 10137.jpg",
+      "artist": "ETH Zürich",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Thadeus_Reichstein_ETH-Bib_Portr_10137.jpg",
+      "ext": "jpg"
+    },
+    "Q115495": {
+      "file": "Werber Arber.jpg",
+      "artist": "Gabriella Clare Marino",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Werber_Arber.jpg",
+      "ext": "jpg"
+    },
+    "Q116064": {
+      "file": "Rolf Zinkernagel Erudite Conclave medical college trivandrum.jpg",
+      "artist": "Aasemsj",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Rolf_Zinkernagel_Erudite_Conclave_medical_college_trivandrum.jpg",
+      "ext": "jpg"
+    },
+    "Q1173928": {
+      "file": "David Card - Nobel prize interview screenshot (cropped).png",
+      "artist": "Roxanne Makasdjian and Alan Toth for the University of California, Berkeley",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:David_Card_-_Nobel_prize_interview_screenshot_(cropped).png",
+      "ext": "png"
+    },
+    "Q1174906": {
+      "file": "Dr David Julius by christopher michel in 2022 04.jpg",
+      "artist": "Christopher Michel",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Dr_David_Julius_by_christopher_michel_in_2022_04.jpg",
+      "ext": "jpg"
+    },
+    "Q122272": {
+      "file": "Richard R. Ernst 1980s (cropped).jpg",
+      "artist": "Unknown author",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Richard_R._Ernst_1980s_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q122298": {
+      "file": "Karl Alexander Mueller.jpg",
+      "artist": "Armin Kübelbeck",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Karl_Alexander_Mueller.jpg",
+      "ext": "jpg"
+    },
+    "Q122996": {
+      "file": "Lavoslav Ružićka 1939.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Lavoslav_Ru%C5%BEi%C4%87ka_1939.jpg",
+      "ext": "jpg"
+    },
+    "Q123014": {
+      "file": "(UAZ) AB.1.1093 Werner.tif",
+      "artist": "Franz Schmelhaus, Zürich",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:(UAZ)_AB.1.1093_Werner.tif",
+      "ext": "jpg"
+    },
+    "Q123022": {
+      "file": "ETH-BIB-Bloch, Felix (1905-1983)-Portr 03540.tif",
+      "artist": "Unbekannt",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:ETH-BIB-Bloch,_Felix_(1905-1983)-Portr_03540.tif",
+      "ext": "jpg"
+    },
+    "Q123026": {
+      "file": "1918 Charles Édouard Guillaume.jpg",
+      "artist": "Auguste Léon",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:1918_Charles_%C3%89douard_Guillaume.jpg",
+      "ext": "jpg"
+    },
+    "Q123029": {
+      "file": "Rohrer.jpg",
+      "artist": "NIMSoffice",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Rohrer.jpg",
+      "ext": "jpg"
+    },
+    "Q123280": {
+      "file": "Francis Crick 1995.jpg",
+      "artist": "Unknown author",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Francis_Crick_1995.jpg",
+      "ext": "jpg"
+    },
+    "Q1235614": {
+      "file": "Parisi giorgio.jpg",
+      "artist": "Lorenza Parisi",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Parisi_giorgio.jpg",
+      "ext": "jpg"
+    },
+    "Q123975": {
+      "file": "Michel Mayor ESA20824331 (cropped).jpeg",
+      "artist": "European Space Agency",
+      "licence": "CC BY-SA 3.0 igo",
+      "commons": "https://commons.wikimedia.org/wiki/File:Michel_Mayor_ESA20824331_(cropped).jpeg",
+      "ext": "jpg"
+    },
+    "Q124013": {
+      "file": "Didier Queloz, 2012 (cropped).jpg",
+      "artist": "M.McCaughrean (ESA)/ESO",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Didier_Queloz,_2012_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q12658": {
+      "file": "Ostwald.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ostwald.jpg",
+      "ext": "jpg"
+    },
+    "Q127234": {
+      "file": "Albert Abraham Michelson2.jpg",
+      "artist": "The original uploader was Bunzil at English Wikipedia.",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Albert_Abraham_Michelson2.jpg",
+      "ext": "jpg"
+    },
+    "Q127944": {
+      "file": "Arthur Compton 1927.jpg",
+      "artist": "Unknown (Mondadori Publishers)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Arthur_Compton_1927.jpg",
+      "ext": "jpg"
+    },
+    "Q12830": {
+      "file": "Reinhard Selten2.jpg",
+      "artist": "Tohma (talk)",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Reinhard_Selten2.jpg",
+      "ext": "jpg"
+    },
+    "Q128736": {
+      "file": "John Forbes Nash, Jr. by Peter Badge.jpg",
+      "artist": "Peter Badge / Typos1",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_Forbes_Nash,_Jr._by_Peter_Badge.jpg",
+      "ext": "jpg"
+    },
+    "Q1297741": {
+      "file": "Michael Rosbash, 2017 Nobel Laureate in Medicine (cropped).jpg",
+      "artist": "John Sears",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Michael_Rosbash,_2017_Nobel_Laureate_in_Medicine_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q130113": {
+      "file": "Robert Hofstadter.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Hofstadter.jpg",
+      "ext": "jpg"
+    },
+    "Q130975": {
+      "file": "Robert Andrews Millikan 1920s.jpg",
+      "artist": "Unknown (Mondadori Publishers)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Andrews_Millikan_1920s.jpg",
+      "ext": "jpg"
+    },
+    "Q131721": {
+      "file": "Van der Waals.jpg",
+      "artist": "Nobel foundation ?",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Van_der_Waals.jpg",
+      "ext": "jpg"
+    },
+    "Q131729": {
+      "file": "Wl-bragg.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Wl-bragg.jpg",
+      "ext": "jpg"
+    },
+    "Q132489": {
+      "file": "Amartya Sen 2012.jpg",
+      "artist": "Fronteiras do Pensamento",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Amartya_Sen_2012.jpg",
+      "ext": "jpg"
+    },
+    "Q1325": {
+      "file": "Friedrich Hayek portrait.jpg",
+      "artist": "The original uploader was DickClarkMises at English Wikipedia.",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Friedrich_Hayek_portrait.jpg",
+      "ext": "jpg"
+    },
+    "Q133222": {
+      "file": "Clinton Davisson.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Clinton_Davisson.jpg",
+      "ext": "jpg"
+    },
+    "Q133232": {
+      "file": "Gabriel Lippmann2.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Gabriel_Lippmann2.jpg",
+      "ext": "jpg"
+    },
+    "Q133267": {
+      "file": "Landau.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Landau.jpg",
+      "ext": "jpg"
+    },
+    "Q133747": {
+      "file": "Wh-bragg.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Wh-bragg.jpg",
+      "ext": "jpg"
+    },
+    "Q133846": {
+      "file": "George Paget Thomson.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:George_Paget_Thomson.jpg",
+      "ext": "jpg"
+    },
+    "Q134085": {
+      "file": "Jean Perrin 1926.jpg",
+      "artist": "Agence de presse Meurisse",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Jean_Perrin_1926.jpg",
+      "ext": "jpg"
+    },
+    "Q1351105": {
+      "file": "Eric Betzig.jpg",
+      "artist": "Ecole polytechnique Université Paris-Saclay",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Eric_Betzig.jpg",
+      "ext": "jpg"
+    },
+    "Q135139": {
+      "file": "Paul Crutzen.jpg",
+      "artist": "Teemu Rajala",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Paul_Crutzen.jpg",
+      "ext": "jpg"
+    },
+    "Q135154": {
+      "file": "John Cornforth 1975.jpg",
+      "artist": "Unknown (Associated Press)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_Cornforth_1975.jpg",
+      "ext": "jpg"
+    },
+    "Q135171": {
+      "file": "E.J.Coreyx240.jpg",
+      "artist": "Creator: Trvthchem personal photo",
+      "licence": "CC0",
+      "commons": "https://commons.wikimedia.org/wiki/File:E.J.Coreyx240.jpg",
+      "ext": "jpg"
+    },
+    "Q135180": {
+      "file": "Thomas Cech HD2007 Othmer Gold Medal portrait2.JPG",
+      "artist": "Douglas A. Lockard",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Thomas_Cech_HD2007_Othmer_Gold_Medal_portrait2.JPG",
+      "ext": "jpg"
+    },
+    "Q1359990": {
+      "file": "Paul Milgrom Headshot.jpg",
+      "artist": "Eva Meyersson Milgrom",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Paul_Milgrom_Headshot.jpg",
+      "ext": "jpg"
+    },
+    "Q1365270": {
+      "file": "John Francis Clauser (cropped).jpg",
+      "artist": "Peter Lyons",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_Francis_Clauser_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q137106": {
+      "file": "Howard Walter Florey 1945.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Howard_Walter_Florey_1945.jpg",
+      "ext": "jpg"
+    },
+    "Q1386049": {
+      "file": "Lars Peter Hansen photo in 2007.jpg",
+      "artist": "Ricardomayer at English Wikipedia",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Lars_Peter_Hansen_photo_in_2007.jpg",
+      "ext": "jpg"
+    },
+    "Q1387059": {
+      "file": "WE Moerner.jpg",
+      "artist": "Kevin Lowder",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:WE_Moerner.jpg",
+      "ext": "jpg"
+    },
+    "Q141147": {
+      "file": "Andrew Schally portrait.jpg",
+      "artist": "US gov",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Andrew_Schally_portrait.jpg",
+      "ext": "jpg"
+    },
+    "Q1461050": {
+      "file": "Simon Johnson, 2024 Nobel Prize Laureate in Economics 4 (cropped).jpg",
+      "artist": "John Sears",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Simon_Johnson,_2024_Nobel_Prize_Laureate_in_Economics_4_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q148109": {
+      "file": "Subrahmanyan Chandrasekhar.jpg",
+      "artist": "AIP Emilio Segrè Visual Archives, Gift of Kameshwar Wali",
+      "licence": "Attribution",
+      "commons": "https://commons.wikimedia.org/wiki/File:Subrahmanyan_Chandrasekhar.jpg",
+      "ext": "jpg"
+    },
+    "Q150526": {
+      "file": "Cajal-mi.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Cajal-mi.jpg",
+      "ext": "jpg"
+    },
+    "Q150630": {
+      "file": "Camillo Golgi nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Camillo_Golgi_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q150989": {
+      "file": "Frédéric Joliot-Curie ArM.jpg",
+      "artist": "The original uploader was ABlockedUser at English Wikipedia. (Original text: Post office of the GDR)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Fr%C3%A9d%C3%A9ric_Joliot-Curie_ArM.jpg",
+      "ext": "jpg"
+    },
+    "Q15118973": {
+      "file": "Aziz Sancar 0060.jpg",
+      "artist": "Holger Motzkau",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Aziz_Sancar_0060.jpg",
+      "ext": "jpg"
+    },
+    "Q151564": {
+      "file": "Frederick Sanger2.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Frederick_Sanger2.jpg",
+      "ext": "jpg"
+    },
+    "Q151746": {
+      "file": "Francois Englert (3x4 cropped).jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Francois_Englert_(3x4_cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q152187": {
+      "file": "August Krogh Bain 32006.jpg",
+      "artist": "Bain News Service",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:August_Krogh_Bain_32006.jpg",
+      "ext": "jpg"
+    },
+    "Q152452": {
+      "file": "Gunnar Myrdal 1964 002 (cropped).jpg",
+      "artist": "Uppsala-Bild / Upplandsmuseet",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Gunnar_Myrdal_1964_002_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q152760": {
+      "file": "Jean Dausset 1968.jpg",
+      "artist": "Agip",
+      "licence": "CC BY-SA 3.0 nl",
+      "commons": "https://commons.wikimedia.org/wiki/File:Jean_Dausset_1968.jpg",
+      "ext": "jpg"
+    },
+    "Q153178": {
+      "file": "CHARPAK Georges-24x50-2005 cropped.JPG",
+      "artist": "CHARPAK_Georges-24x50-2005.jpg: Studio Harcourt derivative work: Spatulli (talk)",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:CHARPAK_Georges-24x50-2005_cropped.JPG",
+      "ext": "jpg"
+    },
+    "Q153194": {
+      "file": "Appleton.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Appleton.jpg",
+      "ext": "jpg"
+    },
+    "Q153201": {
+      "file": "John Robert Schrieffer 1972.jpg",
+      "artist": "Unknown author",
+      "licence": "CC BY-SA 3.0 nl",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_Robert_Schrieffer_1972.jpg",
+      "ext": "jpg"
+    },
+    "Q153210": {
+      "file": "Jack-Steinberger-2008.JPG",
+      "artist": "Sigismund von Dobschütz",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Jack-Steinberger-2008.JPG",
+      "ext": "jpg"
+    },
+    "Q153219": {
+      "file": "Albert fert 15 janvier 2009 Spintronique Paris Descartes.JPG",
+      "artist": "Eurobas",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Albert_fert_15_janvier_2009_Spintronique_Paris_Descartes.JPG",
+      "ext": "jpg"
+    },
+    "Q153761": {
+      "file": "Nobel Prize 2009-Press Conference KVA-30.jpg",
+      "artist": "Holger Motzkau",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Prize_2009-Press_Conference_KVA-30.jpg",
+      "ext": "jpg"
+    },
+    "Q153890": {
+      "file": "Nikolaas Tinbergen 1978.jpg",
+      "artist": "Lorenz_and_Tinbergen2.jpg: Max Planck Gesellschaft derivative work: Materialscientist",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nikolaas_Tinbergen_1978.jpg",
+      "ext": "jpg"
+    },
+    "Q15433043": {
+      "file": "US Embassy Sweden 2023 Nobel Reception (53390424864) (cropped).jpg",
+      "artist": "US Embassy Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:US_Embassy_Sweden_2023_Nobel_Reception_(53390424864)_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q1545000": {
+      "file": "Gregory Winter, 2016 (cropped).jpg",
+      "artist": "Aga Machaj",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Gregory_Winter,_2016_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q1545025": {
+      "file": "Nobel 9 Dec 2019 012 copy (49204052292) (cropped).jpg",
+      "artist": "US Embassy Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_9_Dec_2019_012_copy_(49204052292)_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q1547368": {
+      "file": "US Embassy Sweden 2023 Nobel Reception (53390424929) (cropped).jpg",
+      "artist": "US Embassy Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:US_Embassy_Sweden_2023_Nobel_Reception_(53390424929)_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q155371": {
+      "file": "34. Tagung 1984 Mediziner; Eröffnung am 25.6. Charles B. Huggins - W134Nr.122975d - Willy Pragher (cropped).jpg",
+      "artist": "Willy Pragher",
+      "licence": "CC BY 3.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:34._Tagung_1984_Mediziner;_Er%C3%B6ffnung_am_25.6._Charles_B._Huggins_-_W134Nr.122975d_-_Willy_Pragher_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q155375": {
+      "file": "Archibald Vivian Hill.jpg",
+      "artist": "Photographer unknown. Subject (Hill) deceased. This photo is under copyright by The Nobel Foundation, which is based in Sweden. The photograph was likely published during or before the awarding of Hill's 1922 Nobel Prize for Medicine or Physiology. Supporting this publication date, the source web site for Hill's biography (see above) lists a 1922 copyright date. The photograph was likely produced in either the United Kingdom (residence of Hill) or Sweden (residence of The Nobel Foundation).",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Archibald_Vivian_Hill.jpg",
+      "ext": "jpg"
+    },
+    "Q155380": {
+      "file": "Stanley B. Prusiner in 2024 (3x4 close cropped).jpg",
+      "artist": "Christopher Michel",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Stanley_B._Prusiner_in_2024_(3x4_close_cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q155525": {
+      "file": "Milstein lnp restauración.jpg",
+      "artist": "original file: Diario La Nueva Provincia de Bahía Blanca derivative work: Rexmania",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Milstein_lnp_restauraci%C3%B3n.jpg",
+      "ext": "jpg"
+    },
+    "Q155529": {
+      "file": "Eric Kandel by aquaris3.jpg",
+      "artist": "aquarius3",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Eric_Kandel_by_aquaris3.jpg",
+      "ext": "jpg"
+    },
+    "Q155759": {
+      "file": "Igor Tamm.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Igor_Tamm.jpg",
+      "ext": "jpg"
+    },
+    "Q155773": {
+      "file": "Masatoshi Koshiba 2002.jpg",
+      "artist": "内閣官房内閣広報室",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Masatoshi_Koshiba_2002.jpg",
+      "ext": "jpg"
+    },
+    "Q155777": {
+      "file": "Yukawa.jpg",
+      "artist": "Nobel Foundation archive",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Yukawa.jpg",
+      "ext": "jpg"
+    },
+    "Q155781": {
+      "file": "Louis Néel 1970b.jpg",
+      "artist": "Farabola",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Louis_N%C3%A9el_1970b.jpg",
+      "ext": "jpg"
+    },
+    "Q155786": {
+      "file": "Dennis Gabor 1971.jpg",
+      "artist": "Associated Press",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Dennis_Gabor_1971.jpg",
+      "ext": "jpg"
+    },
+    "Q155790": {
+      "file": "Wigner.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Wigner.jpg",
+      "ext": "jpg"
+    },
+    "Q155794": {
+      "file": "Hans Bethe.jpg",
+      "artist": "Los Alamos National Laboratory",
+      "licence": "Attribution",
+      "commons": "https://commons.wikimedia.org/wiki/File:Hans_Bethe.jpg",
+      "ext": "jpg"
+    },
+    "Q156286": {
+      "file": "Russell Alan Hulse.jpg",
+      "artist": "ENERGY.GOV",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Russell_Alan_Hulse.jpg",
+      "ext": "jpg"
+    },
+    "Q156480": {
+      "file": "Hugo Theorell nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Hugo_Theorell_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q156482": {
+      "file": "Corneille Heymans nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Corneille_Heymans_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q157210": {
+      "file": "Ryoji Noyori 20021212.jpg",
+      "artist": "日本学士院",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ryoji_Noyori_20021212.jpg",
+      "ext": "jpg"
+    },
+    "Q157212": {
+      "file": "Odd Hassel.jpg",
+      "artist": "Unknown author",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Odd_Hassel.jpg",
+      "ext": "jpg"
+    },
+    "Q157224": {
+      "file": "Kary Mullis.jpg",
+      "artist": "Dona Mapston",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Kary_Mullis.jpg",
+      "ext": "jpg"
+    },
+    "Q157235": {
+      "file": "Aumann-1080.jpg",
+      "artist": "Rama",
+      "licence": "CC BY-SA 2.0 fr",
+      "commons": "https://commons.wikimedia.org/wiki/File:Aumann-1080.jpg",
+      "ext": "jpg"
+    },
+    "Q157239": {
+      "file": "A-I-Virtanen-portrait.jpg",
+      "artist": "AnonymousUnknown author",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:A-I-Virtanen-portrait.jpg",
+      "ext": "jpg"
+    },
+    "Q157242": {
+      "file": "Alexander Todd Nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Alexander_Todd_Nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q157245": {
+      "file": "A Michael Spence.jpg",
+      "artist": "Robert Scoble from Half Moon Bay, USA",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:A_Michael_Spence.jpg",
+      "ext": "jpg"
+    },
+    "Q157250": {
+      "file": "Hkroto.jpg",
+      "artist": "NIMSoffice",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Hkroto.jpg",
+      "ext": "jpg"
+    },
+    "Q157262": {
+      "file": "Leonid Hurwicz (square).jpg",
+      "artist": "Dong Oh (square by Juan Pablo Arancibia Medina)",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Leonid_Hurwicz_(square).jpg",
+      "ext": "jpg"
+    },
+    "Q157268": {
+      "file": "Robert Solow by Olaf Storbeck.jpg",
+      "artist": "Olaf Storbeck from Düsseldorf, Deutschland",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Solow_by_Olaf_Storbeck.jpg",
+      "ext": "jpg"
+    },
+    "Q157701": {
+      "file": "Heyrovsky Jaroslav.jpg",
+      "artist": "archiv ÚFCH J.Heyrovského AV ČR, v.v.i.",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Heyrovsky_Jaroslav.jpg",
+      "ext": "jpg"
+    },
+    "Q15900993": {
+      "file": "05-0367-92D.hr.jpg",
+      "artist": "R. Hahn",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:05-0367-92D.hr.jpg",
+      "ext": "jpg"
+    },
+    "Q1603351": {
+      "file": "William G. Kaelin Jr. UNIST CGI 2019.jpg",
+      "artist": "Rickinasia",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:William_G._Kaelin_Jr._UNIST_CGI_2019.jpg",
+      "ext": "jpg"
+    },
+    "Q160518": {
+      "file": "Nils Gustaf Dalén.jpg",
+      "artist": "Atelier Jaeger",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nils_Gustaf_Dal%C3%A9n.jpg",
+      "ext": "jpg"
+    },
+    "Q160522": {
+      "file": "Charles Glover Barkla 01.jpg",
+      "artist": "George Grantham Bain Collection (Library of Congress)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Charles_Glover_Barkla_01.jpg",
+      "ext": "jpg"
+    },
+    "Q162900": {
+      "file": "CTR Wilson.jpg",
+      "artist": "The American Institute of Physics credits the photo [1] to AB Lagrelius & Westphal, which is the Swedish company used by the Nobel Foundation for most photos of its book series Les Prix Nobel.",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:CTR_Wilson.jpg",
+      "ext": "jpg"
+    },
+    "Q163415": {
+      "file": "William Shockley, Stanford University.jpg",
+      "artist": "Chuck Painter / Stanford News Service",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:William_Shockley,_Stanford_University.jpg",
+      "ext": "jpg"
+    },
+    "Q1635006": {
+      "file": "Kremer bio.jpg",
+      "artist": "Harvard University",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Kremer_bio.jpg",
+      "ext": "jpg"
+    },
+    "Q16389": {
+      "file": "Charles K. Kao cropped 2.jpg",
+      "artist": "David Dobkin [1]",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Charles_K._Kao_cropped_2.jpg",
+      "ext": "jpg"
+    },
+    "Q165969": {
+      "file": "II Rabi.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:II_Rabi.jpg",
+      "ext": "jpg"
+    },
+    "Q16730042": {
+      "file": "Guido Imbens Lemley Lecture 1.jpg",
+      "artist": "Filetime",
+      "licence": "CC0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Guido_Imbens_Lemley_Lecture_1.jpg",
+      "ext": "jpg"
+    },
+    "Q1673706": {
+      "file": "Isamu Akasaki 201111.jpg",
+      "artist": "大臣官房人事課",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Isamu_Akasaki_201111.jpg",
+      "ext": "jpg"
+    },
+    "Q1678456": {
+      "file": "Richard Henderson D81 4486 (38005042695).jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Richard_Henderson_D81_4486_(38005042695).jpg",
+      "ext": "jpg"
+    },
+    "Q1686435": {
+      "file": "Jeffrey C. Hall D81 4349 (25006040668).jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Jeffrey_C._Hall_D81_4349_(25006040668).jpg",
+      "ext": "jpg"
+    },
+    "Q1687170": {
+      "file": "Skou2008.jpg",
+      "artist": "Lars Kruse",
+      "licence": "CC BY-SA 2.5",
+      "commons": "https://commons.wikimedia.org/wiki/File:Skou2008.jpg",
+      "ext": "jpg"
+    },
+    "Q169330": {
+      "file": "Owen Richardson.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Owen_Richardson.jpg",
+      "ext": "jpg"
+    },
+    "Q169366": {
+      "file": "Carl David Anderson.jpg",
+      "artist": "Smithsonian Institution",
+      "licence": "No restrictions",
+      "commons": "https://commons.wikimedia.org/wiki/File:Carl_David_Anderson.jpg",
+      "ext": "jpg"
+    },
+    "Q169577": {
+      "file": "Ernest Lawrence.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ernest_Lawrence.jpg",
+      "ext": "jpg"
+    },
+    "Q1700920": {
+      "file": "2016 Nobel Reception US Embassy Sweden (31557185216) (cropped).jpg",
+      "artist": "US Embassy Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:2016_Nobel_Reception_US_Embassy_Sweden_(31557185216)_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q1701279": {
+      "file": "John O'Keefe (neuroscientist) 2014.jpg",
+      "artist": "Per Henning/NTNU",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_O%27Keefe_(neuroscientist)_2014.jpg",
+      "ext": "jpg"
+    },
+    "Q170342": {
+      "file": "Professor Svante Paabo ForMemRS (cropped).jpg",
+      "artist": "Duncan.Hull",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Professor_Svante_Paabo_ForMemRS_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q170676": {
+      "file": "Roger Kornberg April 2016.jpg",
+      "artist": "Рустем Кадыров",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Roger_Kornberg_April_2016.jpg",
+      "ext": "jpg"
+    },
+    "Q170741": {
+      "file": "1924 Karl Manne Siegbahn.jpg",
+      "artist": "Copyright © The Nobel Foundation 1924",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:1924_Karl_Manne_Siegbahn.jpg",
+      "ext": "jpg"
+    },
+    "Q171034": {
+      "file": "Robert Wilson (28215880301) (cropped) (cropped).jpg",
+      "artist": "Victor R. Ruiz from Arinaga, Canary Islands, Spain",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Wilson_(28215880301)_(cropped)_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q172118": {
+      "file": "Bridgman.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Bridgman.jpg",
+      "ext": "jpg"
+    },
+    "Q172254": {
+      "file": "Ilya Mechnikov nobel.jpg",
+      "artist": "Nadar",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ilya_Mechnikov_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q172466": {
+      "file": "Steven Chu official DOE portrait.jpg",
+      "artist": "Department of Energy",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Steven_Chu_official_DOE_portrait.jpg",
+      "ext": "jpg"
+    },
+    "Q17280087": {
+      "file": "Emmanuelle Charpentier.jpg",
+      "artist": "Bianca Fioretti, Hallbauer & Fioretti",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Emmanuelle_Charpentier.jpg",
+      "ext": "jpg"
+    },
+    "Q172840": {
+      "file": "Murray Gell-Mann - World Economic Forum Annual Meeting 2012.jpg",
+      "artist": "World Economic Forum",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Murray_Gell-Mann_-_World_Economic_Forum_Annual_Meeting_2012.jpg",
+      "ext": "jpg"
+    },
+    "Q172844": {
+      "file": "Pyotr Kapitsa 1930s.jpg",
+      "artist": "Unknown (Mondadori Publishers)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Pyotr_Kapitsa_1930s.jpg",
+      "ext": "jpg"
+    },
+    "Q172877": {
+      "file": "32. Tagung 1982 Physiker; Beim Studentenabend Arno A. Penzias - W134Nr.119142 - Willy Pragher (cropped).jpg",
+      "artist": "Willy Pragher",
+      "licence": "CC BY 3.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:32._Tagung_1982_Physiker;_Beim_Studentenabend_Arno_A._Penzias_-_W134Nr.119142_-_Willy_Pragher_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q173028": {
+      "file": "Segre.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Segre.jpg",
+      "ext": "jpg"
+    },
+    "Q173994": {
+      "file": "Jean Tirole.jpg",
+      "artist": "Ecole polytechnique Université Paris-Saclay",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Jean_Tirole.jpg",
+      "ext": "jpg"
+    },
+    "Q17502433": {
+      "file": "Shimon Sakaguchi cropped 3 Shimon Sakaguchi 201711.jpg",
+      "artist": "大臣官房人事課",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Shimon_Sakaguchi_cropped_3_Shimon_Sakaguchi_201711.jpg",
+      "ext": "jpg"
+    },
+    "Q175519": {
+      "file": "Raymond Davis, Jr 2001.jpg",
+      "artist": "National Science Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Raymond_Davis,_Jr_2001.jpg",
+      "ext": "jpg"
+    },
+    "Q176351": {
+      "file": "Paul Flory 1973.jpg",
+      "artist": "Unknown (Associated Press)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Paul_Flory_1973.jpg",
+      "ext": "jpg"
+    },
+    "Q176643": {
+      "file": "Sir James Mirrlees.jpg",
+      "artist": "總統府",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Sir_James_Mirrlees.jpg",
+      "ext": "jpg"
+    },
+    "Q177681": {
+      "file": "Thomas Hunt Morgan.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Thomas_Hunt_Morgan.jpg",
+      "ext": "jpg"
+    },
+    "Q178103": {
+      "file": "Cecil Powell.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Cecil_Powell.jpg",
+      "ext": "jpg"
+    },
+    "Q178344": {
+      "file": "LWA Picture Final.jpg",
+      "artist": "Donald Cooksey / Lawrence Berkeley National Laboratory (per [3]",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:LWA_Picture_Final.jpg",
+      "ext": "jpg"
+    },
+    "Q179282": {
+      "file": "Steven Weinberg 2010.jpg",
+      "artist": "Larry D. Moore",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Steven_Weinberg_2010.jpg",
+      "ext": "jpg"
+    },
+    "Q179493": {
+      "file": "Bertil-Ohlin-in-the-second-chambers-speaker-chair-391842586514.jpg",
+      "artist": "Gunnar Lantz",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Bertil-Ohlin-in-the-second-chambers-speaker-chair-391842586514.jpg",
+      "ext": "jpg"
+    },
+    "Q179572": {
+      "file": "George smoot 06N7133a.jpg",
+      "artist": "Nomo michael hoefner http://www.zwo5.de",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:George_smoot_06N7133a.jpg",
+      "ext": "jpg"
+    },
+    "Q179777": {
+      "file": "Harold Urey, 1934.jpg",
+      "artist": "Flickr: ENERGY.GOV - Unknown photographer. Restored by Creator:Adam Cuerden",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Harold_Urey,_1934.jpg",
+      "ext": "jpg"
+    },
+    "Q179852": {
+      "file": "Esaki leo Gakushiin.jpg",
+      "artist": "日本学士院",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Esaki_leo_Gakushiin.jpg",
+      "ext": "jpg"
+    },
+    "Q180350": {
+      "file": "Fredrick banting.jpg",
+      "artist": "Arthur Goss",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Fredrick_banting.jpg",
+      "ext": "jpg"
+    },
+    "Q180468": {
+      "file": "Albert Szent-Györgyi.jpg",
+      "artist": "J.W. McGuire",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Albert_Szent-Gy%C3%B6rgyi.jpg",
+      "ext": "jpg"
+    },
+    "Q181363": {
+      "file": "Brian Josephson, March 2004.jpg",
+      "artist": "Brian Josephson",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Brian_Josephson,_March_2004.jpg",
+      "ext": "jpg"
+    },
+    "Q181369": {
+      "file": "Yang.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Yang.jpg",
+      "ext": "jpg"
+    },
+    "Q181529": {
+      "file": "Herbert Simon, RIT NandE Vol13Num11 1981 Mar19 Complete.jpg",
+      "artist": "Rochester Institute of Technology",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Herbert_Simon,_RIT_NandE_Vol13Num11_1981_Mar19_Complete.jpg",
+      "ext": "jpg"
+    },
+    "Q182031": {
+      "file": "Jack Kilby 1960s.png",
+      "artist": "James R. Biard",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Jack_Kilby_1960s.png",
+      "ext": "png"
+    },
+    "Q182964": {
+      "file": "Niels Ryberg Finsen portrait.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Niels_Ryberg_Finsen_portrait.jpg",
+      "ext": "jpg"
+    },
+    "Q183181": {
+      "file": "Jan Tinbergen 1982.jpg",
+      "artist": "Anefo / Croes, R.C.",
+      "licence": "CC0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Jan_Tinbergen_1982.jpg",
+      "ext": "jpg"
+    },
+    "Q183270": {
+      "file": "Edward Mills Purcell.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Edward_Mills_Purcell.jpg",
+      "ext": "jpg"
+    },
+    "Q183279": {
+      "file": "Zhores Alferov April 2016.jpg",
+      "artist": "Рустем Кадыров",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Zhores_Alferov_April_2016.jpg",
+      "ext": "jpg"
+    },
+    "Q183509": {
+      "file": "Ilya Prigogine 1977c.jpg",
+      "artist": "Unknown (Keystone - US)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ilya_Prigogine_1977c.jpg",
+      "ext": "jpg"
+    },
+    "Q183631": {
+      "file": "Ernest Walton.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ernest_Walton.jpg",
+      "ext": "jpg"
+    },
+    "Q183655": {
+      "file": "Owen Chamberlain.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Owen_Chamberlain.jpg",
+      "ext": "jpg"
+    },
+    "Q183679": {
+      "file": "TD Lee.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:TD_Lee.jpg",
+      "ext": "jpg"
+    },
+    "Q184286": {
+      "file": "Langmuir.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Langmuir.jpg",
+      "ext": "jpg"
+    },
+    "Q18430": {
+      "file": "Joseph E. Stiglitz, 2019 (cropped).jpg",
+      "artist": "Jérémy Barande",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Joseph_E._Stiglitz,_2019_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q184499": {
+      "file": "Blackett.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Blackett.jpg",
+      "ext": "jpg"
+    },
+    "Q184563": {
+      "file": "Tomonaga.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Tomonaga.jpg",
+      "ext": "jpg"
+    },
+    "Q184566": {
+      "file": "Charles Townes.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Charles_Townes.jpg",
+      "ext": "jpg"
+    },
+    "Q184571": {
+      "file": "Polykarp Kusch.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Polykarp_Kusch.jpg",
+      "ext": "jpg"
+    },
+    "Q184577": {
+      "file": "Brattain.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Brattain.jpg",
+      "ext": "jpg"
+    },
+    "Q184592": {
+      "file": "Gerard 't Hooft.jpg",
+      "artist": "Wammes Waggel",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Gerard_%27t_Hooft.jpg",
+      "ext": "jpg"
+    },
+    "Q184659": {
+      "file": "Maurice Wilkins nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Maurice_Wilkins_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q184862": {
+      "file": "John Hicks 1972b.jpg",
+      "artist": "Unknown (Associated Press)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_Hicks_1972b.jpg",
+      "ext": "jpg"
+    },
+    "Q185007": {
+      "file": "Rita Levi-Montalcini (1986).png",
+      "artist": "Kurt Hagblom, Firma Hagblom-Foto, restored by Adam Cuerden",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Rita_Levi-Montalcini_(1986).png",
+      "ext": "png"
+    },
+    "Q185777": {
+      "file": "Alexis Carrel 1912.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Alexis_Carrel_1912.jpg",
+      "ext": "jpg"
+    },
+    "Q185871": {
+      "file": "Douglas Diamond.jpg",
+      "artist": "Office of President Joe Biden",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Douglas_Diamond.jpg",
+      "ext": "jpg"
+    },
+    "Q186391": {
+      "file": "The-svedberg-1.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:The-svedberg-1.jpg",
+      "ext": "jpg"
+    },
+    "Q186465": {
+      "file": "Schwinger.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Schwinger.jpg",
+      "ext": "jpg"
+    },
+    "Q186481": {
+      "file": "RiccardoGiacconi.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:RiccardoGiacconi.jpg",
+      "ext": "jpg"
+    },
+    "Q186497": {
+      "file": "Willis Lamb 1955.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Willis_Lamb_1955.jpg",
+      "ext": "jpg"
+    },
+    "Q187199": {
+      "file": "Carlo Rubbia 2012.jpg",
+      "artist": "Markus Pössel (user name: Mapos)",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Carlo_Rubbia_2012.jpg",
+      "ext": "jpg"
+    },
+    "Q187224": {
+      "file": "Pierre-Gilles de Gennes.jpg",
+      "artist": "Dominique Morisseau Laboratoire de Physique et d'Etude des Matériaux (LPEM) ESPCI Paris 10 rue Vauquelin 75005 Paris, France",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Pierre-Gilles_de_Gennes.jpg",
+      "ext": "jpg"
+    },
+    "Q187822": {
+      "file": "Jerry Friedman in Valencia, Rey Jaime event, June 2016.jpg",
+      "artist": "Betsythedevine",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Jerry_Friedman_in_Valencia,_Rey_Jaime_event,_June_2016.jpg",
+      "ext": "jpg"
+    },
+    "Q187988": {
+      "file": "Uio frisch 2006 0025.jpg",
+      "artist": "Borgens Atelier",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Uio_frisch_2006_0025.jpg",
+      "ext": "jpg"
+    },
+    "Q188113": {
+      "file": "Coase profile 2003.jpg",
+      "artist": "University of Chicago Law School",
+      "licence": "Attribution",
+      "commons": "https://commons.wikimedia.org/wiki/File:Coase_profile_2003.jpg",
+      "ext": "jpg"
+    },
+    "Q188120": {
+      "file": "YoichiroNambu.jpg",
+      "artist": "Betsy Devine",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:YoichiroNambu.jpg",
+      "ext": "jpg"
+    },
+    "Q188128": {
+      "file": "AA Abrikosov ANL1.jpg",
+      "artist": "AA_Abrikosov_and_VL_Ginzburg_ANL.jpg: ANL.gov derivative work: Materialscientist",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:AA_Abrikosov_ANL1.jpg",
+      "ext": "jpg"
+    },
+    "Q188293": {
+      "file": "Zernike.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Zernike.jpg",
+      "ext": "jpg"
+    },
+    "Q1886068": {
+      "file": "Tomas Lindahl 0113.jpg",
+      "artist": "Holger Motzkau",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Tomas_Lindahl_0113.jpg",
+      "ext": "jpg"
+    },
+    "Q189006": {
+      "file": "Charles Laveran nobel.jpg",
+      "artist": "Laveran.jpg: Eugène Pirou (1841–1909) derivative work: Materialscientist (talk)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Charles_Laveran_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q189465": {
+      "file": "Theodore william richards.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Theodore_william_richards.jpg",
+      "ext": "jpg"
+    },
+    "Q189485": {
+      "file": "Mott,Nevill Francis 1952 London.jpg",
+      "artist": "GFHund",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Mott,Nevill_Francis_1952_London.jpg",
+      "ext": "jpg"
+    },
+    "Q189488": {
+      "file": "Portrait of W. (Willem) Einthoven, professor of Physiology and Histology at Leiden University Icones 332.tiff",
+      "artist": "unknown",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Portrait_of_W._(Willem)_Einthoven,_professor_of_Physiology_and_Histology_at_Leiden_University_Icones_332.tiff",
+      "ext": "jpg"
+    },
+    "Q189741": {
+      "file": "Melvin Schwartz.jpg",
+      "artist": "AIP Emilio Segrè Visual Archives",
+      "licence": "Attribution",
+      "commons": "https://commons.wikimedia.org/wiki/File:Melvin_Schwartz.jpg",
+      "ext": "jpg"
+    },
+    "Q189803": {
+      "file": "ArthurHarden.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:ArthurHarden.jpg",
+      "ext": "jpg"
+    },
+    "Q189987": {
+      "file": "Nicolaas Bloembergen 1981.jpg",
+      "artist": "... Vetter (Spaarnestad Photo)",
+      "licence": "CC BY-SA 3.0 nl",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nicolaas_Bloembergen_1981.jpg",
+      "ext": "jpg"
+    },
+    "Q189990": {
+      "file": "26. Tagung 1976 Physiker; Gruppen beim Bayrischen Frühstück Antony Hewish - W134Nr.106841b - Willy Pragher.jpg",
+      "artist": "Willy Pragher",
+      "licence": "CC BY 3.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:26._Tagung_1976_Physiker;_Gruppen_beim_Bayrischen_Fr%C3%BChst%C3%BCck_Antony_Hewish_-_W134Nr.106841b_-_Willy_Pragher.jpg",
+      "ext": "jpg"
+    },
+    "Q189997": {
+      "file": "Robert Laughlin, Stanford University.jpg",
+      "artist": "Linda A. Cicero / Stanford News Service",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Laughlin,_Stanford_University.jpg",
+      "ext": "jpg"
+    },
+    "Q19009": {
+      "file": "Edwin McMillan Nobel.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Edwin_McMillan_Nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q19045": {
+      "file": "Mario Molina 1c389 8387.jpg",
+      "artist": "Janwikifoto",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Mario_Molina_1c389_8387.jpg",
+      "ext": "jpg"
+    },
+    "Q190486": {
+      "file": "Willard Libby in Lab.jpg",
+      "artist": "unknown",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Willard_Libby_in_Lab.jpg",
+      "ext": "jpg"
+    },
+    "Q190495": {
+      "file": "Henry Kendall by Tom Frost crop.jpg",
+      "artist": "Tom Frost",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Henry_Kendall_by_Tom_Frost_crop.jpg",
+      "ext": "jpg"
+    },
+    "Q190501": {
+      "file": "Henrik Dam nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Henrik_Dam_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q190503": {
+      "file": "Artur Schawlow, Stanford University.jpg",
+      "artist": "Jose Mercado / Stanford News Service",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Artur_Schawlow,_Stanford_University.jpg",
+      "ext": "jpg"
+    },
+    "Q190626": {
+      "file": "Aaron Klug 1979.jpg",
+      "artist": "Bogaerts, Rob / Anefo",
+      "licence": "CC BY-SA 3.0 nl",
+      "commons": "https://commons.wikimedia.org/wiki/File:Aaron_Klug_1979.jpg",
+      "ext": "jpg"
+    },
+    "Q190697": {
+      "file": "COHEN TANNOUDJI Claude-24x30-1999.jpg",
+      "artist": "Studio Harcourt",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:COHEN_TANNOUDJI_Claude-24x30-1999.jpg",
+      "ext": "jpg"
+    },
+    "Q190745": {
+      "file": "James Rainwater 2.jpg",
+      "artist": "Keystone",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:James_Rainwater_2.jpg",
+      "ext": "jpg"
+    },
+    "Q190756": {
+      "file": "William Phillips-physicist photo.jpg",
+      "artist": "NIST",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:William_Phillips-physicist_photo.jpg",
+      "ext": "jpg"
+    },
+    "Q190766": {
+      "file": "Martin Ryle (cropped).jpg",
+      "artist": "Rights NRAO/AUI/NSF Photographer Woodruff T. Sullivan III Photo Credit NRAO/AUI Archives, Sullivan Collection",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Martin_Ryle_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q190770": {
+      "file": "Andersonphoto.jpg",
+      "artist": "unknown",
+      "licence": "Copyrighted free use",
+      "commons": "https://commons.wikimedia.org/wiki/File:Andersonphoto.jpg",
+      "ext": "jpg"
+    },
+    "Q191020": {
+      "file": "GaryBecker-May24-2008.jpg",
+      "artist": "MAR",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:GaryBecker-May24-2008.jpg",
+      "ext": "jpg"
+    },
+    "Q191922": {
+      "file": "Frederick Reines, early 1950s.jpg",
+      "artist": "Los Alamos National Laboratory",
+      "licence": "Attribution",
+      "commons": "https://commons.wikimedia.org/wiki/File:Frederick_Reines,_early_1950s.jpg",
+      "ext": "jpg"
+    },
+    "Q192106": {
+      "file": "Burton Richter NSF crop.jpg",
+      "artist": "Burton_Richter_NSF.jpg: NSF derivative work: Materialscientist (talk)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Burton_Richter_NSF_crop.jpg",
+      "ext": "jpg"
+    },
+    "Q192112": {
+      "file": "Nobel Prize 24 2013.jpg",
+      "artist": "Bengt Nyman",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Prize_24_2013.jpg",
+      "ext": "jpg"
+    },
+    "Q192566": {
+      "file": "Edmund Phelps 2008-01-23.jpg",
+      "artist": "Robert Scoble",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Edmund_Phelps_2008-01-23.jpg",
+      "ext": "jpg"
+    },
+    "Q192577": {
+      "file": "Simon Kuznets 1971b.jpg",
+      "artist": "Unknown (Associated Press)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Simon_Kuznets_1971b.jpg",
+      "ext": "jpg"
+    },
+    "Q192592": {
+      "file": "Kenneth Arrow, Stanford University.jpg",
+      "artist": "Linda A. Cicero / Stanford News Service",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Kenneth_Arrow,_Stanford_University.jpg",
+      "ext": "jpg"
+    },
+    "Q192603": {
+      "file": "Oláh György előadása 8299.jpg",
+      "artist": "user:Bitman",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ol%C3%A1h_Gy%C3%B6rgy_el%C5%91ad%C3%A1sa_8299.jpg",
+      "ext": "jpg"
+    },
+    "Q192651": {
+      "file": "Allvar Gullstrand.png",
+      "artist": "Emil Finn",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Allvar_Gullstrand.png",
+      "ext": "png"
+    },
+    "Q192685": {
+      "file": "2008JosephTaylor.jpg",
+      "artist": "2008JosephTaylorWithMarietta.jpg: Betsythedevine Betsy Devine derivative work: Materialscientist (talk)",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:2008JosephTaylor.jpg",
+      "ext": "jpg"
+    },
+    "Q192688": {
+      "file": "Ivar Giaever 1973.jpg",
+      "artist": "AIP Emilio Segrè Visual Archives, W. F. Meggers Gallery of Nobel Laureates Collection",
+      "licence": "Attribution",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ivar_Giaever_1973.jpg",
+      "ext": "jpg"
+    },
+    "Q192689": {
+      "file": "Bertram Brockhouse.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Bertram_Brockhouse.jpg",
+      "ext": "jpg"
+    },
+    "Q192695": {
+      "file": "Leon M. Lederman.jpg",
+      "artist": "FNAL",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Leon_M._Lederman.jpg",
+      "ext": "jpg"
+    },
+    "Q192703": {
+      "file": "Ilya Frank.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ilya_Frank.jpg",
+      "ext": "jpg"
+    },
+    "Q192708": {
+      "file": "Robert Coleman Richardson.jpg",
+      "artist": "Silin2005",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Coleman_Richardson.jpg",
+      "ext": "jpg"
+    },
+    "Q192712": {
+      "file": "Kai Manne Börje Siegbahn.jpg",
+      "artist": "Jan Collsiöö",
+      "licence": "CC BY-SA 3.0 nl",
+      "commons": "https://commons.wikimedia.org/wiki/File:Kai_Manne_B%C3%B6rje_Siegbahn.jpg",
+      "ext": "jpg"
+    },
+    "Q192715": {
+      "file": "Samuel Ting 2023.jpg",
+      "artist": "中国新闻社",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Samuel_Ting_2023.jpg",
+      "ext": "jpg"
+    },
+    "Q192718": {
+      "file": "Nobel Laureate Sir Anthony James Leggett in 2007.jpg",
+      "artist": "Kenneth C. Zirkel",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Laureate_Sir_Anthony_James_Leggett_in_2007.jpg",
+      "ext": "jpg"
+    },
+    "Q1927895": {
+      "file": "Prof Michael Houghton.jpg",
+      "artist": "Kerry Angelo Piper",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Prof_Michael_Houghton.jpg",
+      "ext": "jpg"
+    },
+    "Q1929672": {
+      "file": "Michael W. Young D81 4345 (38162439194).jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Michael_W._Young_D81_4345_(38162439194).jpg",
+      "ext": "jpg"
+    },
+    "Q193496": {
+      "file": "James-cronin.jpg",
+      "artist": "Markus Pössel (Mapos)",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:James-cronin.jpg",
+      "ext": "jpg"
+    },
+    "Q193503": {
+      "file": "Kenneth G. Wilson.121.png",
+      "artist": "The Nobel Prize",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Kenneth_G._Wilson.121.png",
+      "ext": "png"
+    },
+    "Q193550": {
+      "file": "Frank Macfarlane Burnet.jpg",
+      "artist": "Faingold, Denver",
+      "licence": "PDM-owner",
+      "commons": "https://commons.wikimedia.org/wiki/File:Frank_Macfarlane_Burnet.jpg",
+      "ext": "jpg"
+    },
+    "Q193650": {
+      "file": "Alan Lloyd Hodgkin nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Alan_Lloyd_Hodgkin_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q193655": {
+      "file": "JH van Vleck 1974.jpg",
+      "artist": "JH_van_Vleck_and_HBG_Casimir,_1974.jpg: Unknown derivative work: Materialscientist",
+      "licence": "CC BY-SA 3.0 nl",
+      "commons": "https://commons.wikimedia.org/wiki/File:JH_van_Vleck_1974.jpg",
+      "ext": "jpg"
+    },
+    "Q193803": {
+      "file": "Roger Penrose 9560.JPG",
+      "artist": "Biswarup Ganguly",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Roger_Penrose_9560.JPG",
+      "ext": "jpg"
+    },
+    "Q194646": {
+      "file": "Louis E Brus.jpg",
+      "artist": "Credit Line: AIP Emilio Segrè Visual Archives",
+      "licence": "Copyrighted free use",
+      "commons": "https://commons.wikimedia.org/wiki/File:Louis_E_Brus.jpg",
+      "ext": "jpg"
+    },
+    "Q19520018": {
+      "file": "James A. Robinson, 2024 Nobel Prize Laureate in Economics (cropped).jpg",
+      "artist": "John Sears",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:James_A._Robinson,_2024_Nobel_Prize_Laureate_in_Economics_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q199654": {
+      "file": "Barbara McClintock (1902-1992) shown in her laboratory in 1947.jpg",
+      "artist": "Smithsonian Institution/Science Service; Restored by Adam Cuerden",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Barbara_McClintock_(1902-1992)_shown_in_her_laboratory_in_1947.jpg",
+      "ext": "jpg"
+    },
+    "Q200136": {
+      "file": "Linda Buck 2015 (cropped).jpg",
+      "artist": "Royal Society uploader",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Linda_Buck_2015_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q201452": {
+      "file": "Brian Schmidt portrait 1.jpg",
+      "artist": "Tim Wetherell",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Brian_Schmidt_portrait_1.jpg",
+      "ext": "jpg"
+    },
+    "Q201470": {
+      "file": "Richard E. Taylor.jpg",
+      "artist": "ENERGY.GOV",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Richard_E._Taylor.jpg",
+      "ext": "jpg"
+    },
+    "Q201506": {
+      "file": "Wollan and Shull 1949 (cropped).jpg",
+      "artist": "Photo is from US Atomic Energy Commission or Oak Ridge National Laboratory. Article rights are T. E. Mason et al. 2013 (for Oak Ridge National Laboratory).",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Wollan_and_Shull_1949_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q201795": {
+      "file": "Ben Bernanke official portrait.jpg",
+      "artist": "United States Federal Reserve",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ben_Bernanke_official_portrait.jpg",
+      "ext": "jpg"
+    },
+    "Q201853": {
+      "file": "Nobel Laureate David Morris Lee in 2007.jpg",
+      "artist": "Kenneth C. Zirkel",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Laureate_David_Morris_Lee_in_2007.jpg",
+      "ext": "jpg"
+    },
+    "Q202136": {
+      "file": "Barry J Marshall.jpg",
+      "artist": "WikiEdtingProfile2021",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Barry_J_Marshall.jpg",
+      "ext": "jpg"
+    },
+    "Q202138": {
+      "file": "Daniel Chee Tsui.jpg",
+      "artist": "The White House",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Daniel_Chee_Tsui.jpg",
+      "ext": "jpg"
+    },
+    "Q202140": {
+      "file": "Robert Grubbs Royal Society.jpg",
+      "artist": "Duncan.Hull",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Grubbs_Royal_Society.jpg",
+      "ext": "jpg"
+    },
+    "Q202146": {
+      "file": "Chauvin, Yves (1930-2015).jpg",
+      "artist": "Barney Grubbs derivative work: MagentaGreen, Ephraim33",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Chauvin,_Yves_(1930-2015).jpg",
+      "ext": "jpg"
+    },
+    "Q202149": {
+      "file": "Martinus Veltman.jpg",
+      "artist": "Silin2005",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Martinus_Veltman.jpg",
+      "ext": "jpg"
+    },
+    "Q202152": {
+      "file": "Andrew Fire, Stanford University.jpg",
+      "artist": "Linda A. Cicero / Stanford News Service",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Andrew_Fire,_Stanford_University.jpg",
+      "ext": "jpg"
+    },
+    "Q202159": {
+      "file": "R. Schrock 2012.jpg",
+      "artist": "R._Schrock_-_IChO_2012_Opening_Ceremony.JPG: A.mela93 derivative work: Materialscientist",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:R._Schrock_2012.jpg",
+      "ext": "jpg"
+    },
+    "Q202164": {
+      "file": "Makoto Kobayashi 20101223.jpg",
+      "artist": "日本学士院",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Makoto_Kobayashi_20101223.jpg",
+      "ext": "jpg"
+    },
+    "Q202168": {
+      "file": "Masukawa.jpg",
+      "artist": "NIMSoffice",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Masukawa.jpg",
+      "ext": "jpg"
+    },
+    "Q204078": {
+      "file": "Angus Deaton 0244.jpg",
+      "artist": "Holger Motzkau",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Angus_Deaton_0244.jpg",
+      "ext": "jpg"
+    },
+    "Q204600": {
+      "file": "Norman Haworth.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Norman_Haworth.jpg",
+      "ext": "jpg"
+    },
+    "Q204733": {
+      "file": "Gerty Theresa Cori.jpg",
+      "artist": "National Library of Medicine, Images from the History of Medicine, B05353",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Gerty_Theresa_Cori.jpg",
+      "ext": "jpg"
+    },
+    "Q205345": {
+      "file": "Osamu Shimomura-press conference Dec 06th, 2008-2.jpg",
+      "artist": "Prolineserver (talk)",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Osamu_Shimomura-press_conference_Dec_06th,_2008-2.jpg",
+      "ext": "jpg"
+    },
+    "Q205353": {
+      "file": "James Buchanan by Atlas network.jpg",
+      "artist": "Atlas Network Official website",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:James_Buchanan_by_Atlas_network.jpg",
+      "ext": "jpg"
+    },
+    "Q205667": {
+      "file": "Salvador E. Luria ca.1969.jpg",
+      "artist": "Provided by U.S. National Library of Medicine - please see here for more information.",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Salvador_E._Luria_ca.1969.jpg",
+      "ext": "jpg"
+    },
+    "Q205850": {
+      "file": "Franco Modigliani.jpg",
+      "artist": "Umofomia",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Franco_Modigliani.jpg",
+      "ext": "jpg"
+    },
+    "Q205954": {
+      "file": "Physics Nobel Laureate Eric Allin Cornell, in June of 2015.jpg",
+      "artist": "Betsythedevine",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Physics_Nobel_Laureate_Eric_Allin_Cornell,_in_June_of_2015.jpg",
+      "ext": "jpg"
+    },
+    "Q206379": {
+      "file": "Carl Wieman.jpg",
+      "artist": "Tina Hager",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Carl_Wieman.jpg",
+      "ext": "jpg"
+    },
+    "Q206390": {
+      "file": "John L. Hall.jpg",
+      "artist": "NIST",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_L._Hall.jpg",
+      "ext": "jpg"
+    },
+    "Q206405": {
+      "file": "Douglas Osheroff.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Douglas_Osheroff.jpg",
+      "ext": "jpg"
+    },
+    "Q206455": {
+      "file": "Craig Mello 01 (cropped).jpg",
+      "artist": "Bengt Oberger",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Craig_Mello_01_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q206460": {
+      "file": "Thomas Schelling .png",
+      "artist": "Alvaro conde",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Thomas_Schelling_.png",
+      "ext": "png"
+    },
+    "Q206499": {
+      "file": "Val Fitch.jpg",
+      "artist": "ENERGY.GOV",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Val_Fitch.jpg",
+      "ext": "jpg"
+    },
+    "Q2075967": {
+      "file": "Peter J. Ratcliffe (cropped).jpg",
+      "artist": "Secretaría de Ciencia, Tecnología e Innovación Productiva.",
+      "licence": "CC BY 2.5 ar",
+      "commons": "https://commons.wikimedia.org/wiki/File:Peter_J._Ratcliffe_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q207719": {
+      "file": "Martin Evans Nobel Prize.jpg",
+      "artist": "Cardiff University",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Martin_Evans_Nobel_Prize.jpg",
+      "ext": "jpg"
+    },
+    "Q207992": {
+      "file": "36. Tagung 1986 Chemiker; Pressekonferenz Peter D. Mitchell - W134Nr.125218c - Willy Pragher (cropped).jpg",
+      "artist": "Willy Pragher",
+      "licence": "CC BY 3.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:36._Tagung_1986_Chemiker;_Pressekonferenz_Peter_D._Mitchell_-_W134Nr.125218c_-_Willy_Pragher_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q208124": {
+      "file": "Trygve Haavelmo.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Trygve_Haavelmo.jpg",
+      "ext": "jpg"
+    },
+    "Q208670": {
+      "file": "Robin Warren.jpg",
+      "artist": "A friend of Akshay Sharma",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robin_Warren.jpg",
+      "ext": "jpg"
+    },
+    "Q21061207": {
+      "file": "Satoshi Ōmura 5040-2015.jpg",
+      "artist": "Bengt Nyman",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Satoshi_%C5%8Cmura_5040-2015.jpg",
+      "ext": "jpg"
+    },
+    "Q21061212": {
+      "file": "William C. Campbell 4983-1-2015.jpg",
+      "artist": "Bengt Nyman",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:William_C._Campbell_4983-1-2015.jpg",
+      "ext": "jpg"
+    },
+    "Q210960": {
+      "file": "Debreu, Gérard (1921-2004).jpeg",
+      "artist": "Konrad Jacobs, Erlangen, Copyright is with MFO",
+      "licence": "CC BY-SA 2.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:Debreu,_G%C3%A9rard_(1921-2004).jpeg",
+      "ext": "jpg"
+    },
+    "Q211097": {
+      "file": "Finn E Kydland 2015 (cropped).jpg",
+      "artist": "Narodowy Bank Polski from Poland",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Finn_E_Kydland_2015_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q211482": {
+      "file": "Roderick MacKinnon, M.D..jpg",
+      "artist": "PotassiumChannel",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Roderick_MacKinnon,_M.D..jpg",
+      "ext": "jpg"
+    },
+    "Q211776": {
+      "file": "James Tobin.png",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:James_Tobin.png",
+      "ext": "png"
+    },
+    "Q211787": {
+      "file": "Jules Bordet nobel.jpg",
+      "artist": "A. B. Lagrelius & Westphal, Stockholm",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Jules_Bordet_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q211940": {
+      "file": "Professor Richard Axel ForMemRS (cropped).jpg",
+      "artist": "Royal Society uploader",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Professor_Richard_Axel_ForMemRS_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q2128461": {
+      "file": "Rainer Weiss EM1B8841 (24027015857).jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Rainer_Weiss_EM1B8841_(24027015857).jpg",
+      "ext": "jpg"
+    },
+    "Q213504": {
+      "file": "Prof. Charles Scott Sherrington.jpg",
+      "artist": "No known restrictions on publication. Creator(s): Bain News Service, publisher",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Prof._Charles_Scott_Sherrington.jpg",
+      "ext": "jpg"
+    },
+    "Q214209": {
+      "file": "Peter Brian Medawar.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Peter_Brian_Medawar.jpg",
+      "ext": "jpg"
+    },
+    "Q214851": {
+      "file": "Charles Robert Richet nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Charles_Robert_Richet_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q215574": {
+      "file": "MarioCapecchiFotoThalerTamas2.JPG",
+      "artist": "Thaler Tamas",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:MarioCapecchiFotoThalerTamas2.JPG",
+      "ext": "jpg"
+    },
+    "Q216318": {
+      "file": "Oliver Smithies HD2009 AIC Gold Medal portrait (cropped).JPG",
+      "artist": "Douglas A. Lockard",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Oliver_Smithies_HD2009_AIC_Gold_Medal_portrait_(cropped).JPG",
+      "ext": "jpg"
+    },
+    "Q216324": {
+      "file": "J Fibiger.jpg",
+      "artist": "Unknown author",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:J_Fibiger.jpg",
+      "ext": "jpg"
+    },
+    "Q217486": {
+      "file": "Walter Gilbert HD2008 portrait.JPG",
+      "artist": "Douglas A. Lockard",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Walter_Gilbert_HD2008_portrait.JPG",
+      "ext": "jpg"
+    },
+    "Q217722": {
+      "file": "Ragnar Granit2.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ragnar_Granit2.jpg",
+      "ext": "jpg"
+    },
+    "Q217734": {
+      "file": "Kenichi Fukui nobel.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Kenichi_Fukui_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q218311": {
+      "file": "François Jacob nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Fran%C3%A7ois_Jacob_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q218823": {
+      "file": "Joshua Lederberg crop.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Joshua_Lederberg_crop.jpg",
+      "ext": "jpg"
+    },
+    "Q219716": {
+      "file": "Paul Nurse portrait.jpg",
+      "artist": "Not specified in the submission",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Paul_Nurse_portrait.jpg",
+      "ext": "jpg"
+    },
+    "Q219718": {
+      "file": "RO033-16.jpg",
+      "artist": "Post of Romania",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:RO033-16.jpg",
+      "ext": "jpg"
+    },
+    "Q219721": {
+      "file": "Rmundell.jpg",
+      "artist": "Triwbe",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Rmundell.jpg",
+      "ext": "jpg"
+    },
+    "Q219733": {
+      "file": "Economist Richard Stone in 1984.jpg",
+      "artist": "Associated Press",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Economist_Richard_Stone_in_1984.jpg",
+      "ext": "jpg"
+    },
+    "Q222541": {
+      "file": "George Akerlof.jpg",
+      "artist": "Yan Chi Vinci Chow",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:George_Akerlof.jpg",
+      "ext": "jpg"
+    },
+    "Q223309": {
+      "file": "André Lwoff nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9_Lwoff_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q223542": {
+      "file": "34. Tagung 1984 Mediziner; Verabschiedung H.-H. Kunckel, Allen Cormack - W134Nr.123006 - Willy Pragher (cropped).jpg",
+      "artist": "Willy Pragher",
+      "licence": "CC BY 3.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:34._Tagung_1984_Mediziner;_Verabschiedung_H.-H._Kunckel,_Allen_Cormack_-_W134Nr.123006_-_Willy_Pragher_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q224153": {
+      "file": "R. B. Merrifield.jpg",
+      "artist": "Dann Kristoff",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:R._B._Merrifield.jpg",
+      "ext": "jpg"
+    },
+    "Q22669757": {
+      "file": "Charles M. Rice.jpg",
+      "artist": "Bill Branson",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Charles_M._Rice.jpg",
+      "ext": "jpg"
+    },
+    "Q230612": {
+      "file": "Edward A Doisy.jpg",
+      "artist": "The Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Edward_A_Doisy.jpg",
+      "ext": "jpg"
+    },
+    "Q230652": {
+      "file": "Nobel2004chemistrylaurets-Rose.jpg",
+      "artist": "Photograph by Avi Blizovsky",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel2004chemistrylaurets-Rose.jpg",
+      "ext": "jpg"
+    },
+    "Q231292": {
+      "file": "Edgar Douglas Adrian nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Edgar_Douglas_Adrian_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q231402": {
+      "file": "Jacques Monod 1971.jpg",
+      "artist": "Farabola",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Jacques_Monod_1971.jpg",
+      "ext": "jpg"
+    },
+    "Q232024": {
+      "file": "J.J.R. Macleod ca. 1928.png",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:J.J.R._Macleod_ca._1928.png",
+      "ext": "png"
+    },
+    "Q232062": {
+      "file": "Nobel Prize 2009-Press Conference KVA-42.jpg",
+      "artist": "Prolineserver (talk)",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Prize_2009-Press_Conference_KVA-42.jpg",
+      "ext": "jpg"
+    },
+    "Q232289": {
+      "file": "Michael Smith cropped.jpg",
+      "artist": "File:Michael Smith party at Mary Vickers's house.1994, F-109-7-0-0-10 001.jpg: SCWIST Society for Canadian Women in Science and Technology derivative work: Michał Sobkowski",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Michael_Smith_cropped.jpg",
+      "ext": "jpg"
+    },
+    "Q232295": {
+      "file": "John Kendrew Nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_Kendrew_Nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q232299": {
+      "file": "Stanley Cohen Nobel.webp",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Stanley_Cohen_Nobel.webp",
+      "ext": "png"
+    },
+    "Q232302": {
+      "file": "Avram Hershko.jpg",
+      "artist": "שרון גבאי",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Avram_Hershko.jpg",
+      "ext": "jpg"
+    },
+    "Q232305": {
+      "file": "Roger Wolcott Sperry.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Roger_Wolcott_Sperry.jpg",
+      "ext": "jpg"
+    },
+    "Q232308": {
+      "file": "Selman Waksman NYWTS.jpg",
+      "artist": "New York World-Telegram and the Sun staff photographer: Higgins, Roger, photographer.",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Selman_Waksman_NYWTS.jpg",
+      "ext": "jpg"
+    },
+    "Q232316": {
+      "file": "Robert Burns Woodward in 1965.jpg",
+      "artist": "Peter Geymayer at German Wikipedia / (Original text: Dr. Peter Geymayer)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Burns_Woodward_in_1965.jpg",
+      "ext": "jpg"
+    },
+    "Q232949": {
+      "file": "Myerson roger b print.jpg",
+      "artist": "The original uploader was MS!Mit8rd; at English Wikipedia.",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Myerson_roger_b_print.jpg",
+      "ext": "jpg"
+    },
+    "Q233026": {
+      "file": "Arne Tiselius.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Arne_Tiselius.jpg",
+      "ext": "jpg"
+    },
+    "Q233051": {
+      "file": "05N3441 emaskin.jpg",
+      "artist": "Nomo michael hoefner http://www.zwo5.de",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:05N3441_emaskin.jpg",
+      "ext": "jpg"
+    },
+    "Q233205": {
+      "file": "Aaron Ciechanover 1.jpg",
+      "artist": "שרון גבאי",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Aaron_Ciechanover_1.jpg",
+      "ext": "jpg"
+    },
+    "Q233355": {
+      "file": "Mulliken,Robert 1929 Chicago.jpg",
+      "artist": "GFHund",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Mulliken,Robert_1929_Chicago.jpg",
+      "ext": "jpg"
+    },
+    "Q233943": {
+      "file": "Albert Claude 1974.jpg",
+      "artist": "Keystone",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Albert_Claude_1974.jpg",
+      "ext": "jpg"
+    },
+    "Q233947": {
+      "file": "Theodore W. Schultz.jpg",
+      "artist": "Unknown authorUnknown author photographer - Photo from Wide World press service",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Theodore_W._Schultz.jpg",
+      "ext": "jpg"
+    },
+    "Q233950": {
+      "file": "Daniel Kahneman (3283955327) (cropped).jpg",
+      "artist": "nrkbeta",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Daniel_Kahneman_(3283955327)_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q233957": {
+      "file": "Severo Ochoa 1958.jpg",
+      "artist": "Irwin Gooen (NY University)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Severo_Ochoa_1958.jpg",
+      "ext": "jpg"
+    },
+    "Q233973": {
+      "file": "John Anthony Pople.png",
+      "artist": "The White House",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_Anthony_Pople.png",
+      "ext": "png"
+    },
+    "Q233976": {
+      "file": "Frederick Gowland Hopkins nobel.jpg",
+      "artist": "John Palmer Clarke (active 1890-1909)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Frederick_Gowland_Hopkins_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q233985": {
+      "file": "Luis Federico Leloir - young.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Luis_Federico_Leloir_-_young.jpg",
+      "ext": "jpg"
+    },
+    "Q234145": {
+      "file": "Giulio Natta Nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Giulio_Natta_Nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q234463": {
+      "file": "Sydney Brenner OIST 2008 (33208371153) (cropped).jpg",
+      "artist": "OIST from Onna Village, Japan",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Sydney_Brenner_OIST_2008_(33208371153)_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q234590": {
+      "file": "Christian de Duve.tif",
+      "artist": "Julien Doornaert",
+      "licence": "CC BY 2.5",
+      "commons": "https://commons.wikimedia.org/wiki/File:Christian_de_Duve.tif",
+      "ext": "jpg"
+    },
+    "Q234701": {
+      "file": "Baruj Benacerraf 1969.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Baruj_Benacerraf_1969.jpg",
+      "ext": "jpg"
+    },
+    "Q234949": {
+      "file": "Dr. David Baltimore2 crop2.jpg",
+      "artist": "Bob Paz",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Dr._David_Baltimore2_crop2.jpg",
+      "ext": "jpg"
+    },
+    "Q235184": {
+      "file": "John Ernest Walker.jpg",
+      "artist": "Mogens Engelund",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_Ernest_Walker.jpg",
+      "ext": "jpg"
+    },
+    "Q235651": {
+      "file": "Philip Showalter Hench.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Philip_Showalter_Hench.jpg",
+      "ext": "jpg"
+    },
+    "Q235834": {
+      "file": "Ronald George Wreyford Norrish.jpg",
+      "artist": "The Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ronald_George_Wreyford_Norrish.jpg",
+      "ext": "jpg"
+    },
+    "Q235843": {
+      "file": "James Meade Nobel.jpg",
+      "artist": "LSE Library",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:James_Meade_Nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q235983": {
+      "file": "Henry Taube - HD.3F.005 (11086397086).jpg",
+      "artist": "ENERGY.GOV",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Henry_Taube_-_HD.3F.005_(11086397086).jpg",
+      "ext": "jpg"
+    },
+    "Q237142": {
+      "file": "Ulf von Euler.jpg",
+      "artist": "Unknown author",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ulf_von_Euler.jpg",
+      "ext": "jpg"
+    },
+    "Q237160": {
+      "file": "Bernado Houssay.JPG",
+      "artist": "unknow (uploader Claudio Elias)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Bernado_Houssay.JPG",
+      "ext": "jpg"
+    },
+    "Q237499": {
+      "file": "Edward Lawrie Tatum.jpg",
+      "artist": "https://en.wikipedia.org/wiki/Edward_Lawrie_Tatum",
+      "licence": "CC0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Edward_Lawrie_Tatum.jpg",
+      "ext": "jpg"
+    },
+    "Q237821": {
+      "file": "Robert William Fogel.jpg",
+      "artist": "Michael Fogel",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_William_Fogel.jpg",
+      "ext": "jpg"
+    },
+    "Q237825": {
+      "file": "John Polanyi 01.jpg",
+      "artist": "Bengt Oberger",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_Polanyi_01.jpg",
+      "ext": "jpg"
+    },
+    "Q238716": {
+      "file": "Georg von Békésy nobel.jpg",
+      "artist": "The Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Georg_von_B%C3%A9k%C3%A9sy_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q238739": {
+      "file": "University of Chicago President George Beadle at Congress of Racial Equality Meeting on Housing Sit-Ins (cropped).jpg",
+      "artist": "Danny Lyon (b. 1942)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:University_of_Chicago_President_George_Beadle_at_Congress_of_Racial_Equality_Meeting_on_Housing_Sit-Ins_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q239067": {
+      "file": "Prof. Dr. Rudolph A. Marcus (cropped).jpg",
+      "artist": "No machine-readable author provided. Xvlun~commonswiki assumed (based on copyright claims).",
+      "licence": "CC BY-SA 2.5",
+      "commons": "https://commons.wikimedia.org/wiki/File:Prof._Dr._Rudolph_A._Marcus_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q2395341": {
+      "file": "Tasuku Honjo 201311.jpg",
+      "artist": "大臣官房人事課",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Tasuku_Honjo_201311.jpg",
+      "ext": "jpg"
+    },
+    "Q242169": {
+      "file": "Roger Guillemin.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Roger_Guillemin.jpg",
+      "ext": "jpg"
+    },
+    "Q243190": {
+      "file": "Yuan Tseh Lee HD2008 Othmer Gold Medal portrait.JPG",
+      "artist": "Douglas A. Lockard",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Yuan_Tseh_Lee_HD2008_Othmer_Gold_Medal_portrait.JPG",
+      "ext": "jpg"
+    },
+    "Q243193": {
+      "file": "Douglass North.jpg",
+      "artist": "UNU-WIDER",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Douglass_North.jpg",
+      "ext": "jpg"
+    },
+    "Q243196": {
+      "file": "Dudley Herschbach HD2011 AIC Gold Medal 2.jpg",
+      "artist": "Conrad Erb",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Dudley_Herschbach_HD2011_AIC_Gold_Medal_2.jpg",
+      "ext": "jpg"
+    },
+    "Q243532": {
+      "file": "Joseph Erlanger nobel.jpg",
+      "artist": "The Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Joseph_Erlanger_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q243536": {
+      "file": "Howard Martin Temin 1975.jpg",
+      "artist": "Associated Press",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Howard_Martin_Temin_1975.jpg",
+      "ext": "jpg"
+    },
+    "Q244739": {
+      "file": "Shapley, Lloyd (1980).jpg",
+      "artist": "Konrad Jacobs, Erlangen, Copyright is with MFO",
+      "licence": "CC BY-SA 2.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:Shapley,_Lloyd_(1980).jpg",
+      "ext": "jpg"
+    },
+    "Q245000": {
+      "file": "George Minot nobel.jpg",
+      "artist": "The Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:George_Minot_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q24565948": {
+      "file": "Philip Dybvig - Nobel 2022 Group - 52637857287 (cropped).jpg",
+      "artist": "US Embassy Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Philip_Dybvig_-_Nobel_2022_Group_-_52637857287_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q26321": {
+      "file": "Elizabeth Blackburn CHF Heritage Day 2012 Rush 001.JPG",
+      "artist": "Conrad Erb",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Elizabeth_Blackburn_CHF_Heritage_Day_2012_Rush_001.JPG",
+      "ext": "jpg"
+    },
+    "Q26322": {
+      "file": "GREIDER Carol 2014 - Less vignetting.jpg",
+      "artist": "Keith Weller",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:GREIDER_Carol_2014_-_Less_vignetting.jpg",
+      "ext": "jpg"
+    },
+    "Q26703310": {
+      "file": "Michel Devoret (54987873184).jpg",
+      "artist": "Christian Ursilva from København, Danmark",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Michel_Devoret_(54987873184).jpg",
+      "ext": "jpg"
+    },
+    "Q271421": {
+      "file": "Torsten Wiesel-7Nov2006.jpg",
+      "artist": "Festival della Scienza",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Torsten_Wiesel-7Nov2006.jpg",
+      "ext": "jpg"
+    },
+    "Q271424": {
+      "file": "Joe Goldstein.JPG",
+      "artist": "The original uploader was Rrawson at English Wikipedia.",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Joe_Goldstein.JPG",
+      "ext": "jpg"
+    },
+    "Q271532": {
+      "file": "John Sulston (2008).jpg",
+      "artist": "Arienette22",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_Sulston_(2008).jpg",
+      "ext": "jpg"
+    },
+    "Q271703": {
+      "file": "Alfred Hershey.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Alfred_Hershey.jpg",
+      "ext": "jpg"
+    },
+    "Q271757": {
+      "file": "André Frédéric Cournand nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9_Fr%C3%A9d%C3%A9ric_Cournand_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q271766": {
+      "file": "Gerald Edelman (cropped).jpg",
+      "artist": "Bernard Gotfryd",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Gerald_Edelman_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q272510": {
+      "file": "John Harsanyi, Eger.JPG",
+      "artist": "Rakás",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_Harsanyi,_Eger.JPG",
+      "ext": "jpg"
+    },
+    "Q272519": {
+      "file": "Arthur Lewis (1915-1991).jpg",
+      "artist": "Ulises Icardi",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Arthur_Lewis_(1915-1991).jpg",
+      "ext": "jpg"
+    },
+    "Q273201": {
+      "file": "Herbert Spencer Gasser nobel.jpg",
+      "artist": "Esselte",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Herbert_Spencer_Gasser_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q273219": {
+      "file": "Moniz.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Moniz.jpg",
+      "ext": "jpg"
+    },
+    "Q273223": {
+      "file": "Sir John Eccles Wellcome L0026812.jpg",
+      "artist": "unknown",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Sir_John_Eccles_Wellcome_L0026812.jpg",
+      "ext": "jpg"
+    },
+    "Q273238": {
+      "file": "George Whipple nobel.jpg",
+      "artist": "The Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:George_Whipple_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q273279": {
+      "file": "Roald Hoffmann.jpg",
+      "artist": ". The original uploader was Xtreambar at English Wikipedia.",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Roald_Hoffmann.jpg",
+      "ext": "jpg"
+    },
+    "Q273769": {
+      "file": "Godfrey Hounsfield.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Godfrey_Hounsfield.jpg",
+      "ext": "jpg"
+    },
+    "Q274111": {
+      "file": "William sharpe 2007.jpg",
+      "artist": "Larry D. Moore",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:William_sharpe_2007.jpg",
+      "ext": "jpg"
+    },
+    "Q274123": {
+      "file": "Ed Lewis 1986.png",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ed_Lewis_1986.png",
+      "ext": "png"
+    },
+    "Q274128": {
+      "file": "Geoffrey Wilkinson ca. 1976.png",
+      "artist": "Smokefoot",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Geoffrey_Wilkinson_ca._1976.png",
+      "ext": "png"
+    },
+    "Q28189": {
+      "file": "Abdus Salam 1987 (cropped).jpg",
+      "artist": "Molendijk, Bart / Anefo",
+      "licence": "CC BY-SA 3.0 nl",
+      "commons": "https://commons.wikimedia.org/wiki/File:Abdus_Salam_1987_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q28212107": {
+      "file": "Fred Ramsdell - US Embassy Sweden Nobel Reception 2025.jpg",
+      "artist": "US Embassy Sweden",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Fred_Ramsdell_-_US_Embassy_Sweden_Nobel_Reception_2025.jpg",
+      "ext": "jpg"
+    },
+    "Q285062": {
+      "file": "Stanley Whittingham (portrait) 2020.jpg",
+      "artist": "Stanford Energy",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Stanley_Whittingham_(portrait)_2020.jpg",
+      "ext": "jpg"
+    },
+    "Q28542": {
+      "file": "Alvin E. Roth 3 2012.jpg",
+      "artist": "Bengt Nyman",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Alvin_E._Roth_3_2012.jpg",
+      "ext": "jpg"
+    },
+    "Q287542": {
+      "file": "Robert C. Merton.jpg",
+      "artist": "Digarnick at en.wikipedia",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_C._Merton.jpg",
+      "ext": "jpg"
+    },
+    "Q28833112": {
+      "file": "Joachim Frank EM1B8792 (27115577469).jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Joachim_Frank_EM1B8792_(27115577469).jpg",
+      "ext": "jpg"
+    },
+    "Q28976188": {
+      "file": "John M. Martinis, American physicst and 2025 Nobel laurate in physics.jpg",
+      "artist": "Karen Zhou",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_M._Martinis,_American_physicst_and_2025_Nobel_laurate_in_physics.jpg",
+      "ext": "jpg"
+    },
+    "Q2899100": {
+      "file": "Joel Mokyr.png",
+      "artist": "יואל מוקיר (המצולם)",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Joel_Mokyr.png",
+      "ext": "png"
+    },
+    "Q295644": {
+      "file": "DHUBEL.jpg",
+      "artist": "Joey cantod",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:DHUBEL.jpg",
+      "ext": "jpg"
+    },
+    "Q295647": {
+      "file": "Myron Scholes 2008 in Lindau.png",
+      "artist": "The original uploader was Nobellaureatesphotographer at English Wikipedia.",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Myron_Scholes_2008_in_Lindau.png",
+      "ext": "png"
+    },
+    "Q295653": {
+      "file": "Robert Engle SantiagoWEAI2017.png",
+      "artist": "Econterms",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Engle_SantiagoWEAI2017.png",
+      "ext": "png"
+    },
+    "Q295673": {
+      "file": "William Vickrey.jpg",
+      "artist": "Unknown author",
+      "licence": "CC0",
+      "commons": "https://commons.wikimedia.org/wiki/File:William_Vickrey.jpg",
+      "ext": "jpg"
+    },
+    "Q295678": {
+      "file": "Arthur Kornberg (30828410210).jpg",
+      "artist": "NIH History Office from Bethesda",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Arthur_Kornberg_(30828410210).jpg",
+      "ext": "jpg"
+    },
+    "Q295684": {
+      "file": "Mike Brown 2003.jpg",
+      "artist": "The original uploader was Rrawson at English Wikipedia.",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Mike_Brown_2003.jpg",
+      "ext": "jpg"
+    },
+    "Q295691": {
+      "file": "HEVarmus.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:HEVarmus.jpg",
+      "ext": "jpg"
+    },
+    "Q295696": {
+      "file": "Sune Bergström 3.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Sune_Bergstr%C3%B6m_3.jpg",
+      "ext": "jpg"
+    },
+    "Q295700": {
+      "file": "Rodney Robert Porter.jpg",
+      "artist": "MRC National Institute for Medical Research",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Rodney_Robert_Porter.jpg",
+      "ext": "jpg"
+    },
+    "Q295706": {
+      "file": "37. Tagung 1987 Mediziner Daniel Nathans lächelnd - W134Nr.125411c - Willy Pragher (cropped).jpg",
+      "artist": "Willy Pragher",
+      "licence": "CC BY 3.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:37._Tagung_1987_Mediziner_Daniel_Nathans_l%C3%A4chelnd_-_W134Nr.125411c_-_Willy_Pragher_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q295717": {
+      "file": "Vernon L. Smith 2011.jpg",
+      "artist": "Dstringer71",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Vernon_L._Smith_2011.jpg",
+      "ext": "jpg"
+    },
+    "Q295724": {
+      "file": "George Wald 1987.jpg",
+      "artist": "Molendijk, Bart / Anefo",
+      "licence": "CC0",
+      "commons": "https://commons.wikimedia.org/wiki/File:George_Wald_1987.jpg",
+      "ext": "jpg"
+    },
+    "Q295761": {
+      "file": "Lawrence Robert Klein.jpg",
+      "artist": "AshokanMtn",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Lawrence_Robert_Klein.jpg",
+      "ext": "jpg"
+    },
+    "Q295768": {
+      "file": "Bengt Samuelsson.png",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Bengt_Samuelsson.png",
+      "ext": "png"
+    },
+    "Q295999": {
+      "file": "Ferid Murad.jpg",
+      "artist": "Jeff Dahl",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ferid_Murad.jpg",
+      "ext": "jpg"
+    },
+    "Q296423": {
+      "file": "Alfred Goodman Gilman (cropped).jpg",
+      "artist": "NIH historic image",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Alfred_Goodman_Gilman_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q298045": {
+      "file": "Arvid Carlsson 2011a.jpg",
+      "artist": "Vogler",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Arvid_Carlsson_2011a.jpg",
+      "ext": "jpg"
+    },
+    "Q301438": {
+      "file": "Eric F. Wieschaus.jpg",
+      "artist": "Geltron at English Wikipedia",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Eric_F._Wieschaus.jpg",
+      "ext": "jpg"
+    },
+    "Q3022141": {
+      "file": "Demis Hassabis, 2024 Nobel Prize Laureate in Chemistry 7 (cropped).jpg",
+      "artist": "John Sears",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Demis_Hassabis,_2024_Nobel_Prize_Laureate_in_Chemistry_7_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q309814": {
+      "file": "Peter C. Doherty 2017.jpg",
+      "artist": "Vogler",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Peter_C._Doherty_2017.jpg",
+      "ext": "jpg"
+    },
+    "Q309816": {
+      "file": "Roberts, Richard John (1943).jpg",
+      "artist": "paloma.cl",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Roberts,_Richard_John_(1943).jpg",
+      "ext": "jpg"
+    },
+    "Q309820": {
+      "file": "Louis Ignarro by Carlos Barretta (cropped).jpg",
+      "artist": "Zé Carlos Barretta from São Paulo, Brasil",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Louis_Ignarro_by_Carlos_Barretta_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q309876": {
+      "file": "Niels Kaj Jerne 1950 crop.jpg",
+      "artist": "Niels K. Jernes",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Niels_Kaj_Jerne_1950_crop.jpg",
+      "ext": "jpg"
+    },
+    "Q309879": {
+      "file": "HKHartline.png",
+      "artist": "Bell Telephone Company Uploaded by Simtropolitan at en.wikipedia",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:HKHartline.png",
+      "ext": "png"
+    },
+    "Q309885": {
+      "file": "Frederick Chapman Robbins nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Frederick_Chapman_Robbins_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q309971": {
+      "file": "John Robert Vane.jpg",
+      "artist": "Unknown author",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_Robert_Vane.jpg",
+      "ext": "jpg"
+    },
+    "Q309977": {
+      "file": "Tim hunt.jpg",
+      "artist": "Machmit (Machmit)",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Tim_hunt.jpg",
+      "ext": "jpg"
+    },
+    "Q309979": {
+      "file": "Paul Greengard.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Paul_Greengard.jpg",
+      "ext": "jpg"
+    },
+    "Q310131": {
+      "file": "Thomas Huckle Weller nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Thomas_Huckle_Weller_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q310485": {
+      "file": "Edward Donnall \"Don\" Thomas.jpg",
+      "artist": "Ca.garcia.s",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Edward_Donnall_%22Don%22_Thomas.jpg",
+      "ext": "jpg"
+    },
+    "Q310487": {
+      "file": "George H. Hitchings 1988.jpg",
+      "artist": "Unknown author",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:George_H._Hitchings_1988.jpg",
+      "ext": "jpg"
+    },
+    "Q311358": {
+      "file": "Nci-vol-8172-300 j michael bishop.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nci-vol-8172-300_j_michael_bishop.jpg",
+      "ext": "jpg"
+    },
+    "Q312560": {
+      "file": "Daniel McFadden 01.JPG",
+      "artist": "Bengt Oberger",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Daniel_McFadden_01.JPG",
+      "ext": "jpg"
+    },
+    "Q312561": {
+      "file": "James Heckman.jpg",
+      "artist": "Andreas Caranti",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:James_Heckman.jpg",
+      "ext": "jpg"
+    },
+    "Q312575": {
+      "file": "Clive Granger by Olaf Storbeck.jpg",
+      "artist": "redfalo (Olaf)",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Clive_Granger_by_Olaf_Storbeck.jpg",
+      "ext": "jpg"
+    },
+    "Q312585": {
+      "file": "Edward C Prescott 2015 (cropped).jpg",
+      "artist": "Narodowy Bank Polski from Poland",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Edward_C_Prescott_2015_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q312961": {
+      "file": "Enders2.jpg",
+      "artist": "Henry Lytton Cobbold",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Enders2.jpg",
+      "ext": "jpg"
+    },
+    "Q312963": {
+      "file": "Dickinson W. Richards nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Dickinson_W._Richards_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q312977": {
+      "file": "Phillip Sharp HD2007 with Winthrop Sears Medal (cropped).jpg",
+      "artist": "Staff photographer",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Phillip_Sharp_HD2007_with_Winthrop_Sears_Medal_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q3169751": {
+      "file": "Jean-Pierre Sauvage.jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Jean-Pierre_Sauvage.jpg",
+      "ext": "jpg"
+    },
+    "Q320578": {
+      "file": "Abhijit Banerjee at the 2025 Jaipur Literature Festival.jpg",
+      "artist": "Sriya Sarkar",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Abhijit_Banerjee_at_the_2025_Jaipur_Literature_Festival.jpg",
+      "ext": "jpg"
+    },
+    "Q323320": {
+      "file": "Kip Thorne at Caltech.jpg",
+      "artist": "Keenan Pepper",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Kip_Thorne_at_Caltech.jpg",
+      "ext": "jpg"
+    },
+    "Q3259614": {
+      "file": "FeringaWiki.jpg",
+      "artist": "Wybe",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:FeringaWiki.jpg",
+      "ext": "jpg"
+    },
+    "Q33128": {
+      "file": "Dr. Vincent du Vigneaud.jpg",
+      "artist": "Maxdugan26",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Dr._Vincent_du_Vigneaud.jpg",
+      "ext": "jpg"
+    },
+    "Q338151": {
+      "file": "Robert Shiller - World Economic Forum Annual Meeting 2012 (cropped).jpg",
+      "artist": "Robert_Shiller_-_World_Economic_Forum_Annual_Meeting_2012.jpg: World Economic Forum from Cologny, Switzerland derivative work: César",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Shiller_-_World_Economic_Forum_Annual_Meeting_2012_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q35149": {
+      "file": "Wilhelm Conrad Röntgen (1888-1900), 88374 p.jpg",
+      "artist": "Erwin Hanfstaengl",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Wilhelm_Conrad_R%C3%B6ntgen_(1888-1900),_88374_p.jpg",
+      "ext": "jpg"
+    },
+    "Q354897": {
+      "file": "Bengt Holmström.jpg",
+      "artist": "Soppakanuuna",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Bengt_Holmstr%C3%B6m.jpg",
+      "ext": "jpg"
+    },
+    "Q35698": {
+      "file": "Konrad Bloch.JPG",
+      "artist": "Peter Geymayer",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Konrad_Bloch.JPG",
+      "ext": "jpg"
+    },
+    "Q35703": {
+      "file": "Gertrude Elion (cropped).jpg",
+      "artist": "GlaxoSmithKline plc",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Gertrude_Elion_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q359317": {
+      "file": "Eugene Fama at Nobel Prize, 2013.jpg",
+      "artist": "Bengt Nyman",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Eugene_Fama_at_Nobel_Prize,_2013.jpg",
+      "ext": "jpg"
+    },
+    "Q36488": {
+      "file": "Guglielmo Marconi.jpg",
+      "artist": "Pach Brothers",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Guglielmo_Marconi.jpg",
+      "ext": "jpg"
+    },
+    "Q364997": {
+      "file": "Alain Aspect (26341660894) (cropped).jpg",
+      "artist": "Ecole polytechnique Université Paris-Saclay",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Alain_Aspect_(26341660894)_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q3675789": {
+      "file": "Crafoord Prize EM1B0732 (42329290061).jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Crafoord_Prize_EM1B0732_(42329290061).jpg",
+      "ext": "jpg"
+    },
+    "Q37064": {
+      "file": "Synthetic Production of Penicillin TR1468.jpg",
+      "artist": "Official photographer",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Synthetic_Production_of_Penicillin_TR1468.jpg",
+      "ext": "jpg"
+    },
+    "Q371212": {
+      "file": "Richard Thaler Chatham.jpg",
+      "artist": "Chatham House",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Richard_Thaler_Chatham.jpg",
+      "ext": "jpg"
+    },
+    "Q37193": {
+      "file": "Robert Koch.jpg",
+      "artist": "Wilhelm Fechner",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Koch.jpg",
+      "ext": "jpg"
+    },
+    "Q37463": {
+      "file": "Pierre Curie by Dujardin c1906.jpg",
+      "artist": "Dujardin",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Pierre_Curie_by_Dujardin_c1906.jpg",
+      "ext": "jpg"
+    },
+    "Q376243": {
+      "file": "Nobel Laureates Fraser Stoddart 2016 (31117136180).jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Laureates_Fraser_Stoddart_2016_(31117136180).jpg",
+      "ext": "jpg"
+    },
+    "Q376364": {
+      "file": "Phillipe Aghion - The State of France (cropped+optimised).jpg",
+      "artist": "File:Phillipe Aghion - The State of France (cropped).jpg: Center for the Study of Europe Boston University from Boston, USA derivative work: TeKaBe",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Phillipe_Aghion_-_The_State_of_France_(cropped%2Boptimised).jpg",
+      "ext": "jpg"
+    },
+    "Q3814528": {
+      "file": "David Baker, 2024 Nobel Prize Laureate in Chemistry 4 (cropped).jpg",
+      "artist": "John Sears",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:David_Baker,_2024_Nobel_Prize_Laureate_in_Chemistry_4_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q391237": {
+      "file": "John J. Hopfield, 2024 Nobel Prize Laureate in Physics 1 (cropped).jpg",
+      "artist": "Arthur Petron",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_J._Hopfield,_2024_Nobel_Prize_Laureate_in_Physics_1_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q39246": {
+      "file": "RichardFeynman-PaineMansionWoods1984 copyrightTamikoThiel bw.jpg",
+      "artist": "Copyright Tamiko Thiel 1984",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:RichardFeynman-PaineMansionWoods1984_copyrightTamikoThiel_bw.jpg",
+      "ext": "jpg"
+    },
+    "Q40262": {
+      "file": "David Gross LANL.jpg",
+      "artist": "LANL",
+      "licence": "Attribution",
+      "commons": "https://commons.wikimedia.org/wiki/File:David_Gross_LANL.jpg",
+      "ext": "jpg"
+    },
+    "Q40904": {
+      "file": "Bundesarchiv Bild183-R57262, Werner Heisenberg.jpg",
+      "artist": "Unknown author",
+      "licence": "CC BY-SA 3.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild183-R57262,_Werner_Heisenberg.jpg",
+      "ext": "jpg"
+    },
+    "Q41269": {
+      "file": "Paul Nadar - Henri Becquerel.jpg",
+      "artist": "Paul Nadar / Adam Cuerden",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Paul_Nadar_-_Henri_Becquerel.jpg",
+      "ext": "jpg"
+    },
+    "Q41585344": {
+      "file": "Jacques Dubochet, 2017 (cropped).jpg",
+      "artist": "Félix Imhof ©UNIL, 4 October 2017",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Jacques_Dubochet,_2017_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q41688": {
+      "file": "H A Lorentz (Nobel).jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:H_A_Lorentz_(Nobel).jpg",
+      "ext": "jpg"
+    },
+    "Q4273363": {
+      "file": "Frances Arnold in 2021 at Caltech 01 (cropped).jpg",
+      "artist": "Christopher Michel",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Frances_Arnold_in_2021_at_Caltech_01_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q42985": {
+      "file": "Ivan Pavlov NLM3.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ivan_Pavlov_NLM3.jpg",
+      "ext": "jpg"
+    },
+    "Q432890": {
+      "file": "Nobel Laureates Oliver Hart 2016 (31341903482).jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Laureates_Oliver_Hart_2016_(31341903482).jpg",
+      "ext": "jpg"
+    },
+    "Q434509": {
+      "file": "Esther Duflo - Pop!Tech 2009 - 001 (cropped).jpg",
+      "artist": "Kris Krüg",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Esther_Duflo_-_Pop!Tech_2009_-_001_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q43917": {
+      "file": "Eduardbuchner.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Eduardbuchner.jpg",
+      "ext": "jpg"
+    },
+    "Q44061": {
+      "file": "Wassily Leontief 1973.jpg",
+      "artist": "Keystone",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Wassily_Leontief_1973.jpg",
+      "ext": "jpg"
+    },
+    "Q44111": {
+      "file": "Nobel Prize 2011-Nobel interviews KVA-DSC 8049.jpg",
+      "artist": "Holger Motzkau",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Prize_2011-Nobel_interviews_KVA-DSC_8049.jpg",
+      "ext": "jpg"
+    },
+    "Q44286": {
+      "file": "Rudolf L. Moessbauer 1962.png",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Rudolf_L._Moessbauer_1962.png",
+      "ext": "png"
+    },
+    "Q444270": {
+      "file": "James Edward Rothman.jpg",
+      "artist": "US Embassy Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:James_Edward_Rothman.jpg",
+      "ext": "jpg"
+    },
+    "Q44594": {
+      "file": "Ernst Otto Fischer Stamp Germany 2018.jpg",
+      "artist": "Jü",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ernst_Otto_Fischer_Stamp_Germany_2018.jpg",
+      "ext": "jpg"
+    },
+    "Q44597": {
+      "file": "Feodor Lynen with pipette.jpg",
+      "artist": "Huttig-Foto, Starnberg",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Feodor_Lynen_with_pipette.jpg",
+      "ext": "jpg"
+    },
+    "Q4517": {
+      "file": "37. Tagung 1987 Mediziner Sir Bernard Katz - W134Nr.125421a1 - Willy Pragher (cropped).jpg",
+      "artist": "Willy Pragher",
+      "licence": "CC BY 3.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:37._Tagung_1987_Mediziner_Sir_Bernard_Katz_-_W134Nr.125421a1_-_Willy_Pragher_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q46120": {
+      "file": "William A. Fowler Los Alamos ID.png",
+      "artist": "Federal Government of the United States",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:William_A._Fowler_Los_Alamos_ID.png",
+      "ext": "png"
+    },
+    "Q462843": {
+      "file": "D810 4987 Tu Youyou, medicine (22945001843) (cropped).jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:D810_4987_Tu_Youyou,_medicine_(22945001843)_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q46928": {
+      "file": "Max Theiler nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Max_Theiler_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q4701206": {
+      "file": "Akira Yoshino 20170920 (cropped 2).jpg",
+      "artist": "大臣官房人事課",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Akira_Yoshino_20170920_(cropped_2).jpg",
+      "ext": "jpg"
+    },
+    "Q47285": {
+      "file": "J.J. Thomson LCCN2014715407.jpg",
+      "artist": "Bain News Service, publisher",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:J.J._Thomson_LCCN2014715407.jpg",
+      "ext": "jpg"
+    },
+    "Q47426": {
+      "file": "Portrait Of Milton Friedman (cropped).jpg",
+      "artist": "Bachrach Studios",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Portrait_Of_Milton_Friedman_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q47480": {
+      "file": "Paul Dirac, 1933.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Paul_Dirac,_1933.jpg",
+      "ext": "jpg"
+    },
+    "Q4790366": {
+      "file": "AW TW PS.jpg",
+      "artist": "Tomasz A. Wesolowski",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:AW_TW_PS.jpg",
+      "ext": "jpg"
+    },
+    "Q48956": {
+      "file": "Hermann Staudinger.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Hermann_Staudinger.jpg",
+      "ext": "jpg"
+    },
+    "Q48973": {
+      "file": "Glenn Seaborg - 1964.jpg",
+      "artist": "Atomic Energy Commission. (1946 - 01/19/1975)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Glenn_Seaborg_-_1964.jpg",
+      "ext": "jpg"
+    },
+    "Q48977": {
+      "file": "Archer John Porter Martin Nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Archer_John_Porter_Martin_Nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q48979": {
+      "file": "Richard Laurence Millington Synge.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Richard_Laurence_Millington_Synge.jpg",
+      "ext": "jpg"
+    },
+    "Q48983": {
+      "file": "Linus Pauling 1962.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Linus_Pauling_1962.jpg",
+      "ext": "jpg"
+    },
+    "Q48986": {
+      "file": "Cyril Norman Hinshelwood Nobel.jpg",
+      "artist": "Unidentified photographer",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Cyril_Norman_Hinshelwood_Nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q48990": {
+      "file": "Nikolay Semyonov Nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nikolay_Semyonov_Nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q49347": {
+      "file": "Melvin Calvin.jpg",
+      "artist": "\"Photolab\"",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Melvin_Calvin.jpg",
+      "ext": "jpg"
+    },
+    "Q49351": {
+      "file": "Robert Robinson organic chemist.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Robinson_organic_chemist.jpg",
+      "ext": "jpg"
+    },
+    "Q493956": {
+      "file": "Andrea Ghez (cropped1).jpg",
+      "artist": "BorderlineRebel",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Andrea_Ghez_(cropped1).jpg",
+      "ext": "jpg"
+    },
+    "Q504021": {
+      "file": "Gary Ruvkun, 2024 Nobel Prize Laureate in Medicine.jpg",
+      "artist": "Arthur Petron",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Gary_Ruvkun,_2024_Nobel_Prize_Laureate_in_Medicine.jpg",
+      "ext": "jpg"
+    },
+    "Q509262": {
+      "file": "Paul Romer, 2005 (cropped).jpg",
+      "artist": "The original uploader was Doerrb at English Wikipedia.",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Paul_Romer,_2005_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q5237001": {
+      "file": "David MacMillan.jpg",
+      "artist": "North Lanarkshire Council",
+      "licence": "OGL 3",
+      "commons": "https://commons.wikimedia.org/wiki/File:David_MacMillan.jpg",
+      "ext": "jpg"
+    },
+    "Q5327": {
+      "file": "Bad Schachen Porträt; Adolf Butenandt - W134Nr.020182c - Willy Pragher (cropped).jpg",
+      "artist": "Willy Pragher",
+      "licence": "CC BY 3.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:Bad_Schachen_Portr%C3%A4t;_Adolf_Butenandt_-_W134Nr.020182c_-_Willy_Pragher_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q5341373": {
+      "file": "Edvard Moser.jpg",
+      "artist": "Foto: Henrik Fjørtoft/NTNU Komm.avd.",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Edvard_Moser.jpg",
+      "ext": "jpg"
+    },
+    "Q54945": {
+      "file": "YoungAlfven.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:YoungAlfven.jpg",
+      "ext": "jpg"
+    },
+    "Q555849": {
+      "file": "John Clarke (physicist) 2025 (4x5).png",
+      "artist": "UC Berkeley",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_Clarke_(physicist)_2025_(4x5).png",
+      "ext": "png"
+    },
+    "Q556543": {
+      "file": "Gérard Mourou, 2014.jpg",
+      "artist": "École polytechnique",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:G%C3%A9rard_Mourou,_2014.jpg",
+      "ext": "jpg"
+    },
+    "Q56068": {
+      "file": "Professor Jennifer Doudna ForMemRS (cropped).jpg",
+      "artist": "Duncan.Hull",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Professor_Jennifer_Doudna_ForMemRS_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q562481": {
+      "file": "William Nordhaus EM1B6005 (46234137031).jpg",
+      "artist": "Bengt Nyman",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:William_Nordhaus_EM1B6005_(46234137031).jpg",
+      "ext": "jpg"
+    },
+    "Q565544": {
+      "file": "Anne LHuiller 01.JPG",
+      "artist": "Bengt Oberger",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Anne_LHuiller_01.JPG",
+      "ext": "jpg"
+    },
+    "Q5677307": {
+      "file": "Harvey J. Alter.jpeg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Harvey_J._Alter.jpeg",
+      "ext": "jpg"
+    },
+    "Q56855591": {
+      "file": "Donna Strickland EM1B5760 (46183560632) (cropped).jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Donna_Strickland_EM1B5760_(46183560632)_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q56868017": {
+      "file": "George Smith EM1B5987 (31295398907).jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:George_Smith_EM1B5987_(31295398907).jpg",
+      "ext": "jpg"
+    },
+    "Q57020342": {
+      "file": "US Embassy Sweden 2023 Nobel Reception (53397591873) (cropped).jpg",
+      "artist": "US Embassy Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:US_Embassy_Sweden_2023_Nobel_Reception_(53397591873)_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q57063": {
+      "file": "Phillipp Lenard in 1900.jpg",
+      "artist": "Not mentioned in any source",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Phillipp_Lenard_in_1900.jpg",
+      "ext": "jpg"
+    },
+    "Q57065": {
+      "file": "Otto Hahn (Nobel).jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Otto_Hahn_(Nobel).jpg",
+      "ext": "jpg"
+    },
+    "Q57066": {
+      "file": "James Franck.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:James_Franck.jpg",
+      "ext": "jpg"
+    },
+    "Q57067": {
+      "file": "(UAZ) AB.1.0583 Laue.tif",
+      "artist": "Franz Schmelhaus, Zürich",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:(UAZ)_AB.1.0583_Laue.tif",
+      "ext": "jpg"
+    },
+    "Q57068": {
+      "file": "Wien2.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Wien2.jpg",
+      "ext": "jpg"
+    },
+    "Q57070": {
+      "file": "Prof. Gustav Herz LCCN2014709678.jpg",
+      "artist": "Bain News Service, publisher",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Prof._Gustav_Herz_LCCN2014709678.jpg",
+      "ext": "jpg"
+    },
+    "Q57072": {
+      "file": "Otto Stern.jpg",
+      "artist": "Nobelprize.org",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Otto_Stern.jpg",
+      "ext": "jpg"
+    },
+    "Q57075": {
+      "file": "Portret van Professor Fritz Haber, een chemicus uit Duitsland (foto 1918- 1934), SFA002023057.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Portret_van_Professor_Fritz_Haber,_een_chemicus_uit_Duitsland_(foto_1918-_1934),_SFA002023057.jpg",
+      "ext": "jpg"
+    },
+    "Q57077": {
+      "file": "Ferdinand Braun.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ferdinand_Braun.jpg",
+      "ext": "jpg"
+    },
+    "Q57078": {
+      "file": "Adolf von Baeyer CIPB0531 (cropped).jpg",
+      "artist": "unknown",
+      "licence": "Licence Ouverte",
+      "commons": "https://commons.wikimedia.org/wiki/File:Adolf_von_Baeyer_CIPB0531_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q57089": {
+      "file": "Paul Ehrlich 3.jpg",
+      "artist": "Eduard Blum",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Paul_Ehrlich_3.jpg",
+      "ext": "jpg"
+    },
+    "Q57092": {
+      "file": "Johannes Stark.jpg",
+      "artist": "A. B. Lagrelius & Westphal, Stockholm",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Johannes_Stark.jpg",
+      "ext": "jpg"
+    },
+    "Q57100": {
+      "file": "Maria Goeppert-Mayer.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Maria_Goeppert-Mayer.jpg",
+      "ext": "jpg"
+    },
+    "Q57120": {
+      "file": "Peter Gruenberg 01.jpg",
+      "artist": "Kuebi = Armin Kübelbeck",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Peter_Gruenberg_01.jpg",
+      "ext": "jpg"
+    },
+    "Q57125": {
+      "file": "Walther Nernst SI.jpg",
+      "artist": "Smithsonian Institution",
+      "licence": "No restrictions",
+      "commons": "https://commons.wikimedia.org/wiki/File:Walther_Nernst_SI.jpg",
+      "ext": "jpg"
+    },
+    "Q57127": {
+      "file": "Otto Wallach 1910.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Otto_Wallach_1910.jpg",
+      "ext": "jpg"
+    },
+    "Q57128": {
+      "file": "Albrecht Kossel nobel.jpg",
+      "artist": "Kossel,_Albrecht_(1853-1927).jpg: George Grantham Bain Collection (Library of Congress) derivative work: Materialscientist (talk)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Albrecht_Kossel_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q57132": {
+      "file": "Otto Fritz Meyerhof.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Otto_Fritz_Meyerhof.jpg",
+      "ext": "jpg"
+    },
+    "Q57191": {
+      "file": "Hans Adolf Krebs.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Hans_Adolf_Krebs.jpg",
+      "ext": "jpg"
+    },
+    "Q57192": {
+      "file": "Gerhard Domagk nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Gerhard_Domagk_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q57568": {
+      "file": "Hans Spemann nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Hans_Spemann_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q58054": {
+      "file": "Ernst Boris Chain 1945.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ernst_Boris_Chain_1945.jpg",
+      "ext": "jpg"
+    },
+    "Q58978": {
+      "file": "Max Born.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Max_Born.jpg",
+      "ext": "jpg"
+    },
+    "Q60031": {
+      "file": "Rodbell, Martin (1925-1998).jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Rodbell,_Martin_(1925-1998).jpg",
+      "ext": "jpg"
+    },
+    "Q60060": {
+      "file": "Karl von Frisch - Atelier Veritas, c. 1926.jpg",
+      "artist": "Stefanie Ludwig",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Karl_von_Frisch_-_Atelier_Veritas,_c._1926.jpg",
+      "ext": "jpg"
+    },
+    "Q60061": {
+      "file": "Venki Ramakrishnan.jpg",
+      "artist": "Royal Society uploader",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Venki_Ramakrishnan.jpg",
+      "ext": "jpg"
+    },
+    "Q60066": {
+      "file": "Prof Ertl-Portrait.jpg",
+      "artist": "Wolfram Däumel",
+      "licence": "CC BY-SA 2.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:Prof_Ertl-Portrait.jpg",
+      "ext": "jpg"
+    },
+    "Q60108": {
+      "file": "Gunter Blobel 2008 1.JPG",
+      "artist": "Masur",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Gunter_Blobel_2008_1.JPG",
+      "ext": "jpg"
+    },
+    "Q60322501": {
+      "file": "Ardem Patapoutian at Scripps in 2022 03.jpg",
+      "artist": "Christopher Michel",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ardem_Patapoutian_at_Scripps_in_2022_03.jpg",
+      "ext": "jpg"
+    },
+    "Q60429": {
+      "file": "Sir CV Raman.JPG",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Sir_CV_Raman.JPG",
+      "ext": "jpg"
+    },
+    "Q61045": {
+      "file": "David Wineland 2008.jpg",
+      "artist": "NIST",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:David_Wineland_2008.jpg",
+      "ext": "jpg"
+    },
+    "Q6140731": {
+      "file": "James P. Allison EM1B5525 (46207775441).jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:James_P._Allison_EM1B5525_(46207775441).jpg",
+      "ext": "jpg"
+    },
+    "Q62891": {
+      "file": "Kamerlingh portret.jpg",
+      "artist": "Unknown author",
+      "licence": "Copyrighted free use",
+      "commons": "https://commons.wikimedia.org/wiki/File:Kamerlingh_portret.jpg",
+      "ext": "jpg"
+    },
+    "Q62897": {
+      "file": "Cockcroft.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Cockcroft.jpg",
+      "ext": "jpg"
+    },
+    "Q64188": {
+      "file": "Roy Glauber.jpg",
+      "artist": "Markus Pössel (User name: Mapos)",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Roy_Glauber.jpg",
+      "ext": "jpg"
+    },
+    "Q65807": {
+      "file": "Reinhard Genzel.jpg",
+      "artist": "MPE",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Reinhard_Genzel.jpg",
+      "ext": "jpg"
+    },
+    "Q65989": {
+      "file": "ETH-BIB-Pauli, Wolfgang.tif",
+      "artist": "Bettina Katzenstein",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:ETH-BIB-Pauli,_Wolfgang.tif",
+      "ext": "jpg"
+    },
+    "Q6796222": {
+      "file": "May-Britt Moser (20902423978) (cropped).jpg",
+      "artist": "NTNU Trondheim",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:May-Britt_Moser_(20902423978)_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q68118": {
+      "file": "Earl Wilbur Sutherland Jr.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Earl_Wilbur_Sutherland_Jr.jpg",
+      "ext": "jpg"
+    },
+    "Q6832227": {
+      "file": "DIMG 7539 (11253383215).jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:DIMG_7539_(11253383215).jpg",
+      "ext": "jpg"
+    },
+    "Q6914509": {
+      "file": "MortenMeldal23.jpg",
+      "artist": "Archivo Fotográfico Universidad de Navarra",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:MortenMeldal23.jpg",
+      "ext": "jpg"
+    },
+    "Q70532": {
+      "file": "Hans Dehmelt.jpg",
+      "artist": "Photograph by Davis Freeman, University of Washington, courtesy AIP Emilio Segrè Visual Archives, W. F. Meggers Gallery of Nobel Laureates Collection, Dehmelt Collection",
+      "licence": "Attribution",
+      "commons": "https://commons.wikimedia.org/wiki/File:Hans_Dehmelt.jpg",
+      "ext": "jpg"
+    },
+    "Q708472": {
+      "file": "Arthur Ashkin EM1B5678 (44417135450).jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Arthur_Ashkin_EM1B5678_(44417135450).jpg",
+      "ext": "jpg"
+    },
+    "Q7085": {
+      "file": "Niels Bohr.jpg",
+      "artist": "The American Institute of Physics credits the photo [1] to AB Lagrelius & Westphal, which is the Swedish company used by the Nobel Foundation for most photos of its book series Les Prix Nobel.",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Niels_Bohr.jpg",
+      "ext": "jpg"
+    },
+    "Q71013": {
+      "file": "Theodor W Haensch.jpg",
+      "artist": "No machine-readable author provided. Blinking Spirit assumed (based on copyright claims).",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Theodor_W_Haensch.jpg",
+      "ext": "jpg"
+    },
+    "Q71015": {
+      "file": "Horst Störmer.jpg",
+      "artist": "Mark Pellegrini",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Horst_St%C3%B6rmer.jpg",
+      "ext": "jpg"
+    },
+    "Q71016": {
+      "file": "Herbert Kroemer (cropped).jpg",
+      "artist": "Javier Chagoya",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Herbert_Kroemer_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q71022": {
+      "file": "Ernst Ruska Electron Microscope - Deutsches Museum - Munich-edit.jpg",
+      "artist": "J Brew, uploaded on the English-speaking Wikipedia by en:User:Hat'nCoat.",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ernst_Ruska_Electron_Microscope_-_Deutsches_Museum_-_Munich-edit.jpg",
+      "ext": "jpg"
+    },
+    "Q71023": {
+      "file": "Kastler.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Kastler.jpg",
+      "ext": "jpg"
+    },
+    "Q71024": {
+      "file": "Klaus von Klitzing 2015.jpg",
+      "artist": "Pontifical Academy of Sciences",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Klaus_von_Klitzing_2015.jpg",
+      "ext": "jpg"
+    },
+    "Q710597": {
+      "file": "Arthur B. McDonald 5139-2015.jpg",
+      "artist": "Bengt Nyman",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Arthur_B._McDonald_5139-2015.jpg",
+      "ext": "jpg"
+    },
+    "Q7151888": {
+      "file": "Paul L. Modrich 0116.jpg",
+      "artist": "Holger Motzkau",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Paul_L._Modrich_0116.jpg",
+      "ext": "jpg"
+    },
+    "Q7174757": {
+      "file": "Peter Howitt 2025 Nobel laurates in economic sciences (cropped).jpg",
+      "artist": "Karen Zhou",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Peter_Howitt_2025_Nobel_laurates_in_economic_sciences_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q718581": {
+      "file": "Acemoglu 2016.png",
+      "artist": "MeJudice",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Acemoglu_2016.png",
+      "ext": "png"
+    },
+    "Q7186": {
+      "file": "Marie Curie (1900) (cropped).jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Marie_Curie_(1900)_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q72194": {
+      "file": "Henry Dale nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Henry_Dale_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q726394": {
+      "file": "DavidThouless 1995 UW.jpg",
+      "artist": "Mary Levin",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:DavidThouless_1995_UW.jpg",
+      "ext": "jpg"
+    },
+    "Q728331": {
+      "file": "Jim Peebles.jpg",
+      "artist": "Juan Diego Soler",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Jim_Peebles.jpg",
+      "ext": "jpg"
+    },
+    "Q730065": {
+      "file": "Professor Shuji Nakamura (Cropped).jpg",
+      "artist": "Glenn Beltz",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Professor_Shuji_Nakamura_(Cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q73058": {
+      "file": "Nobel Prize 2009-Press Conference KVA-23.jpg",
+      "artist": "Prolineserver (talk)",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Prize_2009-Press_Conference_KVA-23.jpg",
+      "ext": "jpg"
+    },
+    "Q73093": {
+      "file": "UAZ DOK.005.059 Karrer.tif",
+      "artist": "Unknown",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:UAZ_DOK.005.059_Karrer.tif",
+      "ext": "jpg"
+    },
+    "Q740638": {
+      "file": "Randy Shekman 01.JPG",
+      "artist": "Bengt Oberger",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Randy_Shekman_01.JPG",
+      "ext": "jpg"
+    },
+    "Q7426": {
+      "file": "Ada E. Yonath.jpg",
+      "artist": "Hareesh N. Nampoothiri",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ada_E._Yonath.jpg",
+      "ext": "jpg"
+    },
+    "Q743252": {
+      "file": "Yaghi3 (cropped).jpg",
+      "artist": "File:Yaghi3.jpg: Boasap (talk) derivative work: Michał Ski",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Yaghi3_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q7442": {
+      "file": "Carolyn Bertozzi IMG 9384.jpg",
+      "artist": "Kuebi = Armin Kübelbeck",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Carolyn_Bertozzi_IMG_9384.jpg",
+      "ext": "jpg"
+    },
+    "Q7487": {
+      "file": "Professor Dorothy Hodgkin.jpg",
+      "artist": "University of Bristol",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Professor_Dorothy_Hodgkin.jpg",
+      "ext": "jpg"
+    },
+    "Q7504": {
+      "file": "Joliot-curie.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Joliot-curie.jpg",
+      "ext": "jpg"
+    },
+    "Q75847": {
+      "file": "Harald zur Hausen 01.jpg",
+      "artist": "Kuebi = Armin Kuebelbeck",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Harald_zur_Hausen_01.jpg",
+      "ext": "jpg"
+    },
+    "Q76373": {
+      "file": "Nobel Prize 2009-Press Conference KVA-27.jpg",
+      "artist": "Prolineserver (talk)",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Prize_2009-Press_Conference_KVA-27.jpg",
+      "ext": "jpg"
+    },
+    "Q76425": {
+      "file": "Emil Behring 1896 Neapel.jpg",
+      "artist": "L. Lamarra, Neapel",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Emil_Behring_1896_Neapel.jpg",
+      "ext": "jpg"
+    },
+    "Q76462": {
+      "file": "Ketterle.jpg",
+      "artist": "Kzirkel",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ketterle.jpg",
+      "ext": "jpg"
+    },
+    "Q76464": {
+      "file": "Otto Heinrich Warburg (cropped).jpg",
+      "artist": "Pahl, Georg",
+      "licence": "CC BY-SA 3.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:Otto_Heinrich_Warburg_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q76474": {
+      "file": "Bothe.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Bothe.jpg",
+      "ext": "jpg"
+    },
+    "Q76595": {
+      "file": "Kurt Alder Nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Kurt_Alder_Nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q76600": {
+      "file": "Eigen,Manfred 1996 Göttingen.jpg",
+      "artist": "GFHund",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Eigen,Manfred_1996_G%C3%B6ttingen.jpg",
+      "ext": "jpg"
+    },
+    "Q76602": {
+      "file": "24 Tagung 1974 Chemiker- Gerhard Herzberg - LABW - Staatsarchiv Freiburg W 134 Nr. 101112b.jpeg",
+      "artist": "Willy Pragher",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:24_Tagung_1974_Chemiker-_Gerhard_Herzberg_-_LABW_-_Staatsarchiv_Freiburg_W_134_Nr._101112b.jpeg",
+      "ext": "jpg"
+    },
+    "Q76604": {
+      "file": "Hans Fischer (Nobel).jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Hans_Fischer_(Nobel).jpg",
+      "ext": "jpg"
+    },
+    "Q76606": {
+      "file": "Carl Bosch.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Carl_Bosch.jpg",
+      "ext": "jpg"
+    },
+    "Q76610": {
+      "file": "Heinrich Wieland.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Heinrich_Wieland.jpg",
+      "ext": "jpg"
+    },
+    "Q76612": {
+      "file": "39. Tagung 1989 Chemiker; Pressekonferenz Johann Deisenhofer - W134Nr.126215c - Willy Pragher.jpg",
+      "artist": "Willy Pragher",
+      "licence": "CC BY 3.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:39._Tagung_1989_Chemiker;_Pressekonferenz_Johann_Deisenhofer_-_W134Nr.126215c_-_Willy_Pragher.jpg",
+      "ext": "jpg"
+    },
+    "Q76613": {
+      "file": "Euler-chelpin.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Euler-chelpin.jpg",
+      "ext": "jpg"
+    },
+    "Q76614": {
+      "file": "Bergius.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Bergius.jpg",
+      "ext": "jpg"
+    },
+    "Q76616": {
+      "file": "Otto Paul Hermann Diels.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Otto_Paul_Hermann_Diels.jpg",
+      "ext": "jpg"
+    },
+    "Q76623": {
+      "file": "Robert Huber.JPG",
+      "artist": "derivative work: Ginosal (User talk) Primorac_-_Robert_Huber_-_Henry_Lee.jpg: MZOŠ",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Huber.JPG",
+      "ext": "jpg"
+    },
+    "Q76624": {
+      "file": "Karl Ziegler Nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Karl_Ziegler_Nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q76687": {
+      "file": "8th Silesian Science Festival, Johannes Georg Bednorz, KsP 709, 09.12.2024.jpg",
+      "artist": "Krzysztof Popławski",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:8th_Silesian_Science_Festival,_Johannes_Georg_Bednorz,_KsP_709,_09.12.2024.jpg",
+      "ext": "jpg"
+    },
+    "Q76766": {
+      "file": "Gerd Binnig sw.jpg",
+      "artist": "The original uploader was Stefan Kühn at German Wikipedia.",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Gerd_Binnig_sw.jpg",
+      "ext": "jpg"
+    },
+    "Q76797": {
+      "file": "Johannes Hans Daniel Jensen (1907–1973).jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Johannes_Hans_Daniel_Jensen_(1907%E2%80%931973).jpg",
+      "ext": "jpg"
+    },
+    "Q76807": {
+      "file": "Maxdelbrück-cr.jpg",
+      "artist": "The original uploader was MalteAhrens at German Wikipedia.",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Maxdelbr%C3%BCck-cr.jpg",
+      "ext": "jpg"
+    },
+    "Q76951": {
+      "file": "George de Hevesy.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:George_de_Hevesy.jpg",
+      "ext": "jpg"
+    },
+    "Q76970": {
+      "file": "Cerenkov.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Cerenkov.jpg",
+      "ext": "jpg"
+    },
+    "Q77072": {
+      "file": "Richard Willstätter.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Richard_Willst%C3%A4tter.jpg",
+      "ext": "jpg"
+    },
+    "Q77081": {
+      "file": "Sakmann.jpg",
+      "artist": "Yuriy Kolodin at English Wikipedia.",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Sakmann.jpg",
+      "ext": "jpg"
+    },
+    "Q77086": {
+      "file": "22 MPI BP Hartmut Michel 221028 quadrat.jpg",
+      "artist": "Shauchungshin",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:22_MPI_BP_Hartmut_Michel_221028_quadrat.jpg",
+      "ext": "jpg"
+    },
+    "Q77104": {
+      "file": "Portrait of Fritz Albert Lipmann (1899-1986), Biochemist (2551001689).jpg",
+      "artist": "Smithsonian Institution from United States",
+      "licence": "No restrictions",
+      "commons": "https://commons.wikimedia.org/wiki/File:Portrait_of_Fritz_Albert_Lipmann_(1899-1986),_Biochemist_(2551001689).jpg",
+      "ext": "jpg"
+    },
+    "Q77126": {
+      "file": "Erwin neher 2007 lindau.jpg",
+      "artist": "Molgen",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Erwin_neher_2007_lindau.jpg",
+      "ext": "jpg"
+    },
+    "Q77142": {
+      "file": "Windaus.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Windaus.jpg",
+      "ext": "jpg"
+    },
+    "Q77152": {
+      "file": "Werner Forssmann nobel.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Werner_Forssmann_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q77160": {
+      "file": "40. Tagung 1990 Mediziner Portraits; Prof. Köhler (Freiburg) - W134Nr.126381c1 - Willy Pragher (cropped).jpg",
+      "artist": "Willy Pragher",
+      "licence": "CC BY 3.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:40._Tagung_1990_Mediziner_Portraits;_Prof._K%C3%B6hler_(Freiburg)_-_W134Nr.126381c1_-_Willy_Pragher_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q77173": {
+      "file": "Otto Loewi nobel.jpg",
+      "artist": "Albert Hilscher",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Otto_Loewi_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q77174": {
+      "file": "Christiane Nüsslein-Volhard mg 4372 cropped.jpg",
+      "artist": "Rama",
+      "licence": "CC BY-SA 2.0 fr",
+      "commons": "https://commons.wikimedia.org/wiki/File:Christiane_N%C3%BCsslein-Volhard_mg_4372_cropped.jpg",
+      "ext": "jpg"
+    },
+    "Q78478": {
+      "file": "Robert Bárány av Lars Emil Finn.png",
+      "artist": "Emil Finn",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_B%C3%A1r%C3%A1ny_av_Lars_Emil_Finn.png",
+      "ext": "png"
+    },
+    "Q78479": {
+      "file": "Dr Julius Wagner-Jauregg, SFA222007138.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Dr_Julius_Wagner-Jauregg,_SFA222007138.jpg",
+      "ext": "jpg"
+    },
+    "Q78480": {
+      "file": "Max Perutz 1962.jpg",
+      "artist": "Associated Press",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Max_Perutz_1962.jpg",
+      "ext": "jpg"
+    },
+    "Q78481": {
+      "file": "Richard Adolf Zsigmondy LOC.jpg",
+      "artist": "Walter Gircke",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Richard_Adolf_Zsigmondy_LOC.jpg",
+      "ext": "jpg"
+    },
+    "Q78482": {
+      "file": "Fritz Pregl.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Fritz_Pregl.jpg",
+      "ext": "jpg"
+    },
+    "Q78483": {
+      "file": "Richard Kuhn ETH-Bib Dia 248-065.jpg",
+      "artist": "ETH Zürich",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Richard_Kuhn_ETH-Bib_Dia_248-065.jpg",
+      "ext": "jpg"
+    },
+    "Q78496": {
+      "file": "Konrad Lorenz.JPG",
+      "artist": "Max Planck Gesellschaft (Eurobas)",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Konrad_Lorenz.JPG",
+      "ext": "jpg"
+    },
+    "Q78501": {
+      "file": "Carl Ferdinand Cori.jpg",
+      "artist": "Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Carl_Ferdinand_Cori.jpg",
+      "ext": "jpg"
+    },
+    "Q78510": {
+      "file": "WalterKohnGraz21042006 1.jpg",
+      "artist": "Jtk33",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:WalterKohnGraz21042006_1.jpg",
+      "ext": "jpg"
+    },
+    "Q78520": {
+      "file": "Hess.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Hess.jpg",
+      "ext": "jpg"
+    },
+    "Q78610": {
+      "file": "A. Zeilinger (cropped).jpg",
+      "artist": "Jaqueline Godany",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:A._Zeilinger_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q79000": {
+      "file": "Pieter Zeeman.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Pieter_Zeeman.jpg",
+      "ext": "jpg"
+    },
+    "Q80323": {
+      "file": "William P Murphy.jpg",
+      "artist": "The Nobel Foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:William_P_Murphy.jpg",
+      "ext": "jpg"
+    },
+    "Q8056214": {
+      "file": "Nobel Laureates 7428 (30679389523) (cropped).jpg",
+      "artist": "Bengt Nyman from Vaxholm, Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Laureates_7428_(30679389523)_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q80884": {
+      "file": "James Chadwick.jpg",
+      "artist": "Los Alamos National Laboratory",
+      "licence": "Attribution",
+      "commons": "https://commons.wikimedia.org/wiki/File:James_Chadwick.jpg",
+      "ext": "jpg"
+    },
+    "Q80905": {
+      "file": "Donald Glaser.jpg",
+      "artist": "unknown",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Donald_Glaser.jpg",
+      "ext": "jpg"
+    },
+    "Q80907": {
+      "file": "Brian Kobilka (649437151).jpg",
+      "artist": "Charles Parnot",
+      "licence": "CC BY-SA 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Brian_Kobilka_(649437151).jpg",
+      "ext": "jpg"
+    },
+    "Q80910": {
+      "file": "Robert Lefkowitz 1 2012 (cropped).jpg",
+      "artist": "Bengt Nyman",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Robert_Lefkowitz_1_2012_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q80917": {
+      "file": "Shinya Yamanaka 20141226.jpg",
+      "artist": "日本学士院",
+      "licence": "CC BY 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Shinya_Yamanaka_20141226.jpg",
+      "ext": "jpg"
+    },
+    "Q80956": {
+      "file": "Arrhenius2.jpg",
+      "artist": "Photogravure Meisenbach Riffarth & Co. Leipzig.",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Arrhenius2.jpg",
+      "ext": "jpg"
+    },
+    "Q81218": {
+      "file": "John Gurdon Cambridge 2012.JPG",
+      "artist": "Deryck Chan, courtesy to cameraman Sien Yi Tan.",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_Gurdon_Cambridge_2012.JPG",
+      "ext": "jpg"
+    },
+    "Q82563": {
+      "file": "Nobel Laureate Leon Cooper in 2007.jpg",
+      "artist": "Kenneth C. Zirkel",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_Laureate_Leon_Cooper_in_2007.jpg",
+      "ext": "jpg"
+    },
+    "Q83297": {
+      "file": "John William Strutt.jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_William_Strutt.jpg",
+      "ext": "jpg"
+    },
+    "Q83331": {
+      "file": "Prince Louis-Victor de Broglie.jpg",
+      "artist": "Agence Rol",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Prince_Louis-Victor_de_Broglie.jpg",
+      "ext": "jpg"
+    },
+    "Q83333": {
+      "file": "James D. Watson LCCN2007680359.jpg",
+      "artist": "Newspaper Enterprise Association",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:James_D._Watson_LCCN2007680359.jpg",
+      "ext": "jpg"
+    },
+    "Q83501": {
+      "file": "Vladimir Prelog ETH-Bib Portr 00214.jpg",
+      "artist": "ETH Zürich",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Vladimir_Prelog_ETH-Bib_Portr_00214.jpg",
+      "ext": "jpg"
+    },
+    "Q83552": {
+      "file": "Aleksandr Prokhorov.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Aleksandr_Prokhorov.jpg",
+      "ext": "jpg"
+    },
+    "Q83557": {
+      "file": "Basov.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Basov.jpg",
+      "ext": "jpg"
+    },
+    "Q83598": {
+      "file": "HJ Muller 1952.jpg",
+      "artist": "Alfred De Bat",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:HJ_Muller_1952.jpg",
+      "ext": "jpg"
+    },
+    "Q84405": {
+      "file": "Karl Landsteiner nobel.jpg",
+      "artist": "Bachrach Studios",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Karl_Landsteiner_nobel.jpg",
+      "ext": "jpg"
+    },
+    "Q86970": {
+      "file": "Ferenc Krausz (cropped).jpg",
+      "artist": "Original uploaded by C.laschinger (Transfered by Syp)",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ferenc_Krausz_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q8753": {
+      "file": "Enrico Fermi 1943-49.jpg",
+      "artist": "Department of Energy-Office of Public Affairs, restored by Yann",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Enrico_Fermi_1943-49.jpg",
+      "ext": "jpg"
+    },
+    "Q88608397": {
+      "file": "Katalin Karikó at the United States Embassy Sweden, 2023 Nobel Reception (cropped).jpg",
+      "artist": "US Embassy Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Katalin_Karik%C3%B3_at_the_United_States_Embassy_Sweden,_2023_Nobel_Reception_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q88608402": {
+      "file": "Drew Weissman Life Science medalist.jpg",
+      "artist": "Thorne Media at 0:08 and 0:28, cropped, brightened",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Drew_Weissman_Life_Science_medalist.jpg",
+      "ext": "jpg"
+    },
+    "Q89620738": {
+      "file": "John Jumper, 2024 Nobel Prize Laureate in Chemistry 7 (cropped).jpg",
+      "artist": "John Sears",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:John_Jumper,_2024_Nobel_Prize_Laureate_in_Chemistry_7_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q9021": {
+      "file": "Max Planck.png",
+      "artist": "Courtesy of the Clendening History of Medicine Library, University of Kansas Medical Center.",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Max_Planck.png",
+      "ext": "png"
+    },
+    "Q903471": {
+      "file": "Martin Karplus Nobel Prize 22 2013.jpg",
+      "artist": "Bengt Nyman",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Martin_Karplus_Nobel_Prize_22_2013.jpg",
+      "ext": "jpg"
+    },
+    "Q906529": {
+      "file": "Nobel 9 Dec 2019 029 copy (49204051647) (cropped).jpg",
+      "artist": "US Embassy Sweden",
+      "licence": "CC BY 2.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Nobel_9_Dec_2019_029_copy_(49204051647)_(cropped).jpg",
+      "ext": "jpg"
+    },
+    "Q9123": {
+      "file": "Ernest Rutherford LOC.jpg",
+      "artist": "George Grantham Bain Collection (Library of Congress)",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ernest_Rutherford_LOC.jpg",
+      "ext": "jpg"
+    },
+    "Q9130": {
+      "file": "Erwin Schrödinger - Narodowe Archiwum Cyfrowe (1-E-939).jpg",
+      "artist": "Unknown author",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Erwin_Schr%C3%B6dinger_-_Narodowe_Archiwum_Cyfrowe_(1-E-939).jpg",
+      "ext": "jpg"
+    },
+    "Q91410": {
+      "file": "Stefan W Hell.jpg",
+      "artist": "Bernd Schuller, Max-Planck-Institut für biophysikalische Chemie",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Stefan_W_Hell.jpg",
+      "ext": "jpg"
+    },
+    "Q921499": {
+      "file": "Joshua Angrist - 2011.jpg",
+      "artist": "MeJudice",
+      "licence": "CC BY 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Joshua_Angrist_-_2011.jpg",
+      "ext": "jpg"
+    },
+    "Q92894": {
+      "file": "Geoffrey Hinton in 2026.jpg",
+      "artist": "Cmichel67",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Geoffrey_Hinton_in_2026.jpg",
+      "ext": "jpg"
+    },
+    "Q937": {
+      "file": "Albert Einstein Head cleaned.jpg",
+      "artist": "Oren Jack Turner",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Albert_Einstein_Head_cleaned.jpg",
+      "ext": "jpg"
+    },
+    "Q949": {
+      "file": "Bardeen.jpg",
+      "artist": "Nobel foundation",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Bardeen.jpg",
+      "ext": "jpg"
+    },
+    "Q950726": {
+      "file": "William Ramsay.jpg",
+      "artist": "Elliott & Fry",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:William_Ramsay.jpg",
+      "ext": "jpg"
+    },
+    "Q97270": {
+      "file": "Thomas c südhof.jpg",
+      "artist": "Juancamartos",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Thomas_c_s%C3%BCdhof.jpg",
+      "ext": "jpg"
+    },
+    "Q983858": {
+      "file": "Victor Ambros, 2024 Nobel Prize Laureate in Medicine.jpg",
+      "artist": "Arthur Petron",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Victor_Ambros,_2024_Nobel_Prize_Laureate_in_Medicine.jpg",
+      "ext": "jpg"
+    }
+  }
+}

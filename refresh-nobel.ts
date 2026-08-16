@@ -12,10 +12,7 @@
 // contract was written before this script was.
 
 import { mkdirSync, writeFileSync } from "node:fs";
-
-const ENDPOINT = "https://query.wikidata.org/sparql";
-const AGENT =
-  "comp4020-ass1-RuiquanQiao/0.1 (ANU COMP8020 student prototype; https://github.com/RuiquanQiao)";
+import { ENDPOINT, LANGUAGES, chunk, qid, sleep, sparql } from "./wikidata.ts";
 
 // Verified against Wikidata rather than assumed: physics 230, chemistry 198,
 // medicine 233, economics 99 award statements at time of writing.
@@ -49,10 +46,6 @@ const KIN: Record<string, { kind: "parent" | "spouse" | "sibling"; invert: boole
 const MAX_GENERATIONS = 60;
 const BATCH = 150;
 
-type Binding = Record<string, { value: string } | undefined>;
-
-const qid = (uri: string) => uri.slice(uri.lastIndexOf("/") + 1);
-
 // Wikidata models "there is an advisor but we do not know who" as a blank node,
 // which comes back as a bare hash instead of a QID. The first pull happily
 // admitted one as a person: it would have drawn a dot whose name was
@@ -69,41 +62,6 @@ const isPerson = (id: string) => /^Q\d+$/.test(id);
 // Of 1686 entities in that pull, exactly 2 lacked P31=Q5 and both were these,
 // so the filter costs nothing real and catches the thing that matters.
 const HUMAN = "?person wdt:P31 wd:Q5 .";
-
-// Ask for English and you will not get Niels Bohr.
-//
-// Wikidata moved labels that do not vary between languages -- personal names,
-// mostly -- to the `mul` (multilingual) code, and Q7085 has no `en` label at
-// all: his name is `mul: Niels Bohr`. A query for "en" alone silently fell back
-// to the QID, so the first snapshot listed the founder of half this graph as
-// "Q7085", and thirteen others with him. `mul` is second in the chain, and the
-// Latin tail catches the seventeenth-century advisors who have nothing else.
-const LANGUAGES = "en,mul,de,fr,nl,sv,da,it,es,la";
-const sleep = (ms: number) => new Promise((done) => setTimeout(done, ms));
-
-async function sparql(query: string, attempt = 1): Promise<Binding[]> {
-  const url = `${ENDPOINT}?query=${encodeURIComponent(query)}`;
-  try {
-    const response = await fetch(url, {
-      headers: { Accept: "application/sparql-results+json", "User-Agent": AGENT },
-    });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const body = (await response.json()) as { results: { bindings: Binding[] } };
-    return body.results.bindings;
-  } catch (error) {
-    if (attempt >= 4) throw error;
-    const wait = 2000 * attempt;
-    console.warn(`  query failed (${String(error)}), retrying in ${wait}ms`);
-    await sleep(wait);
-    return sparql(query, attempt + 1);
-  }
-}
-
-function chunk<T>(items: T[], size: number): T[][] {
-  const out: T[][] = [];
-  for (let i = 0; i < items.length; i += size) out.push(items.slice(i, i + size));
-  return out;
-}
 
 interface Prize {
   category: string;

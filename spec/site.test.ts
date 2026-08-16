@@ -14,7 +14,20 @@ import { describe, expect, it } from "vitest";
 
 const DIST = resolve("dist");
 
-const ALLOWED_HOSTS = ["www.wikidata.org", "www.nobelprize.org"];
+const ALLOWED_HOSTS = ["www.wikidata.org", "www.nobelprize.org", "commons.wikimedia.org"];
+
+/**
+ * How many anchors may point at Commons from the *built* HTML.
+ *
+ * This is the assertion that keeps the deploy alive. 731 portraits each have a
+ * Commons file page, and linking every one of them from the credits page would
+ * put 731 outbound links in front of `linkinator ./dist`, which validates them
+ * from a datacentre IP on every push. Commons would rate-limit, `check` would
+ * fail, and `deploy` needs `check`. So the per-portrait links are built in
+ * JavaScript in the readout, where linkinator never sees them, and the static
+ * pages carry the credit as text with one link between them.
+ */
+const COMMONS_ANCHOR_BUDGET = 2;
 
 function htmlFiles(dir: string = DIST): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -31,9 +44,9 @@ const pages = htmlFiles().map((path) => ({
 }));
 
 describe("the built site", () => {
-  it("ships both pages", () => {
+  it("ships every page", () => {
     const names = pages.map((page) => page.name).sort();
-    expect(names).toEqual(["about/index.html", "index.html"]);
+    expect(names).toEqual(["about/index.html", "credits/index.html", "index.html"]);
   });
 
   it("kept no trace of the starter page", () => {
@@ -99,6 +112,50 @@ describe("links", () => {
         const host = new URL(anchor.getAttribute("href")!).host;
         expect(ALLOWED_HOSTS, `${name} links out to ${host}`).toContain(host);
       }
+    }
+  });
+
+  // The one that keeps the deploy alive. See the note on the budget above.
+  it("gives linkinator only a handful of Commons links to validate", () => {
+    let total = 0;
+    for (const { doc } of pages) {
+      total += doc.querySelectorAll("a[href*='commons.wikimedia.org']").length;
+    }
+    expect(
+      total,
+      `${total} Commons anchors in the built HTML; linkinator validates every one of them ` +
+        `from a datacentre IP on every push, and the per-portrait links belong in the readout`,
+    ).toBeLessThanOrEqual(COMMONS_ANCHOR_BUDGET);
+  });
+});
+
+describe("the portraits are credited where a script cannot fail to load", () => {
+  const credits = pages.find((page) => page.name === "credits/index.html")!;
+
+  it("ships every credit as static markup", () => {
+    const rows = credits.doc.querySelectorAll('[data-testid="credits"] .credit');
+    const book = JSON.parse(readFileSync(resolve("data/portraits.json"), "utf8")) as {
+      portraits: Record<string, unknown>;
+    };
+    expect(rows.length).toBe(Object.keys(book.portraits).length);
+  });
+
+  it("names a creator and a licence on every row", () => {
+    for (const row of credits.doc.querySelectorAll('[data-testid="credits"] .credit')) {
+      const what = row.querySelector(".credit-what")?.textContent ?? "";
+      expect(row.querySelector(".credit-who")?.textContent?.trim()).toBeTruthy();
+      // "<file> — <creator> — <licence>", so two separators and three parts.
+      expect(what.split("—").length, what).toBe(3);
+    }
+  });
+
+  it("is reachable from the other pages", () => {
+    for (const { name, doc } of pages) {
+      if (name === "credits/index.html") continue;
+      const links = [...doc.querySelectorAll("a[href]")].map((a) => a.getAttribute("href")!);
+      expect(links.some((href) => href.includes("credits")), `${name} does not link to it`).toBe(
+        true,
+      );
     }
   });
 });

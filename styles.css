@@ -83,7 +83,13 @@ body {
 
 .nav {
   display: flex;
-  gap: 1.25rem;
+
+  /* Wrap rather than overflow. Three links plus the toggle come to 344px of a
+     350px row at 390 wide, which is not a margin worth trusting to somebody
+     else's font metrics. */
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  align-items: center;
   font-size: 0.85rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -108,6 +114,11 @@ body {
      up with the right edge of the nav rather than floating 14px inside it. */
   display: grid;
   place-items: center;
+
+  /* Not stretched. A flex row stretches its items by default, and combined
+     with the negative margins below that inflated this button to 66px and
+     pushed the masthead from 46px to 67px on the phone viewport. */
+  align-self: center;
   min-width: 44px;
   min-height: 44px;
   margin: -0.75rem -0.875rem -0.75rem auto;
@@ -218,14 +229,99 @@ body {
   border: 1px solid var(--line);
   border-radius: 4px;
   background: var(--bg);
-  cursor: crosshair;
-  touch-action: manipulation;
+  cursor: grab;
+
+  /* `none`, not `manipulation`. With manipulation the browser keeps pinch and
+     drag for itself -- page zoom and scroll -- and the pointermove events for
+     a two-finger gesture never arrive here at all, so pinch-to-zoom silently
+     did nothing on a phone. Taking them means a finger on the canvas pans and
+     pinches instead of scrolling the page, which is what a map does and what
+     the buttons underneath are there to back up. */
+  touch-action: none;
+}
+
+.canvas:active {
+  cursor: grabbing;
 }
 
 .stage-hint {
   margin: 0.6rem 0 0;
   color: var(--ink-quiet);
   font-size: 0.82rem;
+}
+
+.zoom {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  margin-top: 0.6rem;
+}
+
+.zoom-button {
+  /* 44px square, because this is the control a thumb reaches for on the
+     phone viewport and the graph underneath is a drag surface. */
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--panel);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* Ordered by specificity, lowest first: stylelint's no-descending-specificity
+   fires otherwise, and :hover:enabled is a class heavier than the other two. */
+.zoom-button:disabled {
+  color: var(--ink-faint);
+  cursor: default;
+}
+
+.zoom-button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.zoom-button:hover:enabled {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.zoom-home {
+  font-size: 0.82rem;
+}
+
+.zoom-level {
+  min-width: 3.2rem;
+  margin: 0;
+  color: var(--ink-quiet);
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+/* Some Commons "Artist" fields are a paragraph of provenance prose rather than
+   a name -- the longest here is 495 characters. Clamped to three lines so a
+   selection stays readable; the tooltip and the credits page both carry every
+   word, because shortening an attribution to make a panel tidy is not a trade
+   this page gets to make. */
+.readout-credit {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0.7rem 0 0;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  color: var(--ink-faint);
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.readout-credit-link {
+  color: var(--ink-faint);
+  text-underline-offset: 2px;
 }
 
 .panel {
@@ -417,6 +513,34 @@ body {
 .notes-quiet {
   color: var(--ink-faint);
   font-size: 0.8rem;
+}
+
+/* 731 rows, so they are a list of facts rather than prose: name on one line,
+   file and photographer and licence under it. Columns at any width that has
+   room, because a single column of 731 is a very long page. */
+.credits {
+  margin: 0.8rem 0 0;
+  padding: 0;
+  list-style: none;
+  columns: 22rem;
+  column-gap: 2rem;
+}
+
+.credit {
+  margin-bottom: 0.55rem;
+  break-inside: avoid;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.credit-who {
+  display: block;
+  color: var(--ink);
+}
+
+.credit-what {
+  display: block;
+  color: var(--ink-faint);
 }
 
 /* At 390x844 -- a marking viewport -- the opening pushed the canvas down to

@@ -28,6 +28,7 @@
       <nav class="nav" aria-label="Primary">
         <a class="nav-link" href="./">One Tree</a>
         <a class="nav-link" href="./about/">About the data</a>
+        <a class="nav-link" href="./credits/">Credits</a>
       </nav>
     </header>
 
@@ -44,9 +45,26 @@
 
       <section class="stage" aria-label="Relationship graph">
         <canvas class="canvas" data-testid="canvas" aria-hidden="true"></canvas>
+
+        <!-- The canvas is aria-hidden, so it cannot hold focus and these have to
+             carry the keyboard: arrows pan, plus and minus zoom, 0 goes home. -->
+        <div class="zoom" data-testid="zoom" role="group" aria-label="Zoom and pan the graph">
+          <button class="zoom-button" type="button" data-testid="zoom-out" aria-label="Zoom out">
+            &minus;
+          </button>
+          <p class="zoom-level" data-testid="zoom-level" aria-live="polite">1.0&times;</p>
+          <button class="zoom-button" type="button" data-testid="zoom-in" aria-label="Zoom in">
+            +
+          </button>
+          <button class="zoom-button zoom-home" type="button" data-testid="zoom-reset">
+            Whole graph
+          </button>
+        </div>
+
         <p class="stage-hint" data-testid="hint">
           Click a dot, or search below. Gold dots are laureates; grey-ringed dots are the
-          teachers and relatives who hold them together.
+          teachers and relatives who hold them together. Scroll, pinch or use the buttons to
+          zoom in far enough to see the laureates' faces; drag to move around.
         </p>
       </section>
 
@@ -103,6 +121,7 @@
           this page ships with, and the two are not the same graph.
         </p>
         <p class="notes-quiet" data-testid="provenance"></p>
+        <p class="notes-quiet" data-testid="portrait-note"></p>
       </section>
     </main>
 

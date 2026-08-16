@@ -176,6 +176,65 @@ describe("selecting somebody", () => {
   });
 });
 
+describe("zooming", () => {
+  const button = (name: string) =>
+    document.querySelector<HTMLButtonElement>(`[data-testid="${name}"]`)!;
+  const level = () => document.querySelector('[data-testid="zoom-level"]')?.textContent;
+
+  it("gives the canvas a keyboard route in, since the canvas itself cannot take focus", () => {
+    // The canvas is aria-hidden, so it is invisible to the tab order by design.
+    // Everything the wheel can do has to be reachable from these.
+    for (const name of ["zoom-in", "zoom-out", "zoom-reset"]) {
+      expect(button(name).tagName).toBe("BUTTON");
+      expect(button(name).type).toBe("button");
+    }
+    expect(document.querySelector('[data-testid="zoom"]')?.getAttribute("role")).toBe("group");
+    expect(document.querySelector('[data-testid="zoom"]')?.getAttribute("aria-label")).toBeTruthy();
+  });
+
+  it("starts showing the whole graph, with no way to zoom further out", () => {
+    expect(level()).toBe("1.0×");
+    expect(button("zoom-out").disabled).toBe(true);
+    expect(button("zoom-in").disabled).toBe(false);
+  });
+
+  it("reports the level it is actually at", () => {
+    button("zoom-in").click();
+    expect(level()).toBe("1.4×");
+    button("zoom-in").click();
+    expect(level()).toBe("1.8×");
+    expect(button("zoom-out").disabled).toBe(false);
+  });
+
+  it("goes back to the whole graph", () => {
+    button("zoom-in").click();
+    button("zoom-reset").click();
+    expect(level()).toBe("1.0×");
+    expect(button("zoom-out").disabled).toBe(true);
+  });
+
+  // Zoom is a change of view, never a change of state. Losing the person you
+  // were looking at because you scrolled would be the page taking the answer
+  // away mid-question.
+  it("does not disturb the selection", () => {
+    type(wellConnected.name.slice(0, 6));
+    results().find((b) => b.dataset.id === wellConnected.id)!.click();
+    const before = counts()?.dataset.reached;
+    button("zoom-in").click();
+    button("zoom-in").click();
+    button("zoom-reset").click();
+    expect(document.querySelector(".readout-name")?.textContent).toContain(wellConnected.name);
+    expect(counts()?.dataset.reached).toBe(before);
+  });
+
+  it("stops at a ceiling instead of zooming forever", () => {
+    for (let i = 0; i < 40; i += 1) button("zoom-in").click();
+    expect(level()).toBe("12.0×");
+    expect(button("zoom-in").disabled).toBe(true);
+    button("zoom-reset").click();
+  });
+});
+
 describe("keyboard operability", () => {
   it("gives every control a real focusable element, not a div with a handler", () => {
     type(wellConnected.name.slice(0, 6));
