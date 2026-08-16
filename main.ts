@@ -28,7 +28,6 @@ import { currentTheme, onThemeChange } from "./theme.ts";
 import {
   GAP,
   HOME,
-  MAX_DOT,
   MAX_SCALE,
   MIN_SCALE,
   PORTRAIT_RADIUS,
@@ -37,13 +36,12 @@ import {
   fitRadius,
   onScreen,
   panBy,
-  routeAround,
   screenOf,
   showsPortrait,
   trimToEdge,
   zoomAt,
 } from "./viewport.ts";
-import type { Obstacle, View } from "./viewport.ts";
+import type { View } from "./viewport.ts";
 
 // The page. Everything it knows about who is related to whom comes from
 // graph.ts; this file only turns that into pixels and DOM. CLAUDE.md's rule:
@@ -116,63 +114,6 @@ const nearestNeighbour = new Map<string, number>();
     }
     // Alone in its neighbourhood: nothing to collide with, so no cap.
     nearestNeighbour.set(id, Number.isFinite(best) ? best : 1);
-  }
-}
-
-/**
- * For each relation, the handful of people its line runs near.
- *
- * Computed once, because it can be: the view is a uniform scale and a
- * translation, so which nodes lie near which line is a fact about the layout
- * and not about the zoom. The first version asked that question per edge per
- * frame and a single redraw took 1.1 seconds, which makes panning unusable.
- *
- * The threshold is the widest a clear zone can ever be -- a 26px dot plus the
- * gap -- expressed in layout units at the scale where that is largest, which
- * is 1. Anything further away than this can never be in the way at any zoom.
- */
-const NEAR_EDGE = (MAX_DOT + GAP) / 760;
-const edgeObstacles = new Map<Edge, string[]>();
-{
-  const CELL = 0.04;
-  const buckets = new Map<string, string[]>();
-  for (const id of ids) {
-    const [x, y] = layout.positions[id]!;
-    const at = `${Math.floor(x / CELL)},${Math.floor(y / CELL)}`;
-    const bucket = buckets.get(at);
-    if (bucket) bucket.push(id);
-    else buckets.set(at, [id]);
-  }
-  /** Distance from a point to a segment, in layout units. */
-  const toSegment = (px: number, py: number, ax: number, ay: number, bx: number, by: number) => {
-    const dx = bx - ax;
-    const dy = by - ay;
-    const length = dx * dx + dy * dy;
-    const t = length < 1e-12 ? 0 : Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / length));
-    return Math.hypot(px - (ax + dx * t), py - (ay + dy * t));
-  };
-
-  for (const edge of graph.edges) {
-    const a = layout.positions[edge.from];
-    const b = layout.positions[edge.to];
-    if (!a || !b) continue;
-    const found = new Set<string>();
-    const steps = Math.max(1, Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / CELL));
-    for (let i = 0; i <= steps; i += 1) {
-      const t = i / steps;
-      const cx = Math.floor((a[0] + (b[0] - a[0]) * t) / CELL);
-      const cy = Math.floor((a[1] + (b[1] - a[1]) * t) / CELL);
-      for (let dx = -1; dx <= 1; dx += 1) {
-        for (let dy = -1; dy <= 1; dy += 1) {
-          for (const id of buckets.get(`${cx + dx},${cy + dy}`) ?? []) {
-            if (id === edge.from || id === edge.to || found.has(id)) continue;
-            const [px, py] = layout.positions[id]!;
-            if (toSegment(px, py, a[0], a[1], b[0], b[1]) <= NEAR_EDGE) found.add(id);
-          }
-        }
-      }
-    }
-    if (found.size) edgeObstacles.set(edge, [...found]);
   }
 }
 
@@ -453,32 +394,6 @@ function draw(): void {
     }
   }
 
-  /**
-   * Of the people this line runs near, the ones actually in its way right now.
-   *
-   * The candidate list is precomputed; all that is left per frame is a
-   * distance test against however few of them there are, which is usually
-   * none. That is the difference between a 1.1 second redraw and a usable one.
-   */
-  const inTheWay = (edge: Edge, ax: number, ay: number, bx: number, by: number): Obstacle[] => {
-    const candidates = edgeObstacles.get(edge);
-    if (!candidates) return [];
-    const found: Obstacle[] = [];
-    const dx = bx - ax;
-    const dy = by - ay;
-    const length = dx * dx + dy * dy;
-    for (const id of candidates) {
-      const node = where.get(id);
-      if (!node) continue;
-      const keepOut = node.radius + GAP;
-      const t =
-        length < 1e-9 ? 0 : Math.max(0, Math.min(1, ((node.x - ax) * dx + (node.y - ay) * dy) / length));
-      const distance = Math.hypot(node.x - (ax + dx * t), node.y - (ay + dy * t));
-      if (distance < keepOut) found.push({ x: node.x, y: node.y, keepOut });
-    }
-    return found;
-  };
-
   const edgeTiers = new Map<EdgeTier, Edge[]>();
   for (const edge of graph.edges) {
     if (!where.has(edge.from) && !where.has(edge.to)) continue;
@@ -504,19 +419,15 @@ function draw(): void {
       // Start and end at the rim of the dots this edge belongs to, not at
       // their centres, so a relation reaches its two people and touches
       // nothing else on the way.
+      // Straight, always. A relation between two people is a straight fact.
+      // An earlier version bent lines around whoever was in the way, which
+      // removes the crossing by making the line a lie about the relationship;
+      // the crossings are gone from the layout now instead -- see
+      // layout-nobel.ts and check-occlusion.ts.
       const from = trimToEdge(a, b, (where.get(edge.from)?.radius ?? 0) + GAP);
       const to = trimToEdge(b, a, (where.get(edge.to)?.radius ?? 0) + GAP);
-      const blocking = inTheWay(edge, from[0], from[1], to[0], to[1]);
-      // The overwhelming majority of lines run clear of everything, and a
-      // straight one costs two calls instead of fourteen.
-      if (!blocking.length) {
-        context.moveTo(from[0], from[1]);
-        context.lineTo(to[0], to[1]);
-        continue;
-      }
-      const path = routeAround(from, to, blocking);
-      context.moveTo(path[0]![0], path[0]![1]);
-      for (let i = 1; i < path.length; i += 1) context.lineTo(path[i]![0], path[i]![1]);
+      context.moveTo(from[0], from[1]);
+      context.lineTo(to[0], to[1]);
     }
     context.stroke();
   }

@@ -12,13 +12,11 @@ import {
   graphOf,
   onScreen,
   panBy,
-  routeAround,
   screenOf,
   showsPortrait,
-  trimToEdge,
   zoomAt,
 } from "../viewport.ts";
-import type { Obstacle, Size, View } from "../viewport.ts";
+import type { Size, View } from "../viewport.ts";
 
 // The transform, both directions.
 //
@@ -188,9 +186,11 @@ describe("two dots can never touch", () => {
   });
 
   it("keeps ordinary dots at their intended size, so the cap is not felt", () => {
-    // The median pair in data/layout.json is 0.0092 apart, which is 7.6px at
-    // 1x on an 821px canvas -- comfortably more than twice a 2.6px laureate.
-    expect(fitRadius(2.6, 1, 7.6)).toBeCloseTo(2.6, 6);
+    // A dot may claim a third of the way to its neighbour, so 2.6px needs 7.8px
+    // of room. Below that the cap binds and the dot shrinks, which is what
+    // leaves a corridor a straight line can pass through.
+    expect(fitRadius(2.6, 1, 7.8)).toBeCloseTo(2.6, 6);
+    expect(fitRadius(2.6, 1, 6)).toBeCloseTo(2, 6);
   });
 
   it("still lets a dot reach portrait size when there is room", () => {
@@ -206,91 +206,6 @@ describe("two dots can never touch", () => {
     const side = 821;
     const apart = closest * side * MAX_SCALE;
     expect(apart).toBeGreaterThan(2 * PORTRAIT_RADIUS + 2 * GAP);
-  });
-});
-
-describe("a line goes around what it is not connected to", () => {
-  // The first attempt painted a disc of background over each node after the
-  // edges were drawn. That hides a crossing without removing it: the line
-  // still runs through the middle of somebody it has nothing to do with, and
-  // where it leaves the disc it still reads as an edge arriving. So the line
-  // is moved instead, and these are the claims that move has to keep.
-  const clearOf = (path: [number, number][], obstacles: Obstacle[]) =>
-    path.every((p) =>
-      obstacles.every((o) => Math.hypot(p[0] - o.x, p[1] - o.y) >= o.keepOut - 1e-6),
-    );
-
-  it("leaves a clear run alone", () => {
-    const path = routeAround([0, 0], [100, 0], []);
-    expect(path.at(0)).toEqual([0, 0]);
-    expect(path.at(-1)).toEqual([100, 0]);
-    for (const [, y] of path) expect(y).toBeCloseTo(0, 9);
-  });
-
-  it("steps around a node sitting on the line", () => {
-    const obstacles: Obstacle[] = [{ x: 50, y: 0, keepOut: 14 }];
-    const path = routeAround([0, 0], [100, 0], obstacles);
-    expect(clearOf(path, obstacles)).toBe(true);
-    // and still arrives where it was going
-    expect(path.at(0)).toEqual([0, 0]);
-    expect(path.at(-1)).toEqual([100, 0]);
-  });
-
-  it("handles a node dead centre on the line, where there is no obvious side", () => {
-    const obstacles: Obstacle[] = [{ x: 50, y: 0, keepOut: 12 }];
-    const path = routeAround([0, 0], [100, 0], obstacles);
-    expect(clearOf(path, obstacles)).toBe(true);
-  });
-
-  it("clears several in a row", () => {
-    const obstacles: Obstacle[] = [
-      { x: 25, y: 2, keepOut: 10 },
-      { x: 50, y: -3, keepOut: 12 },
-      { x: 75, y: 1, keepOut: 9 },
-    ];
-    expect(clearOf(routeAround([0, 0], [100, 0], obstacles), obstacles)).toBe(true);
-  });
-
-  it("clears a hundred random arrangements", () => {
-    // Deterministic pseudo-random, because Math.random would make a failure
-    // impossible to reproduce.
-    //
-    // The claim is about the run of the line, not its ends. Where an obstacle
-    // covers an endpoint there is no path at all -- the line has to start at
-    // its own node, and that node is inside somebody else's clear zone -- so
-    // those arrangements are counted separately rather than quietly passed.
-    let seed = 12345;
-    const next = () => ((seed = (seed * 1103515245 + 12345) % 2147483648) / 2147483648);
-    let failures = 0;
-    let impossible = 0;
-    for (let trial = 0; trial < 100; trial += 1) {
-      const obstacles: Obstacle[] = [];
-      for (let i = 0; i < 3; i += 1) {
-        obstacles.push({
-          x: 10 + next() * 80,
-          y: (next() - 0.5) * 30,
-          keepOut: 6 + next() * 10,
-        });
-      }
-      const covered = (p: [number, number]) =>
-        obstacles.some((o) => Math.hypot(p[0] - o.x, p[1] - o.y) < o.keepOut);
-      if (covered([0, 0]) || covered([100, 0])) {
-        impossible += 1;
-        continue;
-      }
-      const path = routeAround([0, 0], [100, 0], obstacles);
-      if (!clearOf(path.slice(1, -1), obstacles)) failures += 1;
-    }
-    expect(failures).toBe(0);
-    // If this ever reached 100 the test would be asserting nothing.
-    expect(impossible).toBeLessThan(30);
-  });
-
-  it("starts a line at the rim of its own node rather than the centre", () => {
-    const start = trimToEdge([0, 0], [100, 0], 12);
-    expect(start[0]).toBeCloseTo(12, 6);
-    // and never swallows the whole edge when the nodes are close together
-    expect(trimToEdge([0, 0], [10, 0], 40)[0]).toBeLessThanOrEqual(4.5);
   });
 });
 
