@@ -200,6 +200,32 @@ up. A first draft of this section specified only `direct`, which is typically
 one to three people and would have made the page look like the tree is small.
 That was wrong about the finding, not just about the visuals.
 
+### The opening guess
+
+Before the graph, an overlay asks one true/false question -- more than half of
+all laureates trace to another, true or false? -- then reveals the answer and
+lets you in. It is the argument's front door, not decoration, and three
+decisions hold it up.
+
+- **It shows on every load, not once.** The reflex is to remember a dismissal
+  in `localStorage` and never show it again; most sites do, and it is what a
+  returning visitor expects. This page deliberately does the opposite: the
+  guess is the opening move of the argument and the surprise it sets up is the
+  reason the page exists, so a marker and every repeat visitor should meet it
+  fresh rather than be quietly waved past. The cost is real and paid with eyes
+  open -- a returning reader sees it again -- which is why Skip and Escape both
+  leave in a single action and focus lands on the search box on the way out.
+- **It states no percentage, only "more than half".** The graph is Wikidata's,
+  whose record of who-taught-whom is far from complete, so a figure counted
+  here would understate the finding and put the gap on show rather than the
+  point. `spec/landing.test.ts` holds the claim (`linkedLaureates` is over
+  half) against the data without the page ever printing a number.
+- **Progressive enhancement, behind a real modal.** Hidden in the markup and
+  shown by `landing.ts`, so a visitor whose JavaScript never runs meets the
+  graph directly instead of a box they cannot dismiss. While it is open the
+  header and main are `inert`, so the keyboard cannot tab into a graph nobody
+  can see yet, and Escape always leaves.
+
 ### Honesty rules --- these outrank every visual decision
 
 This page makes claims about real people, most of them dead, some of them not.

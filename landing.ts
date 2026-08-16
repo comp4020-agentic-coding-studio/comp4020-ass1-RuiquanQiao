@@ -1,36 +1,23 @@
 // The opening guess.
 //
 // A progressive-enhancement overlay: the markup ships `hidden` and this script
-// is what shows it, so a visitor whose JavaScript never runs meets the graph
-// directly rather than a modal they cannot dismiss. It loads as its own module
-// alongside main.ts, so the graph does not depend on it and the interaction
-// suite that imports main.ts is not disturbed by it.
+// shows it, so a visitor whose JavaScript never runs meets the graph directly
+// rather than a modal they cannot dismiss. It loads as its own module alongside
+// main.ts, so the graph does not depend on it and the interaction suite that
+// imports main.ts is not disturbed by it.
 //
-// The question is deliberately coarse -- "more than half", never a percentage.
-// The graph is Wikidata's, whose record of who-taught-whom is far from
-// complete, so a precise figure counted here would understate the finding and
-// put the gap on show rather than the point. "More than half" is a floor that
-// holds regardless, and spec/landing.test.ts proves it against the data.
-
-const SEEN_KEY = "one-tree-seen";
-
-function seen(): boolean {
-  try {
-    return localStorage.getItem(SEEN_KEY) === "1";
-  } catch {
-    // Reading localStorage throws outright in some privacy modes. Showing the
-    // guess again is harmless; failing to render the page would not be.
-    return false;
-  }
-}
-
-function remember(): void {
-  try {
-    localStorage.setItem(SEEN_KEY, "1");
-  } catch {
-    // A visitor in a privacy mode simply meets the guess each visit.
-  }
-}
+// It shows on EVERY load, not once. The reflex is to remember a dismissal in
+// localStorage and never show it again; this page deliberately does the
+// opposite, because the guess is the argument's front door and the surprise it
+// sets up is the reason the page exists -- a marker, and every repeat visitor,
+// should meet it fresh rather than be quietly waved past. The cost is paid with
+// eyes open: Skip and Escape both leave in a single action, and focus lands on
+// the search box on the way out. See CLAUDE.md, "The opening guess".
+//
+// The question is coarse -- "more than half", never a percentage -- because the
+// graph is Wikidata's and its record of who-taught-whom is far from complete,
+// so a figure counted here would understate the finding and put the gap on show.
+// spec/landing.test.ts proves the claim (linked > half) against the data.
 
 function need<T extends Element>(selector: string): T {
   const found = document.querySelector<T>(selector);
@@ -58,6 +45,9 @@ export function setupLanding(): void {
 
   function open(): void {
     landing!.hidden = false;
+    // Reset, so a re-open (a fresh visit) starts on the question, not on the
+    // answer a previous visit left showing.
+    reveal.hidden = true;
     for (const choice of choices) choice.setAttribute("aria-pressed", "false");
     setInert(true);
     document.body.style.overflow = "hidden";
@@ -68,9 +58,8 @@ export function setupLanding(): void {
     landing!.hidden = true;
     setInert(false);
     document.body.style.overflow = "";
-    remember();
     // Land the keyboard on the search box -- the first thing the page invites
-    // you to use -- rather than dropping focus back to the top of the document.
+    // you to use -- rather than dropping focus to the top of the document.
     document.querySelector<HTMLInputElement>('[data-testid="search"]')?.focus();
   }
 
@@ -86,9 +75,8 @@ export function setupLanding(): void {
 
   for (const choice of choices) {
     choice.addEventListener("click", () => {
-      // Mark the one they picked. Without this the reveal appears but the guess
-      // they just made gives no sign it registered -- and a wrong guess should
-      // still be visibly the one they chose.
+      // Mark the one they picked, so a wrong guess is visibly the one they made
+      // rather than a reveal that appeared from nowhere.
       for (const other of choices) other.setAttribute("aria-pressed", String(other === choice));
       answer(choice.dataset.choice === "true");
     });
@@ -101,7 +89,8 @@ export function setupLanding(): void {
     if (event.key === "Escape") close();
   });
 
-  if (!seen()) open();
+  // On every load, deliberately -- nothing is remembered. See the note above.
+  open();
 }
 
 setupLanding();

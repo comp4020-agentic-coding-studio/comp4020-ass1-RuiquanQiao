@@ -8,9 +8,10 @@ import type { Snapshot } from "../graph.ts";
 // The opening guess, and the number it turns on.
 //
 // The claim the question makes -- "more than half of all laureates link to
-// another" -- is only allowed on the page if the snapshot actually says so, so
-// the first block proves it from the data. The rest drives the overlay the way
-// a visitor and the keyboard both do: guess, get told, go in.
+// another" -- is only allowed on the page if the snapshot says so, so the first
+// block proves it from the data. The rest drives the overlay the way a visitor
+// and the keyboard both do, and holds the deliberate choice that it re-opens on
+// every visit rather than being remembered away.
 
 const snapshot = JSON.parse(readFileSync(resolve("data/nobel.json"), "utf8")) as Snapshot;
 const graph = buildGraph(snapshot);
@@ -21,17 +22,16 @@ const el = (testid: string) => document.querySelector<HTMLElement>(`[data-testid
 const click = (testid: string) =>
   document.querySelector<HTMLButtonElement>(`[data-testid="${testid}"]`)!.click();
 
+let setupLanding: () => void;
+
 beforeAll(async () => {
-  try {
-    localStorage.clear();
-  } catch {
-    // jsdom always has it, but the page guards the read and so does the test.
-  }
   const html = readFileSync(resolve("index.html"), "utf8");
   document.documentElement.innerHTML = html
     .replace(/[\s\S]*<body[^>]*>/i, "")
     .replace(/<\/body>[\s\S]*/i, "");
-  await import("../landing.ts");
+  // Importing self-runs setupLanding() once, which opens the overlay. Keeping a
+  // handle on it lets the "every visit" test re-run it as a fresh load would.
+  ({ setupLanding } = await import("../landing.ts"));
 });
 
 describe("the number the question turns on", () => {
@@ -52,7 +52,7 @@ describe("the number the question turns on", () => {
 });
 
 describe("the opening guess", () => {
-  it("shows itself on a first visit, with the answer still hidden", () => {
+  it("shows itself when the page loads, with the answer still hidden", () => {
     expect(el("landing")?.hidden).toBe(false);
     expect(el("landing-reveal")?.hidden).toBe(true);
   });
@@ -82,8 +82,17 @@ describe("the opening guess", () => {
     expect(el("landing-false")?.getAttribute("aria-pressed")).toBe("false");
   });
 
-  it("lets you into the graph, and stays gone once you are in", () => {
+  it("closes when you go into the graph", () => {
     click("landing-enter");
     expect(el("landing")?.hidden).toBe(true);
+  });
+
+  // The deliberate choice: it is not remembered away. A site that stored the
+  // dismissal would leave it hidden on the next visit; this one shows the guess
+  // every time, on purpose -- see CLAUDE.md, "The opening guess".
+  it("re-opens on the next visit rather than being remembered away", () => {
+    setupLanding();
+    expect(el("landing")?.hidden).toBe(false);
+    expect(el("landing-reveal")?.hidden).toBe(true);
   });
 });
