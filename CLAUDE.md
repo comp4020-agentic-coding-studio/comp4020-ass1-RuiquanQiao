@@ -372,6 +372,31 @@ disappears when a script fails to load is not an attribution.
   rendition at any width and hand back the original; over 60 KB they are
   dropped, and those laureates keep a gold dot like the 19 with no picture at
   all and the 7 dropped on licence.
+- **P18 is one editor's choice of one file, and it is often the wrong one.**
+  `data/portrait-extras.json` overrides it for six laureates, and every entry
+  was *looked at* before it was written down. Nothing automatic can do this
+  job: searching Commons for these names returns lecture theatres, a
+  gravestone, a scan of a 1957 doctoral thesis, the profile of Alfred Nobel on
+  the medal, and -- for the item whose English label had been vandalised -- an
+  actor. A filename is not evidence that a picture is of a person.
+- **Some laureates have no free portrait, and that is a licence problem rather
+  than a search problem.** 22 of 757 have none. Photographs of them plainly
+  exist; nobody has released one under a licence this page can honour, because
+  the Nobel Foundation's own portraits are its copyright and press photographs
+  belong to the agencies. Ninety per cent of the gap is post-1980 laureates,
+  which is exactly what that explanation predicts. Do not close it by taking
+  pictures from the open web: this site is public, marked, under a real name
+  and in the course org, and its whole argument is that every claim on it
+  carries a source you can open.
+- **Wikidata is edited by anybody, and a label is the easiest thing to change
+  without leaving a mark.** Q157255's English label read "Clark Gregg" -- an
+  American actor -- on an item whose dates, prize, and French, German and
+  Chinese labels all said Merton Miller. The page shipped that name. Overrides
+  live in `data/corrections.json` **with their evidence**, so a reader can
+  disagree with a correction rather than having to trust it, and
+  `refresh-nobel.ts` now cross-checks every laureate's English label against
+  German and French and reports disagreements. That check is what should have
+  caught it.
 - **Free-form metadata needs normalising before it is displayed.** Commons
   renders `Artist` to HTML, and stripping tags naively concatenates nested
   elements repeating the same text: 101 of 729 credits read "Unknown

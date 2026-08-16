@@ -1,0 +1,11 @@
+{
+  "note": "Overrides for Wikidata values this project has checked and found wrong. Each one records what Wikidata said, what it should say, and how that was established, so a reader can disagree with the correction rather than having to trust it. refresh-nobel.ts warns when `wasSaying` no longer matches -- that means Wikidata has changed and the override may no longer be needed.",
+  "checked": "2026-08-16",
+  "names": {
+    "Q157255": {
+      "name": "Merton Miller",
+      "wasSaying": "Clark Gregg",
+      "why": "The English label on this item had been changed to the name of an American actor. Everything else on the item is the economist: born 1923-05-16, died 2000-06-03, Nobel Memorial Prize in economics 1990, and the French, German and Chinese labels read 'Merton Miller', 'Merton H. Miller' and '默顿·米勒'. The English description still read 'American economist (1923-2000)'. The label was the only field affected, which is what vandalism to a Wikidata item usually looks like."
+    }
+  }
+}

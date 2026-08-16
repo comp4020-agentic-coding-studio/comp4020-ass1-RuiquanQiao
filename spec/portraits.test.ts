@@ -134,6 +134,75 @@ describe("every portrait carries its provenance", () => {
   });
 });
 
+describe("the hand-picked portraits", () => {
+  // P18 is one editor's choice of one file, and for these six it was a licence
+  // this site cannot honour or a scan Commons has no small rendition of.
+  // Nothing automatic could replace them: searching Commons for these names
+  // returns lecture theatres, a gravestone, the scan of a 1957 doctoral
+  // thesis, the profile of Alfred Nobel on the medal, and -- for the item
+  // whose English label had been vandalised -- an actor. Each was looked at.
+  const extras = JSON.parse(readFileSync(resolve("data/portrait-extras.json"), "utf8")) as {
+    checked: string;
+    portraits: Record<string, { file: string; who: string; why: string }>;
+  };
+
+  it("says when it was checked, because a person's face is a claim", () => {
+    expect(extras.checked).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+  });
+
+  it("records who each one is and why it was chosen", () => {
+    for (const [id, extra] of Object.entries(extras.portraits)) {
+      expect(extra.who, id).toBeTruthy();
+      expect(extra.why.length, `${extra.who}: "why" is not a reason`).toBeGreaterThan(40);
+      expect(people.get(id)?.laureate, `${extra.who} is not a laureate here`).toBe(true);
+    }
+  });
+
+  it("actually reached the manifest, rather than being quietly ignored", () => {
+    for (const [id, extra] of Object.entries(extras.portraits)) {
+      expect(book.portraits[id]?.file, `${extra.who} did not override P18`).toBe(extra.file);
+    }
+  });
+
+  it("names the right person for each one", () => {
+    for (const [id, extra] of Object.entries(extras.portraits)) {
+      expect(people.get(id)?.name).toBe(extra.who);
+    }
+  });
+});
+
+describe("corrections to Wikidata", () => {
+  // Wikidata is edited by anybody and a label is the easiest field to change
+  // without leaving a mark. Q157255's English label read "Clark Gregg", an
+  // American actor, on an item whose dates, prize and every other language
+  // said Merton Miller -- and the page shipped that name.
+  const corrections = JSON.parse(readFileSync(resolve("data/corrections.json"), "utf8")) as {
+    checked: string;
+    names: Record<string, { name: string; wasSaying: string; why: string }>;
+  };
+
+  it("carries its evidence, so a reader can disagree with it", () => {
+    expect(corrections.checked).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    for (const [id, fix] of Object.entries(corrections.names)) {
+      expect(fix.wasSaying, id).toBeTruthy();
+      expect(fix.why.length, `${fix.name}: "why" is not evidence`).toBeGreaterThan(80);
+    }
+  });
+
+  it("is applied in the snapshot the page ships", () => {
+    for (const [id, fix] of Object.entries(corrections.names)) {
+      expect(people.get(id)?.name, `${id} still reads as Wikidata had it`).toBe(fix.name);
+    }
+  });
+
+  it("leaves no laureate named after the thing it was correcting", () => {
+    const wrong = new Set(Object.values(corrections.names).map((f) => f.wasSaying));
+    for (const person of snapshot.people) {
+      expect(wrong.has(person.name), `${person.id} is still called "${person.name}"`).toBe(false);
+    }
+  });
+});
+
 describe("every portrait is actually on disk", () => {
   const files = existsSync(DIR) ? readdirSync(DIR) : [];
 

@@ -27,7 +27,15 @@
 //     396 KB for a 96px portrait, which is sixty times the median. Anything
 //     over the budget is re-requested narrower once before being accepted.
 
-import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  readdirSync,
+  rmSync,
+  statSync,
+  writeFileSync,
+} from "node:fs";
 import { AGENT, LANGUAGES, chunk, getJson, qid, sleep, sparql } from "./wikidata.ts";
 
 const WIDTH = 96;
@@ -104,6 +112,28 @@ for (const batch of chunk([...laureates.keys()], 150)) {
   await sleep(400);
 }
 console.log(`${fileOf.size} of them have a P18 image`);
+
+// Hand-picked, and they override P18 where they disagree with it.
+//
+// P18 is one editor's choice of one file and it is often not a portrait, or is
+// under a licence this site cannot honour, or points at a scan Commons has no
+// small rendition of. Nothing automatic can tell a portrait from a lecture
+// theatre, a gravestone, a thesis title page or the profile of Alfred Nobel on
+// the medal -- searching these names returns all four. Each entry in
+// data/portrait-extras.json was looked at first, and says so.
+const extras = JSON.parse(readFileSync("data/portrait-extras.json", "utf8")) as {
+  portraits: Record<string, { file: string; who: string; why: string }>;
+};
+let overridden = 0;
+for (const [id, extra] of Object.entries(extras.portraits)) {
+  if (!laureates.has(id)) {
+    console.warn(`  extra for ${id} (${extra.who}) but that person is not a laureate here`);
+    continue;
+  }
+  if (fileOf.get(id) !== extra.file) overridden += 1;
+  fileOf.set(id, extra.file);
+}
+console.log(`${overridden} hand-picked portrait(s) override or add to P18`);
 
 // --- what each picture is licensed as ---------------------------------------
 
@@ -217,8 +247,16 @@ console.log(`\n${credits.size} portraits cleared for use, ${dropped.length} drop
 
 // --- fetch them -------------------------------------------------------------
 
-if (existsSync(OUT_DIR)) rmSync(OUT_DIR, { recursive: true });
 mkdirSync(OUT_DIR, { recursive: true });
+
+// Resumable, because it is a ten-minute crawl of somebody else's servers and
+// re-running it to add six hand-picked files should not re-fetch 729 that have
+// not changed. A file counts as already here only if the manifest names the
+// same Commons file and the bytes on disk are within budget.
+const previous: Record<string, Credit> = existsSync("data/portraits.json")
+  ? (JSON.parse(readFileSync("data/portraits.json", "utf8")) as { portraits: Record<string, Credit> })
+      .portraits
+  : {};
 
 let bytes = 0;
 let failed = 0;
@@ -237,8 +275,23 @@ async function download(file: string, width: number): Promise<Buffer> {
   return Buffer.from(await response.arrayBuffer());
 }
 
+let reused = 0;
 for (const [index, id] of ids.entries()) {
   const credit = credits.get(id)!;
+
+  const already = previous[id];
+  if (already && already.file === credit.file && already.ext) {
+    const path = `${OUT_DIR}/${id}.${already.ext}`;
+    if (existsSync(path) && statSync(path).size <= BUDGET) {
+      // Keep the fresh licence and creator -- those come from this run -- but
+      // do not re-download bytes that are already correct.
+      kept.set(id, { ...credit, ext: already.ext });
+      bytes += statSync(path).size;
+      reused += 1;
+      continue;
+    }
+  }
+
   try {
     let buffer = await download(credit.file, WIDTH);
     if (buffer.byteLength > BUDGET) {
@@ -288,6 +341,17 @@ const portraits = Object.fromEntries(
   [...kept.entries()].sort(([a], [b]) => a.localeCompare(b)),
 );
 
+// Anything on disk the manifest no longer names is a portrait with no credit
+// attached, which is the licence problem in the other direction.
+let orphans = 0;
+for (const file of readdirSync(OUT_DIR)) {
+  const id = file.replace(/\.[a-z0-9]+$/, "");
+  if (kept.has(id) && `${id}.${kept.get(id)!.ext}` === file) continue;
+  rmSync(`${OUT_DIR}/${file}`);
+  orphans += 1;
+}
+if (orphans) console.log(`removed ${orphans} file(s) the manifest no longer names`);
+
 writeFileSync(
   "data/portraits.json",
   `${JSON.stringify(
@@ -309,7 +373,8 @@ writeFileSync(
 
 console.log(
   `\n\nwrote ${kept.size} portraits (${(bytes / 1024 / 1024).toFixed(2)} MB), ` +
-    `${failed} failed, ${shrunk} re-requested narrower, ${oversized} dropped as oversized`,
+    `${reused} reused, ${failed} failed, ${shrunk} re-requested narrower, ` +
+    `${oversized} dropped as oversized`,
 );
 const types: Record<string, number> = {};
 for (const credit of kept.values()) types[credit.ext!] = (types[credit.ext!] ?? 0) + 1;

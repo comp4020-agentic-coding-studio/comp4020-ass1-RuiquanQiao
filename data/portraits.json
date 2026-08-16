@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-10",
+  "fetchedAt": "2026-08-16",
   "width": 96,
   "source": {
     "note": "Portraits are Wikidata P18 resolved through Wikimedia Commons. Every one carries its creator and licence; the page shows both. GFDL 1.2 and CC SA 1.0 are excluded."
@@ -104,6 +104,13 @@
       "commons": "https://commons.wikimedia.org/wiki/File:Frederick_Soddy.jpg",
       "ext": "jpg"
     },
+    "Q103598": {
+      "file": "LucMontagnier1995 065.jpg",
+      "artist": "Túrelio",
+      "licence": "CC BY-SA 2.0 de",
+      "commons": "https://commons.wikimedia.org/wiki/File:LucMontagnier1995_065.jpg",
+      "ext": "jpg"
+    },
     "Q103835": {
       "file": "Debye100.jpg",
       "artist": "Unknown author",
@@ -165,6 +172,13 @@
       "artist": "NASA's James Webb Space Telescope from Greenbelt, MD, USA",
       "licence": "CC BY 2.0",
       "commons": "https://commons.wikimedia.org/wiki/File:Webb_First_Images_Broadcast_(52272775759).jpg",
+      "ext": "jpg"
+    },
+    "Q104668": {
+      "file": "Ginzburg in MSU opaque.jpg",
+      "artist": "Emaus modified by Penarc",
+      "licence": "CC BY-SA 3.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Ginzburg_in_MSU_opaque.jpg",
       "ext": "jpg"
     },
     "Q104779": {
@@ -277,6 +291,13 @@
       "artist": "Douglas A. Lockard",
       "licence": "CC BY-SA 3.0",
       "commons": "https://commons.wikimedia.org/wiki/File:Ahmed_Zewail_HD2009_Othmer_Gold_Medal_portrait.JPG",
+      "ext": "jpg"
+    },
+    "Q106699": {
+      "file": "Martin Chalfie Royal Society.jpg",
+      "artist": "Duncan.Hull",
+      "licence": "CC BY-SA 4.0",
+      "commons": "https://commons.wikimedia.org/wiki/File:Martin_Chalfie_Royal_Society.jpg",
       "ext": "jpg"
     },
     "Q106733": {
@@ -851,6 +872,13 @@
       "artist": "Unknown (Mondadori Publishers)",
       "licence": "Public domain",
       "commons": "https://commons.wikimedia.org/wiki/File:Robert_Andrews_Millikan_1920s.jpg",
+      "ext": "jpg"
+    },
+    "Q131112": {
+      "file": "P20230814AS-0367 (cropped).jpg",
+      "artist": "The White House",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:P20230814AS-0367_(cropped).jpg",
       "ext": "jpg"
     },
     "Q131721": {
@@ -2031,7 +2059,7 @@
     },
     "Q190626": {
       "file": "Aaron Klug 1979.jpg",
-      "artist": "Bogaerts, Rob / Anefo",
+      "artist": "Rob Bogaerts for Anefo",
       "licence": "CC BY-SA 3.0 nl",
       "commons": "https://commons.wikimedia.org/wiki/File:Aaron_Klug_1979.jpg",
       "ext": "jpg"
@@ -2867,6 +2895,13 @@
       "artist": "Irwin Gooen (NY University)",
       "licence": "Public domain",
       "commons": "https://commons.wikimedia.org/wiki/File:Severo_Ochoa_1958.jpg",
+      "ext": "jpg"
+    },
+    "Q233965": {
+      "file": "Charles Nicolle at microscope.jpg",
+      "artist": "Roland Huet",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Charles_Nicolle_at_microscope.jpg",
       "ext": "jpg"
     },
     "Q233973": {
@@ -4358,6 +4393,13 @@
       "artist": "Photograph by Davis Freeman, University of Washington, courtesy AIP Emilio Segrè Visual Archives, W. F. Meggers Gallery of Nobel Laureates Collection, Dehmelt Collection",
       "licence": "Attribution",
       "commons": "https://commons.wikimedia.org/wiki/File:Hans_Dehmelt.jpg",
+      "ext": "jpg"
+    },
+    "Q70554": {
+      "file": "Emil-fischer.jpg",
+      "artist": "Rudolf Dührkoop",
+      "licence": "Public domain",
+      "commons": "https://commons.wikimedia.org/wiki/File:Emil-fischer.jpg",
       "ext": "jpg"
     },
     "Q708472": {

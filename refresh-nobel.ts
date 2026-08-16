@@ -11,7 +11,7 @@
 // rules", and spec/data.test.ts fails if the output breaks one of them. The
 // contract was written before this script was.
 
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { ENDPOINT, LANGUAGES, chunk, qid, sleep, sparql } from "./wikidata.ts";
 
 // Verified against Wikidata rather than assumed: physics 230, chemistry 198,
@@ -240,6 +240,74 @@ console.log("walking advisor chains upward...");
 await loadAncestors();
 console.log("pulling kinship among known people...");
 await loadKinship();
+
+// Wikidata is edited by anybody, and a label is the easiest field to change
+// without leaving a mark. Q157255's English label read "Clark Gregg" -- an
+// American actor -- on an item whose dates, prize and every other language
+// said Merton Miller, and the page shipped that name to a marker. Overrides
+// live in data/corrections.json with their evidence, and are announced rather
+// than applied quietly.
+interface Correction {
+  name: string;
+  wasSaying: string;
+  why: string;
+}
+const corrections = JSON.parse(readFileSync("data/corrections.json", "utf8")) as {
+  names: Record<string, Correction>;
+};
+for (const [id, fix] of Object.entries(corrections.names)) {
+  const person = people.get(id);
+  if (!person) {
+    console.warn(`  correction for ${id} (${fix.name}) but that person is not in this pull`);
+    continue;
+  }
+  if (person.name === fix.name) {
+    console.log(`  ${id}: Wikidata now says "${fix.name}" itself -- the override is redundant`);
+    continue;
+  }
+  if (person.name !== fix.wasSaying) {
+    console.warn(
+      `  ${id}: expected Wikidata to say "${fix.wasSaying}", it now says "${person.name}". ` +
+        `The correction still applies but its evidence needs re-checking.`,
+    );
+  }
+  console.log(`  ${id}: "${person.name}" -> "${fix.name}"`);
+  person.name = fix.name;
+}
+
+// The check that would have caught it without anybody noticing by eye. A
+// personal name should not differ between languages; where English disagrees
+// with German and French, one of them has been edited.
+{
+  const laureateIds = [...people.values()].filter((p) => p.laureate).map((p) => p.id);
+  let flagged = 0;
+  for (const batch of chunk(laureateIds, 150)) {
+    const values = batch.map((id) => `wd:${id}`).join(" ");
+    const rows = await sparql(`
+      SELECT ?person ?en ?de ?fr WHERE {
+        VALUES ?person { ${values} }
+        OPTIONAL { ?person rdfs:label ?en . FILTER(lang(?en) = "en") }
+        OPTIONAL { ?person rdfs:label ?de . FILTER(lang(?de) = "de") }
+        OPTIONAL { ?person rdfs:label ?fr . FILTER(lang(?fr) = "fr") }
+      }
+    `);
+    for (const row of rows) {
+      const id = qid(row.person!.value);
+      const en = row.en?.value;
+      const others = [row.de?.value, row.fr?.value].filter(Boolean) as string[];
+      if (!en || others.length < 2) continue;
+      const surname = (name: string) => name.split(/\s+/).pop()!.toLowerCase();
+      // Names transliterate and pick up middle initials; a shared surname is
+      // the weakest claim that still catches a wholesale replacement.
+      if (others.every((other) => surname(other) !== surname(en))) {
+        console.warn(`  label disagreement ${id}: en="${en}" de/fr="${others.join('", "')}"`);
+        flagged += 1;
+      }
+    }
+    await sleep(400);
+  }
+  console.log(`label cross-check: ${flagged} disagreement(s) between English and German/French`);
+}
 
 // Anyone who is neither a laureate nor connected to one is noise from a broken
 // claim, not connective tissue. Drop them rather than render a stray dot.

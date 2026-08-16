@@ -1,0 +1,36 @@
+{
+  "note": "Portraits chosen by hand, not by Wikidata's P18. Each one was looked at before it was written down here, because nothing else can tell a portrait from a building: searching Commons for these names returns lecture theatres, gravestones, a scan of a 1957 doctoral thesis, the profile of Alfred Nobel on the medal itself, and -- for the item whose English label had been vandalised -- an actor. A filename is not evidence. Every entry below names the file, why it was picked, and what the automatic pass had found instead.",
+  "checked": "2026-08-16",
+  "portraits": {
+    "Q131112": {
+      "file": "P20230814AS-0367 (cropped).jpg",
+      "who": "Paul Krugman",
+      "why": "Close portrait, White House photograph and therefore public domain. Wikidata's P18 pointed at a GFDL 1.2 file, which this site excludes because honouring that licence means reproducing its full text."
+    },
+    "Q104668": {
+      "file": "Ginzburg in MSU opaque.jpg",
+      "who": "Vitaly Ginzburg",
+      "why": "Head-and-shoulders portrait. P18 pointed at a CC SA 1.0 file -- a deprecated share-alike with nothing modern to point a reader at. The category also holds a lecture-theatre shot of him side-on at a blackboard, which is him but is not a portrait."
+    },
+    "Q103598": {
+      "file": "LucMontagnier1995 065.jpg",
+      "who": "Luc Montagnier",
+      "why": "Head-and-shoulders, 1995. P18 pointed at a GFDL 1.2 file."
+    },
+    "Q106699": {
+      "file": "Martin Chalfie Royal Society.jpg",
+      "who": "Martin Chalfie",
+      "why": "Royal Society studio portrait. P18 pointed at a GFDL 1.2 file; the category's other candidate is a group photograph with President Bush."
+    },
+    "Q70554": {
+      "file": "Emil-fischer.jpg",
+      "who": "Hermann Emil Fischer",
+      "why": "Signed historical portrait, public domain. P18 pointed at a Wellcome Collection scan that Commons has no small rendition of -- every width returns the original at 396 KB, sixty times the median."
+    },
+    "Q233965": {
+      "file": "Charles Nicolle at microscope.jpg",
+      "who": "Charles Nicolle",
+      "why": "Signed photograph at his microscope, public domain. P18 pointed at another Wellcome scan with the same no-rendition problem. The category also holds an oil painting of him, which is a likeness but not a photograph."
+    }
+  }
+}
