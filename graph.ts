@@ -126,6 +126,28 @@ export function components(graph: Graph): string[][] {
   return out.sort((a, b) => b.length - a.length);
 }
 
+/** Laureates in a group, counted once. */
+function laureatesIn(group: string[], graph: Graph): number {
+  return group.filter((id) => graph.people.get(id)?.laureate).length;
+}
+
+/**
+ * How many laureates reach at least one OTHER laureate, by any chain.
+ *
+ * A laureate is "linked" when the connected group they sit in holds two or more
+ * laureates -- so there is somebody on the far end of the relations who also won
+ * one. This is the number the landing question turns on, and it is counted from
+ * the snapshot rather than quoted: it must stay true to the file even as the
+ * file changes. It is a floor, not the finding -- the unlinked remainder is
+ * mostly a gap in what Wikidata records, not proof anybody worked alone.
+ */
+export function linkedLaureates(graph: Graph): number {
+  return components(graph).reduce((total, group) => {
+    const here = laureatesIn(group, graph);
+    return total + (here >= 2 ? here : 0);
+  }, 0);
+}
+
 /**
  * Figures about *this* graph, computed rather than quoted.
  *
@@ -155,6 +177,13 @@ export function summarise(graph: Graph) {
     isolatedLaureates: laureates.filter((person) => (graph.neighbours.get(person.id) ?? []).length === 0)
       .length,
     unsourcedEdges: graph.edges.filter((edge) => edge.provenance === "wikidata-unsourced").length,
+    // Laureates linked to at least one other, by any chain -- the number the
+    // landing question turns on. Counted from the same groups, so it cannot
+    // drift from the figures above it.
+    linkedLaureates: groups.reduce((total, group) => {
+      const here = laureatesIn(group, graph);
+      return total + (here >= 2 ? here : 0);
+    }, 0),
   };
 }
 

@@ -24,6 +24,49 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <!-- The opening. A single true/false guess before the graph, because the
+         finding this page is built on is genuinely surprising and the old
+         "Pick a laureate" heading spent that surprise on an instruction. It is
+         a progressive-enhancement overlay: hidden in the markup and shown by
+         landing.ts, so a visitor whose JavaScript never runs meets the graph
+         directly rather than a modal they cannot dismiss. The question is an
+         h2, not an h1 -- the page keeps exactly one h1 (the graph's), which an
+         invariant test holds. -->
+    <div class="landing" data-testid="landing" hidden>
+      <div class="landing-card" role="dialog" aria-modal="true" aria-labelledby="landing-question">
+        <p class="landing-kicker">One guess before you start.</p>
+        <h2 class="landing-question" id="landing-question">
+          More than half of all Nobel laureates can be traced to another laureate — through the
+          people who taught them, or their family. True or false?
+        </h2>
+        <div class="landing-choices" role="group" aria-label="Is that true or false?">
+          <button class="landing-choice" type="button" data-testid="landing-true" data-choice="true">
+            <span class="landing-choice-word">True</span>
+            <span class="landing-choice-sub">more than half are linked</span>
+          </button>
+          <button
+            class="landing-choice"
+            type="button"
+            data-testid="landing-false"
+            data-choice="false"
+          >
+            <span class="landing-choice-word">False</span>
+            <span class="landing-choice-sub">fewer than half are linked</span>
+          </button>
+        </div>
+        <div class="landing-reveal" data-testid="landing-reveal" hidden>
+          <p class="landing-verdict" data-testid="landing-verdict"></p>
+          <p class="landing-explain" data-testid="landing-explain"></p>
+          <button class="landing-enter" type="button" data-testid="landing-enter">
+            Explore the tree →
+          </button>
+        </div>
+        <button class="landing-skip" type="button" data-testid="landing-skip">
+          Skip — take me straight to the graph
+        </button>
+      </div>
+    </div>
+
     <header class="masthead">
       <nav class="nav" aria-label="Primary">
         <a class="nav-link" href="./">One Tree</a>
@@ -139,5 +182,9 @@
     </main>
 
     <script type="module" src="./main.ts"></script>
+    <!-- The opening guess, loaded as its own module so the graph does not
+         depend on it and the interaction suite that imports main.ts is not
+         disturbed by it. -->
+    <script type="module" src="./landing.ts"></script>
   </body>
 </html>

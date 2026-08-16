@@ -658,3 +658,148 @@ body {
   white-space: pre-wrap;
   overflow-wrap: break-word;
 }
+
+/* The opening overlay. Fixed over the whole page, built from the same variables
+   as everything else so it themes for free, and with its own scroll for a short
+   phone. [hidden] has to beat the flex display, so it is declared right after. */
+.landing {
+  display: flex;
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 1.5rem 1.25rem;
+  background: var(--bg);
+}
+
+.landing[hidden] {
+  display: none;
+}
+
+.landing-card {
+  width: 100%;
+  max-width: 34rem;
+  margin: auto;
+}
+
+.landing-kicker {
+  margin: 0 0 0.75rem;
+  color: var(--ink-quiet);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.landing-question {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.5rem, 4.5vw, 2.4rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.landing-choices {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.landing-choice {
+  display: grid;
+  gap: 0.25rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.landing-choice:hover {
+  border-color: var(--gold);
+}
+
+.landing-choice:focus-visible {
+  border-color: var(--gold);
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.landing-choice-word {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.landing-choice-sub {
+  color: var(--ink-quiet);
+  font-size: 0.82rem;
+}
+
+.landing-reveal {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.25rem;
+}
+
+.landing-reveal[hidden] {
+  display: none;
+}
+
+.landing-verdict {
+  margin: 0 0 0.6rem;
+  color: var(--gold);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.landing-explain {
+  margin: 0 0 1.25rem;
+  color: var(--ink-quiet);
+  font-size: 1rem;
+}
+
+.landing-enter {
+  padding: 0.7rem 1.4rem;
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  background: var(--gold);
+  color: var(--bg);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.landing-enter:hover,
+.landing-enter:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.landing-skip {
+  margin-top: 1.5rem;
+  padding: 0.3rem 0;
+  border: 0;
+  background: none;
+  color: var(--ink-faint);
+  font: inherit;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.landing-skip:hover,
+.landing-skip:focus-visible {
+  color: var(--gold);
+}
+
+/* Phone: the two choices stack rather than squeeze side by side. */
+@media (width < 30rem) {
+  .landing-choices {
+    grid-template-columns: 1fr;
+  }
+}
