@@ -77,7 +77,7 @@ const page = `<!doctype html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portrait credits — One Tree</title>
+    <title>Portrait credits — The Nobel Lineage</title>
     <meta
       name="description"
       content="Who took each laureate portrait on this site, and under what licence."
@@ -96,7 +96,7 @@ const page = `<!doctype html>
   <body>
     <header class="masthead">
       <nav class="nav" aria-label="Primary">
-        <a class="nav-link" href="../">One Tree</a>
+        <a class="nav-link" href="../">The Nobel Lineage</a>
         <a class="nav-link" href="../about/">About the data</a>
         <a class="nav-link" href="./">Credits</a>
       </nav>
@@ -170,7 +170,7 @@ const licencePage = `<!doctype html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GNU Free Documentation License 1.2 — One Tree</title>
+    <title>GNU Free Documentation License 1.2 — The Nobel Lineage</title>
     <meta
       name="description"
       content="The full text of the GNU Free Documentation License, version 1.2, under which some portraits on this site are used."
@@ -189,7 +189,7 @@ const licencePage = `<!doctype html>
   <body>
     <header class="masthead">
       <nav class="nav" aria-label="Primary">
-        <a class="nav-link" href="../../">One Tree</a>
+        <a class="nav-link" href="../../">The Nobel Lineage</a>
         <a class="nav-link" href="../../about/">About the data</a>
         <a class="nav-link" href="../../credits/">Credits</a>
       </nav>

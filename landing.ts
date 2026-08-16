@@ -1,7 +1,3 @@
-import snapshotJson from "./data/nobel.json";
-import { buildGraph, summarise } from "./graph.ts";
-import type { Snapshot } from "./graph.ts";
-
 // The opening guess.
 //
 // A progressive-enhancement overlay: the markup ships `hidden` and this script
@@ -10,11 +6,11 @@ import type { Snapshot } from "./graph.ts";
 // alongside main.ts, so the graph does not depend on it and the interaction
 // suite that imports main.ts is not disturbed by it.
 //
-// Every figure it states is counted from the snapshot through summarise(),
-// never typed in -- the same rule the rest of the page follows. The correct
-// answer is "true" because that count is over half, and it is a floor: the
-// unlinked remainder is mostly a gap in what Wikidata records, which the copy
-// says rather than letting the number imply a lone genius.
+// The question is deliberately coarse -- "more than half", never a percentage.
+// The graph is Wikidata's, whose record of who-taught-whom is far from
+// complete, so a precise figure counted here would understate the finding and
+// put the gap on show rather than the point. "More than half" is a floor that
+// holds regardless, and spec/landing.test.ts proves it against the data.
 
 const SEEN_KEY = "one-tree-seen";
 
@@ -53,9 +49,6 @@ export function setupLanding(): void {
   const skip = need<HTMLButtonElement>('[data-testid="landing-skip"]');
   const choices = [...document.querySelectorAll<HTMLButtonElement>(".landing-choice")];
 
-  const figures = summarise(buildGraph(snapshotJson as unknown as Snapshot));
-  const pct = Math.round((figures.linkedLaureates / figures.laureates) * 100);
-
   // The header and main sit under the overlay. Made inert while it is open so
   // the keyboard cannot tab past the modal into a graph nobody can see yet.
   const behind = [...document.querySelectorAll<HTMLElement>("header, main")];
@@ -65,6 +58,7 @@ export function setupLanding(): void {
 
   function open(): void {
     landing!.hidden = false;
+    for (const choice of choices) choice.setAttribute("aria-pressed", "false");
     setInert(true);
     document.body.style.overflow = "hidden";
     choices[0]?.focus();
@@ -83,15 +77,21 @@ export function setupLanding(): void {
   function answer(correct: boolean): void {
     verdict.textContent = correct ? "Right — and it surprised me too." : "Not quite — it's true.";
     explain.textContent =
-      `${pct}% of the ${figures.laureates} laureates here connect to another one, almost all ` +
-      `through who taught whom. The rest reach no other laureate — usually a gap in what ` +
-      `Wikidata has recorded, not proof they worked alone. See who you can find.`;
+      `And almost always through the people who taught them, not through family or fame. ` +
+      `The ones who seem to reach no one? Usually a gap in what's been recorded, not proof ` +
+      `they worked alone. See who you can find.`;
     reveal.hidden = false;
     enter.focus();
   }
 
   for (const choice of choices) {
-    choice.addEventListener("click", () => answer(choice.dataset.choice === "true"));
+    choice.addEventListener("click", () => {
+      // Mark the one they picked. Without this the reveal appears but the guess
+      // they just made gives no sign it registered -- and a wrong guess should
+      // still be visibly the one they chose.
+      for (const other of choices) other.setAttribute("aria-pressed", String(other === choice));
+      answer(choice.dataset.choice === "true");
+    });
   }
   enter.addEventListener("click", close);
   skip.addEventListener("click", close);

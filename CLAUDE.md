@@ -161,7 +161,7 @@ it down here. Growing this file is the work of harness engineering, and the gap
 between this boilerplate and your own version is part of what your prototype
 says about the developer you're becoming.
 
-## This prototype: one tree
+## This prototype: the Nobel Lineage
 
 An interactive explainer about who Nobel laureates are related to.
 

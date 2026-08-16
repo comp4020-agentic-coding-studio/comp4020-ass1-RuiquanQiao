@@ -67,15 +67,19 @@ describe("the opening guess", () => {
     expect(el("landing-verdict")?.textContent?.toLowerCase()).toContain("not quite");
   });
 
-  it("confirms the right guess and reveals the real figure, counted from the data", () => {
+  it("confirms the right guess, keeps the caveat, and states no bare figure", () => {
     click("landing-true");
     expect(el("landing-verdict")?.textContent?.toLowerCase()).toContain("right");
     const explain = el("landing-explain")?.textContent ?? "";
-    expect(explain).toContain(String(pct));
-    expect(explain).toContain(String(figures.laureates));
-    // The honesty caveat travels with the number, so the unlinked remainder
-    // never reads as proof anybody worked alone.
+    // No percentage on the page: "more than half" is deliberate while the data
+    // is still only Wikidata's, and the honesty caveat travels with the claim.
+    expect(explain).not.toMatch(/\d+\s*%/);
     expect(explain.toLowerCase()).toContain("gap");
+  });
+
+  it("shows which option the visitor picked, even a wrong one", () => {
+    expect(el("landing-true")?.getAttribute("aria-pressed")).toBe("true");
+    expect(el("landing-false")?.getAttribute("aria-pressed")).toBe("false");
   });
 
   it("lets you into the graph, and stays gone once you are in", () => {

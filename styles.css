@@ -728,6 +728,14 @@ body {
   outline-offset: 2px;
 }
 
+/* The one you picked, once you have. A wrong guess stays visibly the one you
+   chose, so the correction reads against your own answer rather than floating
+   free. Gold border and the same warm highlight the result list uses. */
+.landing-choice[aria-pressed="true"] {
+  border-color: var(--gold);
+  background: var(--current-bg);
+}
+
 .landing-choice-word {
   font-size: 1.1rem;
   font-weight: 600;

@@ -2,7 +2,7 @@
 
 ## What I built
 
-**One Tree**, an interactive explainer about who Nobel laureates are related to.
+**The Nobel Lineage**, an interactive explainer about who Nobel laureates are related to.
 Every dot is a laureate in physics, chemistry, medicine or economics, or
 somebody who taught, married or fathered one. Selecting anybody lights two
 tiers: the people a documented relation connects them to, and everybody
