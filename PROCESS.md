@@ -2,15 +2,21 @@
 
 ## What I built
 
-**The Nobel Lineage**, an interactive explainer about who Nobel laureates are related to.
-Every dot is a laureate in physics, chemistry, medicine or economics, or
-somebody who taught, married or fathered one. Selecting anybody lights two
-tiers: the people a documented relation connects them to, and everybody
-reachable by any chain of them. Zoom in far enough and the laureates become
-their own faces. The page invites you to find a second lineage; there are 356
-separate groups, and the largest holds 1143 people while the next holds 14.
+**The Nobel Lineage**, an interactive explainer about who Nobel laureates are
+related to. Every dot is a laureate in physics, chemistry, medicine or
+economics, or somebody who taught, married or fathered one. Selecting anybody
+lights two tiers: the people a documented relation connects them to, and
+everybody reachable by any chain of them. Zoom in far enough and the laureates
+become their own faces.
 
-## The moments that mattered
+## How I worked: the rule first, then the agent
+
+One method ran through the whole build. Before the agent pulled or drew
+anything, I wrote down the rule the result had to satisfy and had it wire that
+rule into a test and a log — so a version that broke one failed loudly instead
+of just looking slightly off, and the agent could never hand back something
+plausible-but-wrong and call it finished. The three moments below are that
+method at three layers: the data, the render, and the algorithm.
 
 ### I wrote the checks before the data, and they caught three fakes on the first run
 
@@ -39,17 +45,6 @@ may render dimmer than at rest
 ([`72b0fbf`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass1-RuiquanQiao/commit/72b0fbf)).
 Verified by reading the canvas: 7029 pixels of bright gold, zero of the old dark
 gold.
-
-### A contrast check I added for a new theme caught a fault already live in the old one
-
-Adding a light theme, I wired a contrast sensor over both palettes rather than
-eyeballing the new one
-([`cb8b017`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass1-RuiquanQiao/commit/cb8b017)).
-It failed on its first run — in the *dark* theme, which had shipped since the
-first commit. `.notes-quiet` was 3.96:1 against a 4.5 floor. All 22 text pairs
-across both themes now clear AA, worst case 4.81. Adding the second theme also
-broke the invariant above and improved it: "not dimmer" is backwards on paper,
-so the rule became contrast against the background.
 
 ### I measured the crossings before trusting a fix, then threw two away
 

@@ -2,30 +2,30 @@
 
 ## The breakthrough
 
-The breakthrough here wasn't something I learned to do — it was deciding to do
-it first instead of last.
+The breakthrough was learning to set the rules before the agent writes a line,
+not after it hands me something wrong.
 
-The graph was the hard part, and I set its rules before I let the agent draw a
-single frame. Two dots may never touch, because two faces touching reads as a
-relationship, and a relationship on this page is a claim about two real people.
-A line may never pass through someone it has nothing to do with. Nothing a click
-lights up may come back dimmer than it went in. Then I made the agent wire each
-rule into a test and a log, so a version that broke one failed loudly instead of
-just looking slightly off.
+The graph was the hard part, so I decided its laws first. Two dots may never
+touch, because two faces touching reads as a relationship, and a relationship on
+this page is a claim about two real people. A line may never pass through
+someone it has nothing to do with. Nothing a click lights up may come back
+dimmer than it went in. Then I had the agent wire each law into a test and a
+log, so a version that broke one failed loudly instead of just looking slightly
+off.
 
-The tests weren't the point. The point was that the agent could no longer hand
-me something that quietly broke a rule and call it finished. I've spent enough
-hours letting an agent produce something plausible-but-wrong and then arguing it
-back into shape line by line, red in the face, to know that isn't how I want to
-work.
+That was the shift. The agent could no longer hand me something plausible-but-
+wrong and call it finished — it had to clear the rules first. Every hour I had
+ever spent arguing an agent's output back into shape, line by line and red in
+the face, was an hour I stopped needing to spend.
 
 ## What it changed
 
-I won't pretend this taught me a new skill — I could already do this. What
-changed is that I stopped treating it as extra effort and made it the first
-move: write my judgement down as something the machine can be failed against,
-before the machine writes anything.
+It changed the order I work in. I used to let the agent build and then correct
+what came back; now I write my judgement down as something the machine can be
+failed against, before the machine writes anything. Turning a standard into a
+check the agent has to clear is the difference between directing the work and
+cleaning up after it.
 
-That is the developer I want to keep being on the next agent project — the one
-who builds the thing that says "no" before the agent starts, not the one who
-plays whack-a-mole with its output afterwards.
+That is the developer this project made me want to be: the one who builds the
+thing that says "no" before the agent starts, not the one left playing
+whack-a-mole with its output afterwards.
