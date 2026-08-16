@@ -12,7 +12,7 @@ separate groups, and the largest holds 1143 people while the next holds 14.
 
 ## The moments that mattered
 
-### The contract was written before the data it constrains
+### I wrote the checks before the data, and they caught three fakes on the first run
 
 I wrote the rules first — `CLAUDE.md` and `spec/data.test.ts` in
 [`46ffa76`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass1-RuiquanQiao/commit/46ffa76),
@@ -25,7 +25,7 @@ because Wikidata moved names like his to a language code I was not asking for.
 I knew it was fixed when the red test went green across all 1684 people and the
 pull shrank by exactly two — the two entities that were not people.
 
-### A bug no test could reach, so I moved the decision somewhere they could
+### I moved a bug out of the canvas to where a test could finally catch it
 
 Selecting a laureate was supposed to light everyone reachable from them. It
 painted them *darker* than before the click: `#7a6334` where a resting laureate
@@ -40,7 +40,7 @@ may render dimmer than at rest
 Verified by reading the canvas: 7029 pixels of bright gold, zero of the old dark
 gold.
 
-### A check I added found something already shipped
+### A contrast check I added for a new theme caught a fault already live in the old one
 
 Adding a light theme, I wired a contrast sensor over both palettes rather than
 eyeballing the new one
@@ -51,7 +51,7 @@ across both themes now clear AA, worst case 4.81. Adding the second theme also
 broke the invariant above and improved it: "not dimmer" is backwards on paper,
 so the rule became contrast against the background.
 
-### Two answers thrown away before I measured anything
+### I measured the crossings before trusting a fix, then threw two away
 
 Lines were passing through people they had nothing to do with. I painted
 background over each node — which hides a crossing and leaves it there. Then I
