@@ -148,6 +148,45 @@
         >
           <p class="readout-empty">Nobody selected yet.</p>
         </div>
+
+        <div class="pathfinder" data-testid="pathfinder">
+          <p class="pathfinder-title">Or trace the path between two</p>
+          <p class="pathfinder-hint">
+            Pick two laureates and see how the record connects them — a good way to test whether two
+            you thought were unrelated actually are.
+          </p>
+          <div class="pathfinder-field">
+            <label class="finder-label" for="path-a">First laureate</label>
+            <input
+              class="finder-input"
+              id="path-a"
+              type="search"
+              autocomplete="off"
+              placeholder="e.g. Marie Curie"
+              data-testid="path-a"
+            />
+            <ul class="results" data-testid="path-a-results" aria-label="First laureate results"></ul>
+          </div>
+          <div class="pathfinder-field">
+            <label class="finder-label" for="path-b">Second laureate</label>
+            <input
+              class="finder-input"
+              id="path-b"
+              type="search"
+              autocomplete="off"
+              placeholder="e.g. Albert Einstein"
+              data-testid="path-b"
+            />
+            <ul class="results" data-testid="path-b-results" aria-label="Second laureate results"></ul>
+          </div>
+          <div
+            class="path-readout"
+            data-testid="path-readout"
+            role="region"
+            aria-live="polite"
+            aria-label="Path between the two laureates"
+          ></div>
+        </div>
       </section>
 
       <section class="followup" aria-label="The other question">

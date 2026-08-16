@@ -527,6 +527,70 @@ body {
   color: var(--official-ink);
 }
 
+/* The two-laureate path finder, under the single search in the panel. */
+.pathfinder {
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+
+.pathfinder-title {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.pathfinder-hint {
+  margin: 0 0 0.75rem;
+  color: var(--ink-quiet);
+  font-size: 0.82rem;
+}
+
+.pathfinder-field {
+  margin-bottom: 0.6rem;
+}
+
+.pathfinder-field .results {
+  margin-bottom: 0;
+  max-height: 9rem;
+}
+
+.path-summary {
+  margin: 0 0 0.5rem;
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.path-empty {
+  margin: 0;
+  color: var(--ink-quiet);
+  font-size: 0.86rem;
+}
+
+.path-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.86rem;
+}
+
+.path-step {
+  margin-bottom: 0.3rem;
+  color: var(--ink);
+}
+
+.path-rel {
+  display: block;
+  padding-left: 0.2rem;
+  color: var(--ink-faint);
+  font-size: 0.78rem;
+}
+
+.path-person-laureate {
+  color: var(--gold);
+}
+
 .notes {
   grid-area: notes;
   border-top: 1px solid var(--line);

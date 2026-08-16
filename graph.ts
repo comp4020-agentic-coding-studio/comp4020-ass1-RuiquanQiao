@@ -101,6 +101,47 @@ export function reachedFrom(graph: Graph, id: string): string[] {
 }
 
 /**
+ * The shortest chain of documented relations from one person to another.
+ *
+ * Breadth-first, so the path returned is a shortest one — the fewest hops the
+ * record needs to connect the two. Returns the node sequence including both
+ * ends (`[a, …, b]`), a single `[a]` when they are the same person, or `null`
+ * when no chain of relations connects them at all. There can be several equally
+ * short paths; this returns one, which is enough to answer "are these two
+ * connected, and how".
+ */
+export function shortestPath(graph: Graph, a: string, b: string): string[] | null {
+  if (!graph.people.has(a) || !graph.people.has(b)) return null;
+  if (a === b) return [a];
+  const came = new Map<string, string | null>([[a, null]]);
+  const queue = [a];
+  while (queue.length) {
+    const current = queue.shift()!;
+    if (current === b) break;
+    for (const edge of graph.neighbours.get(current) ?? []) {
+      const next = otherEnd(edge, current);
+      if (came.has(next)) continue;
+      came.set(next, current);
+      queue.push(next);
+    }
+  }
+  if (!came.has(b)) return null;
+  const path: string[] = [];
+  for (let step: string | null = b; step !== null; step = came.get(step) ?? null) {
+    path.push(step);
+  }
+  return path.reverse();
+}
+
+/** The edge joining two people the path says are adjacent, for naming the hop. */
+export function edgeBetween(graph: Graph, x: string, y: string): Edge | null {
+  for (const edge of graph.neighbours.get(x) ?? []) {
+    if (otherEnd(edge, x) === y) return edge;
+  }
+  return null;
+}
+
+/**
  * How many of these people won a Nobel Prize.
  *
  * This is the number the page leads with, and the distinction matters: the

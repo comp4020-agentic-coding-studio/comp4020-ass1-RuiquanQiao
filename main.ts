@@ -5,11 +5,13 @@ import {
   buildGraph,
   describeEdge,
   directOf,
+  edgeBetween,
   initialsOf,
   laureatesAmong,
   otherEnd,
   reachedFrom,
   search,
+  shortestPath,
   summarise,
 } from "./graph.ts";
 import type { Edge, Person, Snapshot } from "./graph.ts";
@@ -30,7 +32,6 @@ import {
   HOME,
   MAX_SCALE,
   MIN_SCALE,
-  PORTRAIT_RADIUS,
   clampView,
   dotRadius,
   fitRadius,
@@ -130,6 +131,11 @@ const readout = pick<HTMLDivElement>('[data-testid="readout"]');
 const finder = pick<HTMLFormElement>('[data-testid="finder"]');
 const zoomGroup = pick<HTMLDivElement>('[data-testid="zoom"]');
 const zoomLevel = pick<HTMLParagraphElement>('[data-testid="zoom-level"]');
+const pathAInput = pick<HTMLInputElement>('[data-testid="path-a"]');
+const pathBInput = pick<HTMLInputElement>('[data-testid="path-b"]');
+const pathAResults = pick<HTMLUListElement>('[data-testid="path-a-results"]');
+const pathBResults = pick<HTMLUListElement>('[data-testid="path-b-results"]');
+const pathReadout = pick<HTMLDivElement>('[data-testid="path-readout"]');
 
 // --- state -----------------------------------------------------------------
 // Four values, and they are the whole truth about what the page is showing.
@@ -146,6 +152,17 @@ let direct = new Set<string>();
 let reached = new Set<string>();
 let view: View = HOME;
 
+// The two-laureate path mode. When `pathEnds` is set, the draw loop lights the
+// chain between them instead of a single selection's tiers. The two modes are
+// mutually exclusive: choosing one person clears a path, tracing a path clears
+// the single selection.
+let pathEnds: [string, string] | null = null;
+let pathNodes = new Set<string>();
+let pathEdges = new Set<string>();
+
+/** Undirected edge key, so a path's edges match whichever way they were stored. */
+const edgeKey = (from: string, to: string) => [from, to].sort().join("|");
+
 /**
  * Choose somebody.
  *
@@ -156,7 +173,15 @@ let view: View = HOME;
  * from under a pointer is disorienting. Searching a name and being left to
  * hunt for the dot in a thousand-node hairball is the thing this fixes.
  */
+/** Leaving path mode. The single selection and a traced path never coexist. */
+function clearPath(): void {
+  pathEnds = null;
+  pathNodes = new Set();
+  pathEdges = new Set();
+}
+
 function select(id: string | null, reveal = false): void {
+  clearPath();
   selected = id !== null && graph.people.has(id) ? id : null;
   direct = new Set(selected ? directOf(graph, selected) : []);
   reached = new Set(selected ? reachedFrom(graph, selected) : []);
@@ -170,18 +195,10 @@ function select(id: string | null, reveal = false): void {
 function bring(id: string): void {
   syncCanvas();
   const side = Math.min(width, height);
-  const person = graph.people.get(id)!;
-
-  // Two things have to be true at once for a portrait to appear: the dot has
-  // to be PORTRAIT_RADIUS wide, and the no-overlap cap has to allow that --
-  // near a crowded neighbour the cap is what binds, so both are solved for and
-  // the larger answer wins.
-  const base = radiusFor(degreeOf(id), person.laureate, "seed", currentTheme());
-  const forSize = PORTRAIT_RADIUS / base;
-  const gap = nearestNeighbour.get(id)! * side;
-  const forRoom = gap > 0 ? ((PORTRAIT_RADIUS + GAP) * 2) / gap : MAX_SCALE;
-  const scale = Math.min(MAX_SCALE, Math.max(view.scale, forSize, forRoom));
-
+  // Zoom all the way in. The point of looking somebody up is to see them, so
+  // put their face at full size in the middle rather than at the smallest zoom
+  // that merely makes a portrait appear.
+  const scale = MAX_SCALE;
   const point = layout.positions[id]!;
   const left = (width - side) / 2;
   const top = (height - side) / 2;
@@ -189,6 +206,41 @@ function bring(id: string): void {
     scale,
     x: width / 2 - (left + point[0] * side) * scale,
     y: height / 2 - (top + point[1] * side) * scale,
+  });
+}
+
+/**
+ * Frame a set of nodes: centre their bounding box and zoom so it fills the
+ * canvas with a margin. Used when a path is traced, so the lit chain is what
+ * you are looking at rather than five nodes lost in the whole hairball.
+ */
+function fitToNodes(nodeIds: string[]): void {
+  syncCanvas();
+  const side = Math.min(width, height);
+  const points = nodeIds.map((id) => layout.positions[id]).filter(Boolean) as [number, number][];
+  if (!points.length) return;
+  let minX = 1;
+  let minY = 1;
+  let maxX = 0;
+  let maxY = 0;
+  for (const [x, y] of points) {
+    minX = Math.min(minX, x);
+    minY = Math.min(minY, y);
+    maxX = Math.max(maxX, x);
+    maxY = Math.max(maxY, y);
+  }
+  const cx = (minX + maxX) / 2;
+  const cy = (minY + maxY) / 2;
+  // A margin so the endpoints are not jammed against the edge, and a floor on
+  // the span so a two-node path does not zoom to the ceiling.
+  const span = Math.max(maxX - minX, maxY - minY, 0.06) * 1.5;
+  const scale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, 1 / span));
+  const left = (width - side) / 2;
+  const top = (height - side) / 2;
+  setView({
+    scale,
+    x: width / 2 - (left + cx * side) * scale,
+    y: height / 2 - (top + cy * side) * scale,
   });
 }
 
@@ -358,11 +410,26 @@ function draw(): void {
   context.fillStyle = background(theme);
   context.fillRect(0, 0, width, height);
 
+  // In path mode the highlight is the chain between two laureates, not one
+  // selection's tiers: the two ends read as seeds, the people between them as
+  // direct, and everyone else drops out of the picture.
+  const inPath = pathEnds !== null;
+  const nodeTierAt = (id: string): Tier => {
+    if (!inPath) return tierOf(id, selected, direct, reached);
+    if (id === pathEnds![0] || id === pathEnds![1]) return "seed";
+    if (pathNodes.has(id)) return "direct";
+    return "out";
+  };
+  const edgeTierAt = (edge: Edge): EdgeTier => {
+    if (!inPath) return edgeTier(edge.from, edge.to, selected, reached);
+    return pathEdges.has(edgeKey(edge.from, edge.to)) ? "direct" : "out";
+  };
+
   // Nodes are placed first now, because the edges have to be routed around
   // them and cannot be if they do not yet exist.
   const nodeTiers = new Map<Tier, string[]>();
   for (const id of ids) {
-    const tier = tierOf(id, selected, direct, reached);
+    const tier = nodeTierAt(id);
     const bucket = nodeTiers.get(tier);
     if (bucket) bucket.push(id);
     else nodeTiers.set(tier, [id]);
@@ -398,7 +465,7 @@ function draw(): void {
   for (const edge of graph.edges) {
     if (!where.has(edge.from) && !where.has(edge.to)) continue;
     if (!layout.positions[edge.from] || !layout.positions[edge.to]) continue;
-    const tier = edgeTier(edge.from, edge.to, selected, reached);
+    const tier = edgeTierAt(edge);
     // An out-of-reach relation is not dimmed, it is not drawn: dimming it would
     // only muddy the picture it is not part of.
     if (tier === "out") continue;
@@ -674,12 +741,134 @@ function drawReadout(): void {
   }
 }
 
+// --- the two-laureate path finder ------------------------------------------
+
+let pathAId: string | null = null;
+let pathBId: string | null = null;
+
+function pathEndResults(query: string, list: HTMLUListElement, onPick: (id: string) => void): void {
+  const hits = search(graph, query, 8);
+  list.replaceChildren();
+  for (const person of hits) {
+    const item = document.createElement("li");
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "result";
+    button.textContent = label(person);
+    button.dataset.id = person.id;
+    button.addEventListener("click", () => onPick(person.id));
+    item.append(button);
+    list.append(item);
+  }
+}
+
+function tracePath(a: string, b: string): void {
+  // Path mode owns the highlight, so a lingering single selection cannot fight
+  // it -- select() does the reverse when a single person is chosen.
+  selected = null;
+  direct = new Set();
+  reached = new Set();
+
+  const nodes = shortestPath(graph, a, b);
+  if (!nodes || nodes.length < 2) {
+    clearPath();
+    drawPathReadout(a, b, null);
+    drawReadout();
+    setView(HOME);
+    draw();
+    return;
+  }
+  pathEnds = [a, b];
+  pathNodes = new Set(nodes);
+  pathEdges = new Set();
+  for (let i = 0; i < nodes.length - 1; i += 1) {
+    pathEdges.add(edgeKey(nodes[i]!, nodes[i + 1]!));
+  }
+  // Show the whole graph, so the lit chain reads against everything it is not.
+  drawPathReadout(a, b, nodes);
+  drawReadout();
+  fitToNodes(nodes);
+  draw();
+}
+
+function drawPathReadout(a: string, b: string, nodes: string[] | null): void {
+  pathReadout.replaceChildren();
+  const personA = graph.people.get(a);
+  const personB = graph.people.get(b);
+  if (!personA || !personB) return;
+
+  if (!nodes) {
+    const empty = document.createElement("p");
+    empty.className = "path-empty";
+    empty.textContent =
+      `No path in this data: ${personA.name} and ${personB.name} sit in different parts of the ` +
+      `graph. That is usually a gap in what Wikidata records, not proof they are unconnected.`;
+    pathReadout.append(empty);
+    return;
+  }
+
+  const steps = nodes.length - 1;
+  const between = nodes.length - 2;
+  const summary = document.createElement("p");
+  summary.className = "path-summary";
+  summary.dataset.testid = "path-summary";
+  summary.dataset.steps = String(steps);
+  summary.textContent =
+    between > 0
+      ? `${steps} steps apart, through ${between} ${between === 1 ? "person" : "people"}.`
+      : "Directly connected.";
+  pathReadout.append(summary);
+
+  const list = document.createElement("ol");
+  list.className = "path-list";
+  for (let i = 0; i < nodes.length; i += 1) {
+    const person = graph.people.get(nodes[i]!)!;
+    const item = document.createElement("li");
+    item.className = "path-step";
+    if (i > 0) {
+      const edge = edgeBetween(graph, nodes[i - 1]!, nodes[i]!);
+      const rel = document.createElement("span");
+      rel.className = "path-rel";
+      rel.textContent = edge ? `↳ ${describeEdge(edge, nodes[i - 1]!)}` : "↳ linked to";
+      item.append(rel);
+    }
+    const name = document.createElement("button");
+    name.type = "button";
+    name.className = person.laureate ? "relation-link relation-link-laureate" : "relation-link";
+    name.textContent = person.name;
+    name.dataset.id = person.id;
+    name.addEventListener("click", () => select(person.id, true));
+    item.append(name);
+    list.append(item);
+  }
+  pathReadout.append(list);
+}
+
 // --- wiring ----------------------------------------------------------------
 
 searchBox.addEventListener("input", () => drawResults(searchBox.value));
 finder.addEventListener("submit", (event) => {
   event.preventDefault();
   resultList.querySelector<HTMLButtonElement>("button.result")?.click();
+});
+
+pathAInput.addEventListener("input", () => {
+  pathAId = null;
+  pathEndResults(pathAInput.value, pathAResults, (id) => {
+    pathAId = id;
+    pathAInput.value = graph.people.get(id)!.name;
+    pathAResults.replaceChildren();
+    if (pathAId && pathBId) tracePath(pathAId, pathBId);
+  });
+});
+pathBInput.addEventListener("input", () => {
+  pathBId = null;
+  pathEndResults(pathBInput.value, pathBResults, (id) => {
+    pathBId = id;
+    pathBInput.value = graph.people.get(id)!.name;
+    pathBResults.replaceChildren();
+    if (pathAId && pathBId) tracePath(pathAId, pathBId);
+  });
 });
 
 // --- zoom and pan -----------------------------------------------------------
