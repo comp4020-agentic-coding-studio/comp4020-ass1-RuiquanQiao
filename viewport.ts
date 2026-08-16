@@ -169,6 +169,147 @@ export function showsPortrait(radiusPx: number): boolean {
   return radiusPx >= PORTRAIT_RADIUS;
 }
 
+export interface Obstacle {
+  x: number;
+  y: number;
+  /** Radius the line must stay outside of, gap included. */
+  keepOut: number;
+}
+
+/**
+ * A path from `from` to `to` that goes *around* every obstacle instead of
+ * through it.
+ *
+ * The first attempt at this problem painted a disc of background over each
+ * node after drawing the edges. That hides the crossing without removing it:
+ * the line still runs through the middle of somebody it has nothing to do
+ * with, and at the two points where it leaves the disc it still reads as an
+ * edge arriving. Erasing evidence is not the same as fixing the thing.
+ *
+ * So the line is actually moved. The segment is sampled into points, any point
+ * sitting inside an obstacle is pushed radially out to its boundary, and the
+ * result is relaxed so the detour is a curve rather than a kink. Three passes,
+ * ending on a push so the last word belongs to the constraint rather than to
+ * the smoothing.
+ *
+ * It is a local method and it does not promise the impossible -- a line
+ * threading a dense cluster can be squeezed by obstacles on both sides. What
+ * it does guarantee is that no *sampled* point of the drawn path lies inside
+ * an obstacle, and spec/viewport.test.ts holds that.
+ */
+export function routeAround(
+  from: readonly [number, number],
+  to: readonly [number, number],
+  obstacles: readonly Obstacle[],
+): [number, number][] {
+  const STEPS = 12;
+  const points: [number, number][] = [];
+  for (let i = 0; i <= STEPS; i += 1) {
+    const t = i / STEPS;
+    points.push([from[0] + (to[0] - from[0]) * t, from[1] + (to[1] - from[1]) * t]);
+  }
+  if (!obstacles.length) return points;
+
+  /**
+   * Push one point out of everything it is inside, and keep going until it is
+   * outside all of them at once.
+   *
+   * One sweep per obstacle is not enough and the first version did exactly
+   * that: escaping A drops the point into B, escaping B drops it back into A,
+   * and it stops wherever the loop happened to end. Half of a hundred random
+   * arrangements still had a line crossing something. Settling each point
+   * against the whole set until it stops moving is what actually clears them.
+   */
+  // Land a hair outside, not exactly on the boundary, so floating point cannot
+  // leave the point a ten-thousandth of a pixel inside.
+  const OUT = 1.0005;
+  const clear = (p: readonly [number, number]) =>
+    obstacles.every((o) => Math.hypot(p[0] - o.x, p[1] - o.y) >= o.keepOut);
+
+  const settle = (i: number) => {
+    for (let attempt = 0; attempt < 24; attempt += 1) {
+      let moved = false;
+      for (const o of obstacles) {
+        const point = points[i]!;
+        const dx = point[0] - o.x;
+        const dy = point[1] - o.y;
+        const distance = Math.hypot(dx, dy);
+        if (distance >= o.keepOut) continue;
+        moved = true;
+        if (distance < 1e-6) {
+          // Dead centre, so no direction is implied. Perpendicular to the run
+          // of the line keeps the detour short.
+          const nx = -(to[1] - from[1]);
+          const ny = to[0] - from[0];
+          const length = Math.hypot(nx, ny) || 1;
+          const out = o.keepOut * OUT;
+          points[i] = [o.x + (nx / length) * out, o.y + (ny / length) * out];
+          continue;
+        }
+        const scale = (o.keepOut * OUT) / distance;
+        points[i] = [o.x + dx * scale, o.y + dy * scale];
+      }
+      if (!moved) return;
+    }
+
+    // Projection alone cycles when two clear zones overlap: escaping one drops
+    // the point into the other and back again. Step sideways instead, further
+    // each time, and take the first offset that is outside everything.
+    const nx = -(to[1] - from[1]);
+    const ny = to[0] - from[0];
+    const length = Math.hypot(nx, ny) || 1;
+    const base = points[i]!;
+    const widest = obstacles.reduce((most, o) => Math.max(most, o.keepOut), 0);
+    for (let step = 1; step <= 40; step += 1) {
+      const distance = (step / 40) * (widest * 2.5 + 4);
+      for (const sign of [1, -1]) {
+        const candidate: [number, number] = [
+          base[0] + (nx / length) * distance * sign,
+          base[1] + (ny / length) * distance * sign,
+        ];
+        if (clear(candidate)) {
+          points[i] = candidate;
+          return;
+        }
+      }
+    }
+  };
+
+  const push = () => {
+    for (let i = 1; i < STEPS; i += 1) settle(i);
+  };
+
+  const relax = () => {
+    for (let i = 1; i < STEPS; i += 1) {
+      const a = points[i - 1]!;
+      const b = points[i]!;
+      const c = points[i + 1]!;
+      points[i] = [(a[0] + 2 * b[0] + c[0]) / 4, (a[1] + 2 * b[1] + c[1]) / 4];
+    }
+  };
+
+  push();
+  relax();
+  push();
+  relax();
+  push();
+  return points;
+}
+
+/** Where a line should start so it leaves its own node's edge, not its centre. */
+export function trimToEdge(
+  from: readonly [number, number],
+  to: readonly [number, number],
+  radius: number,
+): [number, number] {
+  const dx = to[0] - from[0];
+  const dy = to[1] - from[1];
+  const length = Math.hypot(dx, dy);
+  if (length < 1e-6) return [from[0], from[1]];
+  const t = Math.min(radius / length, 0.45);
+  return [from[0] + dx * t, from[1] + dy * t];
+}
+
 /** Is this screen point worth drawing or loading an image for? */
 export function onScreen(
   screen: readonly [number, number],

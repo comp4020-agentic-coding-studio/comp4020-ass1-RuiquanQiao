@@ -27,6 +27,7 @@ import { currentTheme, onThemeChange } from "./theme.ts";
 import {
   GAP,
   HOME,
+  MAX_DOT,
   MAX_SCALE,
   MIN_SCALE,
   clampView,
@@ -34,11 +35,13 @@ import {
   fitRadius,
   onScreen,
   panBy,
+  routeAround,
   screenOf,
   showsPortrait,
+  trimToEdge,
   zoomAt,
 } from "./viewport.ts";
-import type { View } from "./viewport.ts";
+import type { Obstacle, View } from "./viewport.ts";
 
 // The page. Everything it knows about who is related to whom comes from
 // graph.ts; this file only turns that into pixels and DOM. CLAUDE.md's rule:
@@ -108,6 +111,63 @@ const nearestNeighbour = new Map<string, number>();
     }
     // Alone in its neighbourhood: nothing to collide with, so no cap.
     nearestNeighbour.set(id, Number.isFinite(best) ? best : 1);
+  }
+}
+
+/**
+ * For each relation, the handful of people its line runs near.
+ *
+ * Computed once, because it can be: the view is a uniform scale and a
+ * translation, so which nodes lie near which line is a fact about the layout
+ * and not about the zoom. The first version asked that question per edge per
+ * frame and a single redraw took 1.1 seconds, which makes panning unusable.
+ *
+ * The threshold is the widest a clear zone can ever be -- a 26px dot plus the
+ * gap -- expressed in layout units at the scale where that is largest, which
+ * is 1. Anything further away than this can never be in the way at any zoom.
+ */
+const NEAR_EDGE = (MAX_DOT + GAP) / 760;
+const edgeObstacles = new Map<Edge, string[]>();
+{
+  const CELL = 0.04;
+  const buckets = new Map<string, string[]>();
+  for (const id of ids) {
+    const [x, y] = layout.positions[id]!;
+    const at = `${Math.floor(x / CELL)},${Math.floor(y / CELL)}`;
+    const bucket = buckets.get(at);
+    if (bucket) bucket.push(id);
+    else buckets.set(at, [id]);
+  }
+  /** Distance from a point to a segment, in layout units. */
+  const toSegment = (px: number, py: number, ax: number, ay: number, bx: number, by: number) => {
+    const dx = bx - ax;
+    const dy = by - ay;
+    const length = dx * dx + dy * dy;
+    const t = length < 1e-12 ? 0 : Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / length));
+    return Math.hypot(px - (ax + dx * t), py - (ay + dy * t));
+  };
+
+  for (const edge of graph.edges) {
+    const a = layout.positions[edge.from];
+    const b = layout.positions[edge.to];
+    if (!a || !b) continue;
+    const found = new Set<string>();
+    const steps = Math.max(1, Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / CELL));
+    for (let i = 0; i <= steps; i += 1) {
+      const t = i / steps;
+      const cx = Math.floor((a[0] + (b[0] - a[0]) * t) / CELL);
+      const cy = Math.floor((a[1] + (b[1] - a[1]) * t) / CELL);
+      for (let dx = -1; dx <= 1; dx += 1) {
+        for (let dy = -1; dy <= 1; dy += 1) {
+          for (const id of buckets.get(`${cx + dx},${cy + dy}`) ?? []) {
+            if (id === edge.from || id === edge.to || found.has(id)) continue;
+            const [px, py] = layout.positions[id]!;
+            if (toSegment(px, py, a[0], a[1], b[0], b[1]) <= NEAR_EDGE) found.add(id);
+          }
+        }
+      }
+    }
+    if (found.size) edgeObstacles.set(edge, [...found]);
   }
 }
 
@@ -315,33 +375,8 @@ function draw(): void {
   context.fillStyle = background(theme);
   context.fillRect(0, 0, width, height);
 
-  const edgeTiers = new Map<EdgeTier, Edge[]>();
-  for (const edge of graph.edges) {
-    if (!layout.positions[edge.from] || !layout.positions[edge.to]) continue;
-    const tier = edgeTier(edge.from, edge.to, selected, reached);
-    // An out-of-reach relation is not dimmed, it is not drawn: dimming it would
-    // only muddy the picture it is not part of.
-    if (tier === "out") continue;
-    const bucket = edgeTiers.get(tier);
-    if (bucket) bucket.push(edge);
-    else edgeTiers.set(tier, [edge]);
-  }
-  for (const tier of EDGE_ORDER) {
-    const bucket = edgeTiers.get(tier);
-    if (!bucket) continue;
-    const style = edgeStyle(tier, theme);
-    context.strokeStyle = style.stroke;
-    context.lineWidth = style.width;
-    context.beginPath();
-    for (const edge of bucket) {
-      const [ax, ay] = at(edge.from);
-      const [bx, by] = at(edge.to);
-      context.moveTo(ax, ay);
-      context.lineTo(bx, by);
-    }
-    context.stroke();
-  }
-
+  // Nodes are placed first now, because the edges have to be routed around
+  // them and cannot be if they do not yet exist.
   const nodeTiers = new Map<Tier, string[]>();
   for (const id of ids) {
     const tier = tierOf(id, selected, direct, reached);
@@ -352,8 +387,9 @@ function draw(): void {
   const box = { width, height };
   const side = Math.min(width, height);
 
-  /** Everything about a node the two passes below both need. */
+  /** Everything about a node the passes below need. */
   const placed: { id: string; tier: Tier; x: number; y: number; radius: number }[] = [];
+  const where = new Map<string, { x: number; y: number; radius: number }>();
   for (const tier of NODE_ORDER) {
     for (const id of nodeTiers.get(tier) ?? []) {
       const person = graph.people.get(id)!;
@@ -371,21 +407,76 @@ function draw(): void {
       // for.
       if (!onScreen([x, y], box, radius + 8)) continue;
       placed.push({ id, tier, x, y, radius });
+      where.set(id, { x, y, radius });
     }
   }
 
-  // Punch the lines back out of every dot before drawing any of them.
-  //
-  // A line that runs behind an unrelated node used to emerge on both sides of
-  // it and read exactly like two edges meeting there -- which is to say, like
-  // a relationship between two people who have none. Clearing a disc of
-  // background around every node makes each line visibly stop short of
-  // everything it does not connect to.
-  context.fillStyle = background(theme);
-  for (const node of placed) {
+  /**
+   * Of the people this line runs near, the ones actually in its way right now.
+   *
+   * The candidate list is precomputed; all that is left per frame is a
+   * distance test against however few of them there are, which is usually
+   * none. That is the difference between a 1.1 second redraw and a usable one.
+   */
+  const inTheWay = (edge: Edge, ax: number, ay: number, bx: number, by: number): Obstacle[] => {
+    const candidates = edgeObstacles.get(edge);
+    if (!candidates) return [];
+    const found: Obstacle[] = [];
+    const dx = bx - ax;
+    const dy = by - ay;
+    const length = dx * dx + dy * dy;
+    for (const id of candidates) {
+      const node = where.get(id);
+      if (!node) continue;
+      const keepOut = node.radius + GAP;
+      const t =
+        length < 1e-9 ? 0 : Math.max(0, Math.min(1, ((node.x - ax) * dx + (node.y - ay) * dy) / length));
+      const distance = Math.hypot(node.x - (ax + dx * t), node.y - (ay + dy * t));
+      if (distance < keepOut) found.push({ x: node.x, y: node.y, keepOut });
+    }
+    return found;
+  };
+
+  const edgeTiers = new Map<EdgeTier, Edge[]>();
+  for (const edge of graph.edges) {
+    if (!where.has(edge.from) && !where.has(edge.to)) continue;
+    if (!layout.positions[edge.from] || !layout.positions[edge.to]) continue;
+    const tier = edgeTier(edge.from, edge.to, selected, reached);
+    // An out-of-reach relation is not dimmed, it is not drawn: dimming it would
+    // only muddy the picture it is not part of.
+    if (tier === "out") continue;
+    const bucket = edgeTiers.get(tier);
+    if (bucket) bucket.push(edge);
+    else edgeTiers.set(tier, [edge]);
+  }
+  for (const tier of EDGE_ORDER) {
+    const bucket = edgeTiers.get(tier);
+    if (!bucket) continue;
+    const style = edgeStyle(tier, theme);
+    context.strokeStyle = style.stroke;
+    context.lineWidth = style.width;
     context.beginPath();
-    context.arc(node.x, node.y, node.radius + GAP, 0, Math.PI * 2);
-    context.fill();
+    for (const edge of bucket) {
+      const a = at(edge.from);
+      const b = at(edge.to);
+      // Start and end at the rim of the dots this edge belongs to, not at
+      // their centres, so a relation reaches its two people and touches
+      // nothing else on the way.
+      const from = trimToEdge(a, b, (where.get(edge.from)?.radius ?? 0) + GAP);
+      const to = trimToEdge(b, a, (where.get(edge.to)?.radius ?? 0) + GAP);
+      const blocking = inTheWay(edge, from[0], from[1], to[0], to[1]);
+      // The overwhelming majority of lines run clear of everything, and a
+      // straight one costs two calls instead of fourteen.
+      if (!blocking.length) {
+        context.moveTo(from[0], from[1]);
+        context.lineTo(to[0], to[1]);
+        continue;
+      }
+      const path = routeAround(from, to, blocking);
+      context.moveTo(path[0]![0], path[0]![1]);
+      for (let i = 1; i < path.length; i += 1) context.lineTo(path[i]![0], path[i]![1]);
+    }
+    context.stroke();
   }
 
   for (const { id, tier, x: nx, y: ny, radius } of placed) {

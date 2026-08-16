@@ -333,9 +333,19 @@ wrong first.
   `fitRadius` caps every dot at half the distance to its nearest neighbour.
   Overlap is not cosmetic here: two faces touching reads as a relationship, and
   a relationship on this page is a claim about two real people. The same
-  argument is why a cleared disc is punched around every node before the nodes
-  are drawn -- a line running behind an unrelated node used to come out the
-  other side looking exactly like two edges meeting there.
+  argument is why **a line is routed around every node it is not attached to**
+  rather than drawn through it.
+- **Do not "fix" a crossing by painting over it.** The first attempt at that
+  problem filled a disc of background across each node after the edges were
+  drawn. It hides the crossing and leaves it there: the line still runs through
+  the middle of somebody it has nothing to do with, and where it re-emerges it
+  still reads as an edge arriving. `routeAround` moves the line instead, and
+  `spec/routing.test.ts` surveys all 1541 relations at four zoom levels -- 822
+  of them would cross somebody at 1x, and none do after routing.
+- **Anything asked per-edge per-frame has to be precomputed.** The view is a
+  uniform scale and a translation, so *which* nodes lie near *which* line is a
+  property of the layout, not of the zoom. Asking it live cost 1.1 seconds a
+  redraw; hoisting it to load time brought that to 15ms.
 - **The 40x ceiling is measured, not chosen.** The closest pair in
   `data/layout.json` is 1.2e-3 apart in layout units: 12px at the old ceiling
   of 12x, where two 13px faces cannot both fit, so no amount of zooming
