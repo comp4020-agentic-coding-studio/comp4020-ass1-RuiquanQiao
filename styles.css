@@ -757,16 +757,10 @@ body {
 }
 
 .landing-verdict {
-  margin: 0 0 0.6rem;
+  margin: 0 0 1.25rem;
   color: var(--gold);
   font-size: 1.15rem;
   font-weight: 600;
-}
-
-.landing-explain {
-  margin: 0 0 1.25rem;
-  color: var(--ink-quiet);
-  font-size: 1rem;
 }
 
 .landing-enter {

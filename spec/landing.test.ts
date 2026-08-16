@@ -67,14 +67,12 @@ describe("the opening guess", () => {
     expect(el("landing-verdict")?.textContent?.toLowerCase()).toContain("not quite");
   });
 
-  it("confirms the right guess, keeps the caveat, and states no bare figure", () => {
+  it("confirms the right guess in one line, and prints no bare figure", () => {
     click("landing-true");
     expect(el("landing-verdict")?.textContent?.toLowerCase()).toContain("right");
-    const explain = el("landing-explain")?.textContent ?? "";
-    // No percentage on the page: "more than half" is deliberate while the data
-    // is still only Wikidata's, and the honesty caveat travels with the claim.
-    expect(explain).not.toMatch(/\d+\s*%/);
-    expect(explain.toLowerCase()).toContain("gap");
+    // The reveal is one line and never a percentage: "more than half" is
+    // deliberately coarse while the graph is still only Wikidata's.
+    expect(el("landing-reveal")?.textContent ?? "").not.toMatch(/\d+\s*%/);
   });
 
   it("shows which option the visitor picked, even a wrong one", () => {

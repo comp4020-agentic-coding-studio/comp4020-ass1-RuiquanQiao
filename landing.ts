@@ -14,10 +14,12 @@
 // eyes open: Skip and Escape both leave in a single action, and focus lands on
 // the search box on the way out. See CLAUDE.md, "The opening guess".
 //
-// The question is coarse -- "more than half", never a percentage -- because the
-// graph is Wikidata's and its record of who-taught-whom is far from complete,
-// so a figure counted here would understate the finding and put the gap on show.
-// spec/landing.test.ts proves the claim (linked > half) against the data.
+// The reveal is one line, on purpose. Someone who just arrived does not yet know
+// the laureates are connected at all, so a paragraph parsing supervision against
+// kinship answers a question they have not thought to ask. "More than half" is
+// coarse for the same reason, and never a percentage: the graph is Wikidata's
+// and a figure counted here would put its gaps on show. spec/landing.test.ts
+// proves the claim (linked > half) against the data.
 
 function need<T extends Element>(selector: string): T {
   const found = document.querySelector<T>(selector);
@@ -31,7 +33,6 @@ export function setupLanding(): void {
 
   const reveal = need<HTMLElement>('[data-testid="landing-reveal"]');
   const verdict = need<HTMLElement>('[data-testid="landing-verdict"]');
-  const explain = need<HTMLElement>('[data-testid="landing-explain"]');
   const enter = need<HTMLButtonElement>('[data-testid="landing-enter"]');
   const skip = need<HTMLButtonElement>('[data-testid="landing-skip"]');
   const choices = [...document.querySelectorAll<HTMLButtonElement>(".landing-choice")];
@@ -65,10 +66,6 @@ export function setupLanding(): void {
 
   function answer(correct: boolean): void {
     verdict.textContent = correct ? "Right — and it surprised me too." : "Not quite — it's true.";
-    explain.textContent =
-      `And almost always through the people who taught them, not through family or fame. ` +
-      `The ones who seem to reach no one? Usually a gap in what's been recorded, not proof ` +
-      `they worked alone. See who you can find.`;
     reveal.hidden = false;
     enter.focus();
   }
