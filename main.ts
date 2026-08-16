@@ -5,6 +5,7 @@ import {
   buildGraph,
   describeEdge,
   directOf,
+  initialsOf,
   laureatesAmong,
   otherEnd,
   reachedFrom,
@@ -24,11 +25,13 @@ import {
 import type { EdgeTier, Tier } from "./render.ts";
 import { currentTheme, onThemeChange } from "./theme.ts";
 import {
+  GAP,
   HOME,
   MAX_SCALE,
   MIN_SCALE,
   clampView,
   dotRadius,
+  fitRadius,
   onScreen,
   panBy,
   screenOf,
@@ -66,6 +69,47 @@ const portraitBook = portraitsJson as unknown as {
 const credits = portraitBook.portraits;
 
 const ids = [...graph.people.keys()].filter((id) => layout.positions[id]);
+
+/**
+ * How close each node's nearest neighbour is, in layout units.
+ *
+ * Computed once, through a grid rather than 1682^2 comparisons. The draw loop
+ * turns it into screen pixels and refuses to grow any dot past half of it, so
+ * two portraits can never overlap -- see fitRadius in viewport.ts. Overlap is
+ * not a cosmetic problem here: two faces touching reads as a relationship, and
+ * a relationship on this page is a claim about real people.
+ */
+const nearestNeighbour = new Map<string, number>();
+{
+  const CELL = 0.01;
+  const buckets = new Map<string, string[]>();
+  const key = (x: number, y: number) => `${Math.floor(x / CELL)},${Math.floor(y / CELL)}`;
+  for (const id of ids) {
+    const [x, y] = layout.positions[id]!;
+    const at = key(x, y);
+    const bucket = buckets.get(at);
+    if (bucket) bucket.push(id);
+    else buckets.set(at, [id]);
+  }
+  for (const id of ids) {
+    const [x, y] = layout.positions[id]!;
+    const cx = Math.floor(x / CELL);
+    const cy = Math.floor(y / CELL);
+    let best = Infinity;
+    for (let dx = -2; dx <= 2; dx += 1) {
+      for (let dy = -2; dy <= 2; dy += 1) {
+        for (const other of buckets.get(`${cx + dx},${cy + dy}`) ?? []) {
+          if (other === id) continue;
+          const [ox, oy] = layout.positions[other]!;
+          const distance = Math.hypot(x - ox, y - oy);
+          if (distance < best) best = distance;
+        }
+      }
+    }
+    // Alone in its neighbourhood: nothing to collide with, so no cap.
+    nearestNeighbour.set(id, Number.isFinite(best) ? best : 1);
+  }
+}
 
 function pick<T extends Element>(selector: string): T {
   const found = document.querySelector<T>(selector);
@@ -306,50 +350,102 @@ function draw(): void {
     else nodeTiers.set(tier, [id]);
   }
   const box = { width, height };
+  const side = Math.min(width, height);
+
+  /** Everything about a node the two passes below both need. */
+  const placed: { id: string; tier: Tier; x: number; y: number; radius: number }[] = [];
   for (const tier of NODE_ORDER) {
     for (const id of nodeTiers.get(tier) ?? []) {
       const person = graph.people.get(id)!;
       const style = nodeStyle(person.laureate, tier, theme);
-      const [nx, ny] = at(id);
-      const radius = dotRadius(style.radius, view.scale);
-      // Culling is what keeps a deep zoom cheap: at 12x most of the graph is
-      // off the edge, and neither its arcs nor its images are worth asking for.
-      if (!onScreen([nx, ny], box, radius + 8)) continue;
+      const [x, y] = at(id);
+      // Half the distance to the nearest neighbour is the ceiling, so two dots
+      // can never touch however far in you go.
+      const radius = fitRadius(
+        style.radius,
+        view.scale,
+        nearestNeighbour.get(id)! * side * view.scale,
+      );
+      // Culling is what keeps a deep zoom cheap: at 40x nearly all of the graph
+      // is off the edge, and neither its arcs nor its images are worth asking
+      // for.
+      if (!onScreen([x, y], box, radius + 8)) continue;
+      placed.push({ id, tier, x, y, radius });
+    }
+  }
 
-      if (style.halo !== null) {
-        context.beginPath();
-        context.arc(nx, ny, radius + 5, 0, Math.PI * 2);
-        context.strokeStyle = style.halo;
-        context.lineWidth = 1;
-        context.stroke();
-      }
+  // Punch the lines back out of every dot before drawing any of them.
+  //
+  // A line that runs behind an unrelated node used to emerge on both sides of
+  // it and read exactly like two edges meeting there -- which is to say, like
+  // a relationship between two people who have none. Clearing a disc of
+  // background around every node makes each line visibly stop short of
+  // everything it does not connect to.
+  context.fillStyle = background(theme);
+  for (const node of placed) {
+    context.beginPath();
+    context.arc(node.x, node.y, node.radius + GAP, 0, Math.PI * 2);
+    context.fill();
+  }
 
-      // A face, once there is room for one. Only laureates have portraits, so
-      // this quietly reinforces the rule the rest of the page is built on:
-      // nobody who did not win is ever dressed up as somebody who did.
-      const face = person.laureate && showsPortrait(radius) ? portrait(id) : null;
-      if (face) {
-        drawPortrait(context, face, nx, ny, radius);
-        // The tier still has to read, so the ring stays and says which of the
-        // four states this person is in. A portrait replaces the fill, never
-        // the answer to the question the page is asking.
-        context.beginPath();
-        context.arc(nx, ny, radius, 0, Math.PI * 2);
-        context.strokeStyle = style.stroke ?? style.fill;
-        context.lineWidth = Math.max(style.strokeWidth, 2);
-        context.stroke();
-        continue;
-      }
+  for (const { id, tier, x: nx, y: ny, radius } of placed) {
+    const person = graph.people.get(id)!;
+    const style = nodeStyle(person.laureate, tier, theme);
 
+    if (style.halo !== null) {
+      // Inside the cleared disc, so marking the selection cannot reach across
+      // into the space belonging to the node beside it.
+      context.beginPath();
+      context.arc(nx, ny, radius + GAP, 0, Math.PI * 2);
+      context.strokeStyle = style.halo;
+      context.lineWidth = 1;
+      context.stroke();
+    }
+
+    // A face, once there is room for one. Only laureates have portraits, so
+    // this quietly reinforces the rule the rest of the page is built on:
+    // nobody who did not win is ever dressed up as somebody who did.
+    const big = person.laureate && showsPortrait(radius);
+    const face = big ? portrait(id) : null;
+
+    // Twenty-two laureates have no picture anybody has released under a
+    // licence this page can honour. Left as a plain dot they read as a failed
+    // load sitting among faces. Their initials say the opposite: this is a
+    // person, we know exactly who, and what is missing is the photograph.
+    if (big && !face && !credits[id]) {
       context.beginPath();
       context.arc(nx, ny, radius, 0, Math.PI * 2);
       context.fillStyle = style.fill;
       context.fill();
-      if (style.stroke !== null) {
-        context.strokeStyle = style.stroke;
-        context.lineWidth = style.strokeWidth;
-        context.stroke();
-      }
+      context.fillStyle = background(theme);
+      context.font = `600 ${(radius * 0.9).toFixed(1)}px system-ui, sans-serif`;
+      context.textAlign = "center";
+      context.textBaseline = "middle";
+      context.fillText(initialsOf(person.name), nx, ny + radius * 0.04);
+      continue;
+    }
+
+    if (face) {
+      drawPortrait(context, face, nx, ny, radius);
+      // The tier still has to read, so the ring stays and says which of the
+      // four states this person is in. A portrait replaces the fill, never
+      // the answer to the question the page is asking.
+      context.beginPath();
+      context.arc(nx, ny, radius, 0, Math.PI * 2);
+      context.strokeStyle = style.stroke ?? style.fill;
+      context.lineWidth = Math.max(style.strokeWidth, 2);
+      context.stroke();
+      continue;
+    }
+
+    context.beginPath();
+    context.arc(nx, ny, radius, 0, Math.PI * 2);
+    context.fillStyle = style.fill;
+    context.fill();
+    if (style.stroke !== null) {
+      context.strokeStyle = style.stroke;
+      context.lineWidth = style.strokeWidth;
+      context.stroke();
     }
   }
 }
@@ -650,8 +746,11 @@ canvas.addEventListener("click", (event) => {
   // A pan ends in a click event. Selecting whoever happened to be under the
   // finger at the end of a drag is not what the reader asked for.
   if (dragged > 6) return;
-  const hit = nearest(event.clientX, event.clientY);
-  if (hit !== null) select(hit);
+  // Clicking nothing clears the selection. There was no way back to the
+  // opening state without reloading, which made the first thing the page
+  // shows -- every laureate gold, every teacher grey, the whole tree at once
+  // -- a thing you could only see once.
+  select(nearest(event.clientX, event.clientY));
 });
 
 pick<HTMLButtonElement>('[data-testid="zoom-in"]').addEventListener("click", () => {

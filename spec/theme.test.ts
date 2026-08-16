@@ -66,8 +66,9 @@ describe("both themes declare the same colours", () => {
   it("gives every variable a hex, so the pairs below are actually measurable", () => {
     for (const [theme, colours] of Object.entries(THEMES)) {
       for (const [name, value] of Object.entries(colours)) {
-        // Three-digit shorthand is allowed because stylelint insists on it.
-        expect(value, `${theme} ${name}`).toMatch(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i);
+        // Three-digit shorthand because stylelint insists on it; eight-digit
+        // because the control bar floats over the canvas and needs an alpha.
+        expect(value, `${theme} ${name}`).toMatch(/^#([0-9a-f]{3}|[0-9a-f]{6}|[0-9a-f]{8})$/i);
       }
     }
   });

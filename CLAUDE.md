@@ -329,6 +329,23 @@ The canvas zooms to 12x and laureates become portraits once their dot is 13px
 or wider. Four rules came out of building it, all of them things that were
 wrong first.
 
+- **No two dots may ever touch, and it is geometry rather than tuning.**
+  `fitRadius` caps every dot at half the distance to its nearest neighbour.
+  Overlap is not cosmetic here: two faces touching reads as a relationship, and
+  a relationship on this page is a claim about two real people. The same
+  argument is why a cleared disc is punched around every node before the nodes
+  are drawn -- a line running behind an unrelated node used to come out the
+  other side looking exactly like two edges meeting there.
+- **The 40x ceiling is measured, not chosen.** The closest pair in
+  `data/layout.json` is 1.2e-3 apart in layout units: 12px at the old ceiling
+  of 12x, where two 13px faces cannot both fit, so no amount of zooming
+  separated them. At 40x every one of the 1682 nodes clears 30px.
+- **Clicking empty canvas clears the selection.** There was no way back to the
+  opening view -- the whole tree, every laureate gold -- without reloading.
+- **A laureate with no photograph gets their initials, not a bare dot.** Among
+  faces, a plain dot reads as something that failed to load. The gap is not a
+  failure, it is that nobody has published a picture of them under a licence
+  this page can honour, and initials say the part that is actually known.
 - **One transform, in `viewport.ts`, used by the draw loop and by the hit
   test.** This is the same rule as `render.ts` and the failure mode is worse:
   if drawing and clicking disagreed about where a node is, clicking a face

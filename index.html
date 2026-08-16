@@ -46,18 +46,31 @@
       <section class="stage" aria-label="Relationship graph">
         <canvas class="canvas" data-testid="canvas" aria-hidden="true"></canvas>
 
-        <!-- The canvas is aria-hidden, so it cannot hold focus and these have to
-             carry the keyboard: arrows pan, plus and minus zoom, 0 goes home. -->
+        <!-- Sits on the picture, top left, because it belongs to the picture.
+             The canvas is aria-hidden and cannot hold focus, so these carry the
+             keyboard: arrows pan, plus and minus zoom, 0 goes home. -->
         <div class="zoom" data-testid="zoom" role="group" aria-label="Zoom and pan the graph">
           <button class="zoom-button" type="button" data-testid="zoom-out" aria-label="Zoom out">
-            &minus;
+            <svg class="zoom-icon" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M4 8h8" />
+            </svg>
           </button>
           <p class="zoom-level" data-testid="zoom-level" aria-live="polite">1.0&times;</p>
           <button class="zoom-button" type="button" data-testid="zoom-in" aria-label="Zoom in">
-            +
+            <svg class="zoom-icon" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M8 4v8M4 8h8" />
+            </svg>
           </button>
-          <button class="zoom-button zoom-home" type="button" data-testid="zoom-reset">
-            Whole graph
+          <span class="zoom-rule" aria-hidden="true"></span>
+          <button
+            class="zoom-button"
+            type="button"
+            data-testid="zoom-reset"
+            aria-label="Show the whole graph"
+          >
+            <svg class="zoom-icon" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M2.6 6V2.6H6M10 2.6h3.4V6M13.4 10v3.4H10M6 13.4H2.6V10" />
+            </svg>
           </button>
         </div>
 

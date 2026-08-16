@@ -30,6 +30,7 @@
   --line: #232833;
   --hover: #1d2430;
   --current-bg: #2a2113;
+  --bar: #171c26f2;
   --sourced-bg: #1b2a1c;
   --sourced-ink: #86b98a;
   --unsourced-bg: #2e2418;
@@ -55,6 +56,7 @@
   --line: #e3ddd2;
   --hover: #f0ece4;
   --current-bg: #f6ecd6;
+  --bar: #fffffff2;
   --sourced-bg: #e4f0e4;
   --sourced-ink: #1f5b26;
   --unsourced-bg: #f6ecd8;
@@ -218,6 +220,7 @@ body {
 
 .stage {
   grid-area: stage;
+  position: relative;
   min-width: 0;
 }
 
@@ -250,26 +253,39 @@ body {
   font-size: 0.82rem;
 }
 
+/* One bar, floating on the picture at its top left, because zooming is a thing
+   you do to the picture and the control for it belongs on the thing it acts
+   on. It was a row of text buttons sitting underneath in the page flow, which
+   read as page furniture rather than as part of the graph. */
 .zoom {
   display: flex;
-  gap: 0.4rem;
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  gap: 0.15rem;
   align-items: center;
-  margin-top: 0.6rem;
+  padding: 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bar);
+  box-shadow: 0 1px 12px rgb(0 0 0 / 22%);
+  backdrop-filter: blur(6px);
 }
 
 .zoom-button {
-  /* 44px square, because this is the control a thumb reaches for on the
-     phone viewport and the graph underneath is a drag surface. */
-  min-width: 44px;
-  min-height: 44px;
-  padding: 0 0.7rem;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  background: var(--panel);
-  color: var(--ink);
-  font: inherit;
-  font-size: 1rem;
-  line-height: 1;
+  /* 36 square here rather than 44: this bar sits over the drag surface and a
+     larger one would eat the picture. The nav toggle and the page's other
+     controls keep 44 -- this is the one place the trade goes the other way,
+     and the keyboard path covers anybody it fails. */
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--ink-quiet);
   cursor: pointer;
 }
 
@@ -278,28 +294,43 @@ body {
 .zoom-button:disabled {
   color: var(--ink-faint);
   cursor: default;
+  opacity: 0.45;
 }
 
 .zoom-button:focus-visible {
   outline: 2px solid var(--gold);
-  outline-offset: 2px;
+  outline-offset: -2px;
 }
 
 .zoom-button:hover:enabled {
-  border-color: var(--gold);
+  background: var(--hover);
   color: var(--gold);
 }
 
-.zoom-home {
-  font-size: 0.82rem;
+.zoom-icon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.zoom-rule {
+  width: 1px;
+  height: 20px;
+  margin: 0 0.2rem;
+  background: var(--line);
 }
 
 .zoom-level {
-  min-width: 3.2rem;
+  min-width: 3.1rem;
   margin: 0;
   color: var(--ink-quiet);
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
   text-align: center;
 }
 

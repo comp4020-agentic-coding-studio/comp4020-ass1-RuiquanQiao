@@ -2,8 +2,10 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { beforeAll, describe, expect, it } from "vitest";
-import { buildGraph, directOf, laureatesAmong, reachedFrom } from "../graph.ts";
+import { buildGraph, directOf, initialsOf, laureatesAmong, reachedFrom } from "../graph.ts";
 import type { Snapshot } from "../graph.ts";
+import { MAX_SCALE } from "../viewport.ts";
+
 
 // The core interaction, end to end through the real page.
 //
@@ -228,10 +230,53 @@ describe("zooming", () => {
   });
 
   it("stops at a ceiling instead of zooming forever", () => {
-    for (let i = 0; i < 40; i += 1) button("zoom-in").click();
-    expect(level()).toBe("12.0×");
+    // Read from viewport.ts rather than written out, because the ceiling is a
+    // measured number -- it is where the closest pair of nodes in the layout
+    // is finally far enough apart for two portraits and a gap -- and it moved
+    // once already when that measurement was taken properly.
+    for (let i = 0; i < 60; i += 1) button("zoom-in").click();
+    expect(level()).toBe(`${MAX_SCALE.toFixed(1)}×`);
     expect(button("zoom-in").disabled).toBe(true);
     button("zoom-reset").click();
+  });
+
+  it("lets go of the selection when you click nothing", () => {
+    type(wellConnected.name.slice(0, 6));
+    results().find((b) => b.dataset.id === wellConnected.id)!.click();
+    expect(document.querySelector(".readout-name")).toBeTruthy();
+    // Far outside the picture. The canvas measures 0x0 in jsdom, so every node
+    // maps to within a pixel of the origin and a click near it hits one --
+    // which is why this has to be a long way away to mean "empty space".
+    // Without this there was no way back to the opening view but a reload.
+    document.querySelector('[data-testid="canvas"]')!.dispatchEvent(
+      new MouseEvent("click", { bubbles: true, clientX: 5000, clientY: 5000 }),
+    );
+    expect(document.querySelector(".readout-empty")).toBeTruthy();
+    expect(counts()).toBeNull();
+  });
+});
+
+describe("the laureates with no photograph", () => {
+  // Twenty-two of them, and a plain dot among faces reads as something that
+  // failed to load rather than as a gap in what anybody has published freely.
+  it("reduces a name to the initials somebody would recognise", () => {
+    expect(initialsOf("Marie Curie")).toBe("MC");
+    expect(initialsOf("H. Robert Horvitz")).toBe("HH");
+    expect(initialsOf("Charles J. Pedersen")).toBe("CP");
+    // Nobiliary particles are not initials; "van der Waals" is a W.
+    expect(initialsOf("Johannes Diderik van der Waals")).toBe("JW");
+    expect(initialsOf("Ginzburg")).toBe("G");
+  });
+
+  it("has something to draw for every laureate the page cannot show a face for", () => {
+    const book = JSON.parse(readFileSync(resolve("data/portraits.json"), "utf8")) as {
+      portraits: Record<string, unknown>;
+    };
+    const faceless = snapshot.people.filter((p) => p.laureate && !book.portraits[p.id]);
+    expect(faceless.length).toBeGreaterThan(0);
+    for (const person of faceless) {
+      expect(initialsOf(person.name), person.name).toMatch(/^\p{Lu}{1,2}$/u);
+    }
   });
 });
 

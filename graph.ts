@@ -189,6 +189,27 @@ export function search(graph: Graph, query: string, limit = 20): Person[] {
   return hits.slice(0, limit).map((hit) => hit.person);
 }
 
+/**
+ * First and last initial, for a laureate the page has no photograph of.
+ *
+ * Twenty-two of them have none, because nobody has released a picture of them
+ * under a licence this page can honour. Drawn as a plain dot among faces they
+ * read as something that failed to load; their initials say the opposite --
+ * this is a person, we know exactly who, and what is missing is the photograph
+ * rather than the identification.
+ *
+ * Nobiliary particles are skipped, so Johannes Diderik van der Waals is a JW
+ * and not a JV.
+ */
+export function initialsOf(name: string): string {
+  const words = name
+    .split(/\s+/)
+    .filter((word) => /\p{L}/u.test(word) && !/^(van|von|de|der|den|du|di|la|le|el)$/i.test(word));
+  const first = words.at(0)?.[0] ?? "";
+  const last = words.length > 1 ? (words.at(-1)?.[0] ?? "") : "";
+  return (first + last).toUpperCase();
+}
+
 /** How a relation reads in a sentence, from the selected person's side. */
 export function describeEdge(edge: Edge, from: string): string {
   if (edge.type === "supervised") {

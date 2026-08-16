@@ -26,7 +26,21 @@ export interface Size {
 export const HOME: View = { scale: 1, x: 0, y: 0 };
 
 export const MIN_SCALE = 1;
-export const MAX_SCALE = 12;
+
+/**
+ * 40, not 12, and the number is measured rather than chosen.
+ *
+ * The closest pair of nodes in the layout sits 1.2e-3 apart in layout units.
+ * At 12x that is 12px between their centres, so two faces drawn at 13px each
+ * necessarily overlapped and no amount of zooming could separate them. At 40x
+ * every one of the 1682 nodes is at least 30px from its nearest neighbour --
+ * room for two portraits and a gap. Zooming further always separates a pair,
+ * which is what a zoom is for.
+ */
+export const MAX_SCALE = 40;
+
+/** Clear space kept between two adjacent dots, and between a dot and a line. */
+export const GAP = 2.5;
 
 /**
  * Dots grow with the zoom, but not forever.
@@ -118,6 +132,29 @@ export function panBy(view: View, dx: number, dy: number, size: Size): View {
 
 export function dotRadius(base: number, scale: number): number {
   return Math.min(base * scale, MAX_DOT);
+}
+
+/**
+ * The radius a dot may actually use, given how close its nearest neighbour is.
+ *
+ * Two portraits that overlap are worse than two small ones: an overlap reads
+ * as a relationship, and on this page a relationship is a claim about real
+ * people. So a dot never grows past half the distance to whoever is nearest,
+ * less the gap. It is a hard geometric guarantee rather than a tuned constant
+ * -- if two dots would touch, both shrink until they do not.
+ *
+ * `nearestPx` is the screen distance to the closest other node. At low zoom
+ * that bites often; by 40x it never does, which is why the ceiling is there.
+ */
+export function fitRadius(base: number, scale: number, nearestPx: number): number {
+  // The gap shrinks with the space rather than being subtracted flat. A flat
+  // 2.5px is most of the room when two nodes are 4px apart, and a minimum
+  // radius large enough to stay visible there would put the circles back on
+  // top of each other -- which is the one thing this function exists to stop.
+  // So there is no floor: two nodes a pixel apart draw as sub-pixel specks,
+  // are indistinguishable anyway at that distance, and separate as you zoom.
+  const gap = Math.min(GAP, nearestPx * 0.15);
+  return Math.min(dotRadius(base, scale), Math.max(0, nearestPx / 2 - gap));
 }
 
 /**

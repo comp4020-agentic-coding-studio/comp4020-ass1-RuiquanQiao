@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  GAP,
   HOME,
   MAX_DOT,
   MAX_SCALE,
@@ -7,6 +8,7 @@ import {
   PORTRAIT_RADIUS,
   clampView,
   dotRadius,
+  fitRadius,
   graphOf,
   onScreen,
   panBy,
@@ -158,6 +160,50 @@ describe("when a dot becomes a face", () => {
     const scaleFor = (base: number) => PORTRAIT_RADIUS / base;
     expect(scaleFor(6)).toBeLessThan(scaleFor(2.6));
     expect(scaleFor(6)).toBeLessThan(MAX_SCALE);
+  });
+});
+
+describe("two dots can never touch", () => {
+  // Overlap is not cosmetic on this page. Two faces touching reads as a
+  // relationship, and a relationship here is a claim about two real people --
+  // the same reason an edge is not allowed to pass through a node it does not
+  // connect to. So the radius is capped at half the distance to the nearest
+  // neighbour, less the gap, and that is a geometric guarantee rather than a
+  // constant somebody tuned until it looked right.
+  it("shrinks both dots rather than letting them meet, at any distance", () => {
+    for (const nearest of [0.4, 1, 4, 10, 26, 60, 400, 4000]) {
+      const r = fitRadius(6, MAX_SCALE, nearest);
+      // Two circles of this radius, centres `nearest` apart, must not touch.
+      expect(2 * r, `${nearest}px apart`).toBeLessThanOrEqual(nearest + 1e-9);
+    }
+  });
+
+  it("leaves a visible gap once there is any room to leave one", () => {
+    for (const nearest of [26, 60, 400]) {
+      const r = fitRadius(6, MAX_SCALE, nearest);
+      expect(2 * r + 2 * GAP, `${nearest}px apart`).toBeLessThanOrEqual(nearest + 1e-9);
+    }
+  });
+
+  it("keeps ordinary dots at their intended size, so the cap is not felt", () => {
+    // The median pair in data/layout.json is 0.0092 apart, which is 7.6px at
+    // 1x on an 821px canvas -- comfortably more than twice a 2.6px laureate.
+    expect(fitRadius(2.6, 1, 7.6)).toBeCloseTo(2.6, 6);
+  });
+
+  it("still lets a dot reach portrait size when there is room", () => {
+    expect(showsPortrait(fitRadius(2.6, MAX_SCALE, 200))).toBe(true);
+  });
+
+  // The ceiling exists because of this: the closest pair in data/layout.json
+  // is 1.2e-3 apart in layout units, which on an 821px canvas is 30px at 40x
+  // and only 12px at the old ceiling of 12x. Two 13px faces cannot both fit in
+  // 12px, so no amount of zooming used to separate them.
+  it("is high enough for the closest pair in the real layout", () => {
+    const closest = 1.2e-3;
+    const side = 821;
+    const apart = closest * side * MAX_SCALE;
+    expect(apart).toBeGreaterThan(2 * PORTRAIT_RADIUS + 2 * GAP);
   });
 });
 
