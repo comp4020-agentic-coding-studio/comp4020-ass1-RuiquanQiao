@@ -195,12 +195,14 @@ describe("zooming", () => {
   });
 
   it("starts showing the whole graph, with no way to zoom further out", () => {
+    button("zoom-reset").click();
     expect(level()).toBe("1.0×");
     expect(button("zoom-out").disabled).toBe(true);
     expect(button("zoom-in").disabled).toBe(false);
   });
 
   it("reports the level it is actually at", () => {
+    button("zoom-reset").click();
     button("zoom-in").click();
     expect(level()).toBe("1.4×");
     button("zoom-in").click();

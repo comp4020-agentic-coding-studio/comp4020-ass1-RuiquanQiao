@@ -70,6 +70,7 @@ const tally = [...licences.entries()]
   .join(", ");
 
 const count = Object.keys(book.portraits).length;
+const under = Object.entries(book.portraits).filter(([, c]) => c.licence.startsWith("GFDL"));
 
 const page = `<!doctype html>
 <html lang="en-AU">
@@ -119,10 +120,17 @@ const page = `<!doctype html>
           be betting on somebody else's uptime.
         </p>
         <p>
-          Licences: ${tally}. Files under GFDL 1.2 and CC SA 1.0 were excluded rather than
-          shipped, because meeting their terms means reproducing a licence text this site has
-          no room for. Those laureates keep a plain gold dot, which is also what the
-          ${book.laureates - count} laureates with no picture on Wikidata get.
+          Licences: ${tally}. ${under.length} of them are under the
+          <a href="../licences/gfdl-1.2/">GNU Free Documentation License 1.2</a>, whose condition
+          is that a copy of its text travels with the work; that copy is at the link. One file
+          was left out entirely — a CC SA 1.0 image, a deprecated share-alike with no attribution
+          clause and nothing current to point a reader at.
+        </p>
+        <p>
+          The ${book.laureates - count} laureates missing from this list have no picture on
+          Wikidata at all. That is a gap in what has been published freely rather than a failure
+          to look: photographs of them exist, and nobody has released one under a licence this
+          page can honour. They are drawn with their initials instead of a face.
         </p>
         <p>
           Each portrait links to its own Commons file page from the panel on the
@@ -147,3 +155,75 @@ ${rows}
 mkdirSync("credits", { recursive: true });
 writeFileSync("credits/index.html", page);
 console.log(`wrote credits/index.html: ${count} portraits, ${licences.size} distinct licences`);
+
+// --- the GFDL, in full ------------------------------------------------------
+// Three portraits are under GFDL 1.2, whose condition is that a copy of the
+// licence travels with the work. Twenty kilobytes of legalese is the price of
+// three laureates having a face instead of a monogram, and it is worth paying.
+// The text is committed at data/gfdl-1.2.txt and reproduced verbatim -- the
+// licence forbids modifying it, so nothing here touches a character of it.
+
+const gfdl = readFileSync("data/gfdl-1.2.txt", "utf8");
+
+const licencePage = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GNU Free Documentation License 1.2 — One Tree</title>
+    <meta
+      name="description"
+      content="The full text of the GNU Free Documentation License, version 1.2, under which some portraits on this site are used."
+    />
+    <!-- Kept in step with index.html and theme.ts by hand. See the note there. -->
+    <script>
+      try {
+        if (localStorage.getItem("one-tree-theme") === "light")
+          document.documentElement.dataset.theme = "light";
+      } catch (error) {
+        // Private modes throw on read. Dark is the default anyway.
+      }
+    </script>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="../../">One Tree</a>
+        <a class="nav-link" href="../../about/">About the data</a>
+        <a class="nav-link" href="../../credits/">Credits</a>
+      </nav>
+    </header>
+
+    <main class="layout layout-prose">
+      <div class="intro">
+        <h1 class="title">GNU Free Documentation License 1.2</h1>
+        <p class="lede">
+          ${under.length} portrait${under.length === 1 ? "" : "s"} on this site
+          ${under.length === 1 ? "is" : "are"} used under this licence, which requires that a copy
+          of it accompany the work. This is that copy, reproduced without modification.
+        </p>
+      </div>
+
+      <section class="notes">
+        <p>
+          Used under it here:
+          ${under.map(([id]) => escape(nameOf.get(id) ?? id)).join(", ")}. Each is credited to its
+          photographer on the <a href="../../credits/">credits page</a>.
+        </p>
+        <pre class="licence">${escape(gfdl)}</pre>
+      </section>
+    </main>
+
+    <!-- The only script this page needs. Everything else here is text. -->
+    <script type="module" src="../../theme.ts"></script>
+  </body>
+</html>
+`;
+
+mkdirSync("licences/gfdl-1.2", { recursive: true });
+writeFileSync("licences/gfdl-1.2/index.html", licencePage);
+console.log(
+  `wrote licences/gfdl-1.2/index.html: ${gfdl.length} chars of licence, ` +
+    `covering ${under.length} portrait(s)`,
+);

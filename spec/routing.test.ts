@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { buildGraph } from "../graph.ts";
 import type { Snapshot } from "../graph.ts";
-import { nodeStyle, tierOf } from "../render.ts";
+import { radiusFor, tierOf } from "../render.ts";
 import { GAP, fitRadius, routeAround, screenOf, trimToEdge } from "../viewport.ts";
 import type { Obstacle, View } from "../viewport.ts";
 
@@ -69,9 +69,14 @@ function place(view: View, seed: string | null) {
   const where = new Map<string, { x: number; y: number; radius: number }>();
   for (const id of ids) {
     const tier = tierOf(id, seed, direct, reached);
-    const style = nodeStyle(graph.people.get(id)!.laureate, tier, "dark");
+    const person = graph.people.get(id)!;
+    const degree = graph.neighbours.get(id)?.length ?? 0;
     const [x, y] = screenOf(layout.positions[id]!, view, SIZE);
-    const radius = fitRadius(style.radius, view.scale, nearest.get(id)! * side * view.scale);
+    const radius = fitRadius(
+      radiusFor(degree, person.laureate, tier, "dark"),
+      view.scale,
+      nearest.get(id)! * side * view.scale,
+    );
     where.set(id, { x, y, radius });
   }
   return where;

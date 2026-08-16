@@ -350,6 +350,16 @@ wrong first.
   `data/layout.json` is 1.2e-3 apart in layout units: 12px at the old ceiling
   of 12x, where two 13px faces cannot both fit, so no amount of zooming
   separated them. At 40x every one of the 1682 nodes clears 30px.
+- **Size means degree.** Area in proportion to how many documented relations a
+  person has, so radius goes with the square root -- Rutherford's fifteen make
+  him nine times the area of a laureate with none. The tier only scales that;
+  it does not set it. Ordinary for a knowledge graph, and the page was ignoring
+  it until somebody said so.
+- **Choosing somebody from the search or the relations list brings them into
+  view** -- centred, and zoomed far enough to show their face. Not from a
+  canvas click: you were already looking at what you clicked, and moving the
+  view under a pointer is disorienting. Searching a name and then having to
+  hunt for the dot is the thing this exists to stop.
 - **Clicking empty canvas clears the selection.** There was no way back to the
   opening view -- the whole tree, every laureate gold -- without reloading.
 - **A laureate with no photograph gets their initials, not a bare dot.** Among

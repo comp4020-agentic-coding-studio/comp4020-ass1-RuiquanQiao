@@ -31,10 +31,34 @@ export interface NodeStyle {
       somebody who won something. */
   stroke: string | null;
   strokeWidth: number;
-  radius: number;
+  /** How much this tier enlarges the dot. Size itself comes from how many
+      relations the person has -- see radiusFor. */
+  emphasis: number;
   /** A faint circle drawn outside the dot, so the selection is findable in a
       hairball. Only the seed has one. */
   halo: string | null;
+}
+
+/**
+ * How big a person is drawn, before the tier and the zoom have their say.
+ *
+ * Area in proportion to how many documented relations they have, so radius
+ * goes with the square root: Rutherford's fifteen make him a visibly larger
+ * dot than the median two, and the difference is nine times the area rather
+ * than nine times the width, which is the ratio the eye actually reads.
+ *
+ * The floor matters. 247 laureates have no recorded relation at all, and they
+ * are not nothing -- they are the page's second question. A degree of zero is
+ * the smallest dot, never an absent one.
+ */
+export function baseRadius(degree: number, laureate: boolean): number {
+  const size = 1.5 + 0.78 * Math.sqrt(Math.max(0, degree));
+  return laureate ? size : size * 0.65;
+}
+
+/** The radius a person is drawn at, before zoom and the no-overlap cap. */
+export function radiusFor(degree: number, laureate: boolean, tier: Tier, theme: Theme): number {
+  return baseRadius(degree, laureate) * nodeStyle(laureate, tier, theme).emphasis;
 }
 
 const PAGE: Record<Theme, string> = {
@@ -58,18 +82,18 @@ export function background(theme: Theme): string {
  */
 const LAUREATE: Record<Theme, Record<Tier, NodeStyle>> = {
   dark: {
-    resting: { fill: "#e8b552", stroke: null, strokeWidth: 0, radius: 2.6, halo: null },
-    seed: { fill: "#ffffff", stroke: "#ffffff", strokeWidth: 1.4, radius: 6, halo: "#8b6f37" },
-    direct: { fill: "#ffdc93", stroke: null, strokeWidth: 0, radius: 4.4, halo: null },
-    reached: { fill: "#e8b552", stroke: null, strokeWidth: 0, radius: 3.1, halo: null },
-    out: { fill: "#23262d", stroke: null, strokeWidth: 0, radius: 2.2, halo: null },
+    resting: { fill: "#e8b552", stroke: null, strokeWidth: 0, emphasis: 1, halo: null },
+    seed: { fill: "#ffffff", stroke: "#ffffff", strokeWidth: 1.4, emphasis: 2.31, halo: "#8b6f37" },
+    direct: { fill: "#ffdc93", stroke: null, strokeWidth: 0, emphasis: 1.69, halo: null },
+    reached: { fill: "#e8b552", stroke: null, strokeWidth: 0, emphasis: 1.19, halo: null },
+    out: { fill: "#23262d", stroke: null, strokeWidth: 0, emphasis: 0.85, halo: null },
   },
   light: {
-    resting: { fill: "#8a5f00", stroke: null, strokeWidth: 0, radius: 2.6, halo: null },
-    seed: { fill: "#1b1f26", stroke: "#1b1f26", strokeWidth: 1.4, radius: 6, halo: "#b08a3a" },
-    direct: { fill: "#5c3f00", stroke: null, strokeWidth: 0, radius: 4.4, halo: null },
-    reached: { fill: "#8a5f00", stroke: null, strokeWidth: 0, radius: 3.1, halo: null },
-    out: { fill: "#e0dacd", stroke: null, strokeWidth: 0, radius: 2.2, halo: null },
+    resting: { fill: "#8a5f00", stroke: null, strokeWidth: 0, emphasis: 1, halo: null },
+    seed: { fill: "#1b1f26", stroke: "#1b1f26", strokeWidth: 1.4, emphasis: 2.31, halo: "#b08a3a" },
+    direct: { fill: "#5c3f00", stroke: null, strokeWidth: 0, emphasis: 1.69, halo: null },
+    reached: { fill: "#8a5f00", stroke: null, strokeWidth: 0, emphasis: 1.19, halo: null },
+    out: { fill: "#e0dacd", stroke: null, strokeWidth: 0, emphasis: 0.85, halo: null },
   },
 };
 
@@ -80,18 +104,18 @@ const LAUREATE: Record<Theme, Record<Tier, NodeStyle>> = {
  */
 const OTHER: Record<Theme, Record<Tier, NodeStyle>> = {
   dark: {
-    resting: { fill: PAGE.dark, stroke: "#6b7280", strokeWidth: 1.1, radius: 1.7, halo: null },
-    seed: { fill: PAGE.dark, stroke: "#ffffff", strokeWidth: 1.6, radius: 6, halo: "#5b6472" },
-    direct: { fill: PAGE.dark, stroke: "#e2e8f0", strokeWidth: 1.4, radius: 4.4, halo: null },
-    reached: { fill: PAGE.dark, stroke: "#a9b2bf", strokeWidth: 1.2, radius: 2.2, halo: null },
-    out: { fill: "#1e2128", stroke: null, strokeWidth: 0, radius: 1.6, halo: null },
+    resting: { fill: PAGE.dark, stroke: "#6b7280", strokeWidth: 1.1, emphasis: 1, halo: null },
+    seed: { fill: PAGE.dark, stroke: "#ffffff", strokeWidth: 1.6, emphasis: 2.31, halo: "#5b6472" },
+    direct: { fill: PAGE.dark, stroke: "#e2e8f0", strokeWidth: 1.4, emphasis: 1.69, halo: null },
+    reached: { fill: PAGE.dark, stroke: "#a9b2bf", strokeWidth: 1.2, emphasis: 1.19, halo: null },
+    out: { fill: "#1e2128", stroke: null, strokeWidth: 0, emphasis: 0.85, halo: null },
   },
   light: {
-    resting: { fill: PAGE.light, stroke: "#8c93a1", strokeWidth: 1.1, radius: 1.7, halo: null },
-    seed: { fill: PAGE.light, stroke: "#1b1f26", strokeWidth: 1.6, radius: 6, halo: "#9aa1ad" },
-    direct: { fill: PAGE.light, stroke: "#1f2530", strokeWidth: 1.4, radius: 4.4, halo: null },
-    reached: { fill: PAGE.light, stroke: "#4a5260", strokeWidth: 1.2, radius: 2.2, halo: null },
-    out: { fill: "#ebe6dc", stroke: null, strokeWidth: 0, radius: 1.6, halo: null },
+    resting: { fill: PAGE.light, stroke: "#8c93a1", strokeWidth: 1.1, emphasis: 1, halo: null },
+    seed: { fill: PAGE.light, stroke: "#1b1f26", strokeWidth: 1.6, emphasis: 2.31, halo: "#9aa1ad" },
+    direct: { fill: PAGE.light, stroke: "#1f2530", strokeWidth: 1.4, emphasis: 1.69, halo: null },
+    reached: { fill: PAGE.light, stroke: "#4a5260", strokeWidth: 1.2, emphasis: 1.19, halo: null },
+    out: { fill: "#ebe6dc", stroke: null, strokeWidth: 0, emphasis: 0.85, halo: null },
   },
 };
 

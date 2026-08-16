@@ -46,7 +46,30 @@ const pages = htmlFiles().map((path) => ({
 describe("the built site", () => {
   it("ships every page", () => {
     const names = pages.map((page) => page.name).sort();
-    expect(names).toEqual(["about/index.html", "credits/index.html", "index.html"]);
+    expect(names).toEqual([
+      "about/index.html",
+      "credits/index.html",
+      "index.html",
+      // Three portraits are GFDL 1.2, whose condition is that a copy of the
+      // licence travels with the work. This is that copy, and shipping it is
+      // what makes those three faces usable rather than monograms.
+      "licences/gfdl-1.2/index.html",
+    ]);
+  });
+
+  it("carries the GFDL text whenever it ships a portrait under it", () => {
+    const book = JSON.parse(readFileSync(resolve("data/portraits.json"), "utf8")) as {
+      portraits: Record<string, { licence: string }>;
+    };
+    const gfdl = Object.values(book.portraits).filter((c) => c.licence.startsWith("GFDL"));
+    if (!gfdl.length) return;
+    const page = pages.find((p) => p.name === "licences/gfdl-1.2/index.html");
+    expect(page, `${gfdl.length} GFDL portraits ship with no copy of the licence`).toBeTruthy();
+    const text = page!.doc.querySelector(".licence")?.textContent ?? "";
+    // The whole thing, not a summary: the licence itself forbids modification.
+    expect(text).toContain("GNU Free Documentation License");
+    expect(text).toContain("Version 1.2, November 2002");
+    expect(text.length).toBeGreaterThan(18000);
   });
 
   it("kept no trace of the starter page", () => {

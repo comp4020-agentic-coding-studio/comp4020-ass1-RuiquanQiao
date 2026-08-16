@@ -118,6 +118,13 @@
       "commons": "https://commons.wikimedia.org/wiki/File:Debye100.jpg",
       "ext": "jpg"
     },
+    "Q103844": {
+      "file": "Françoise Barré-Sinoussi-press conference Dec 06th, 2008-1.jpg",
+      "artist": "Prolineserver (talk)",
+      "licence": "GFDL 1.2",
+      "commons": "https://commons.wikimedia.org/wiki/File:Fran%C3%A7oise_Barr%C3%A9-Sinoussi-press_conference_Dec_06th,_2008-1.jpg",
+      "ext": "jpg"
+    },
     "Q103854": {
       "file": "Aage Bohr.jpg",
       "artist": "Royal Danish Academy of Sciences",
@@ -2309,6 +2316,13 @@
       "commons": "https://commons.wikimedia.org/wiki/File:Linda_Buck_2015_(cropped).jpg",
       "ext": "jpg"
     },
+    "Q200470": {
+      "file": "Roger Tsien-press conference Dec 07th, 2008-2.jpg",
+      "artist": "Prolineserver (talk)",
+      "licence": "GFDL 1.2",
+      "commons": "https://commons.wikimedia.org/wiki/File:Roger_Tsien-press_conference_Dec_07th,_2008-2.jpg",
+      "ext": "jpg"
+    },
     "Q201452": {
       "file": "Brian Schmidt portrait 1.jpg",
       "artist": "Tim Wetherell",
@@ -3098,6 +3112,13 @@
       "artist": "Associated Press",
       "licence": "Public domain",
       "commons": "https://commons.wikimedia.org/wiki/File:Howard_Martin_Temin_1975.jpg",
+      "ext": "jpg"
+    },
+    "Q243601": {
+      "file": "Peter Mansfield Leipzig.jpg",
+      "artist": "Prolineserver",
+      "licence": "GFDL 1.2",
+      "commons": "https://commons.wikimedia.org/wiki/File:Peter_Mansfield_Leipzig.jpg",
       "ext": "jpg"
     },
     "Q244739": {

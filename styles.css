@@ -641,3 +641,20 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* The GNU Free Documentation License, reproduced verbatim because using three
+   portraits under it requires that a copy travel with the work. It may not be
+   modified, so it is not reflowed -- only made readable. */
+.licence {
+  overflow-x: auto;
+  margin: 1rem 0 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--panel);
+  color: var(--ink-quiet);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}

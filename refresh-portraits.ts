@@ -54,17 +54,25 @@ function extensionOf(bytes: Buffer): string | null {
 }
 
 /**
- * Licences excluded, and why. Everything else on Commons that reaches this
- * script is either public domain or carries an attribution requirement this
- * page can actually meet.
+ * Licences excluded, and why.
  *
- * GFDL 1.2 requires shipping the licence text in full with the work, which is
- * a page of legalese for six portraits. CC SA 1.0 is a deprecated share-alike
- * with no attribution clause and no modern equivalent to point a reader at.
- * Neither is worth the space, and a laureate silently keeping a plain gold dot
- * is a fine outcome -- nineteen of them do anyway.
+ * GFDL 1.2 used to be on this list. Its condition is that a copy of the
+ * licence travels with the work, and the site now carries one at
+ * `licences/gfdl-1.2/` -- twenty kilobytes of legalese for three more faces,
+ * which is a trade worth making when the alternative is three laureates with
+ * no picture. `spec/portraits.test.ts` fails if a GFDL portrait ships without
+ * that page present.
+ *
+ * CC SA 1.0 stays out: a deprecated share-alike with no attribution clause and
+ * nothing modern to point a reader at.
  */
-const EXCLUDED = new Set(["GFDL 1.2", "GFDL", "CC SA 1.0"]);
+const EXCLUDED = new Set(["CC SA 1.0"]);
+
+/** Licences whose terms are met by shipping the text at this path. */
+export const LICENCE_PAGES: Record<string, string> = {
+  "GFDL 1.2": "licences/gfdl-1.2/",
+  GFDL: "licences/gfdl-1.2/",
+};
 
 interface Snapshot {
   people: { id: string; laureate: boolean; name: string }[];

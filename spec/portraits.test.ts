@@ -48,7 +48,7 @@ const entries = Object.entries(book.portraits);
  * requires shipping the licence text in full, and CC SA 1.0 is a deprecated
  * share-alike with nothing modern to point a reader at.
  */
-const EXCLUDED = ["GFDL 1.2", "GFDL", "CC SA 1.0"];
+const EXCLUDED = ["CC SA 1.0"];
 
 describe("the manifest describes a real snapshot", () => {
   it("is dated and says what it was fetched at", () => {

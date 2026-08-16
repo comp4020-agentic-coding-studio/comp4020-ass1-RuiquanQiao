@@ -7,10 +7,12 @@ import {
   EDGE_ORDER,
   NODE_ORDER,
   background,
+  baseRadius,
   contrast,
   edgeStyle,
   edgeTier,
   nodeStyle,
+  radiusFor,
   tierOf,
 } from "../render.ts";
 import type { NodeStyle, Theme, Tier } from "../render.ts";
@@ -96,9 +98,13 @@ for (const theme of THEMES) {
       });
 
       it(`keeps ${who} in the reached tier at least as large as at rest`, () => {
-        expect(nodeStyle(laureate, "reached", theme).radius).toBeGreaterThanOrEqual(
-          nodeStyle(laureate, "resting", theme).radius,
-        );
+        // Per person: the same degree, two tiers. Size across people means how
+        // many relations they have, so the comparison has to hold degree fixed.
+        for (const degree of [0, 2, 15]) {
+          expect(radiusFor(degree, laureate, "reached", theme)).toBeGreaterThanOrEqual(
+            radiusFor(degree, laureate, "resting", theme),
+          );
+        }
       });
 
       it(`pushes ${who} out of reach below every lit tier`, () => {
@@ -114,13 +120,15 @@ for (const theme of THEMES) {
         expect(standout(nodeStyle(laureate, "out", theme), theme)).toBeGreaterThan(1.05);
       });
 
-      it(`sizes ${who} seed over direct over reached`, () => {
-        expect(nodeStyle(laureate, "seed", theme).radius).toBeGreaterThan(
-          nodeStyle(laureate, "direct", theme).radius,
-        );
-        expect(nodeStyle(laureate, "direct", theme).radius).toBeGreaterThan(
-          nodeStyle(laureate, "reached", theme).radius,
-        );
+      it(`sizes ${who} seed over direct over reached, for the same person`, () => {
+        for (const degree of [0, 2, 15]) {
+          expect(radiusFor(degree, laureate, "seed", theme)).toBeGreaterThan(
+            radiusFor(degree, laureate, "direct", theme),
+          );
+          expect(radiusFor(degree, laureate, "direct", theme)).toBeGreaterThan(
+            radiusFor(degree, laureate, "reached", theme),
+          );
+        }
       });
     }
 
@@ -187,6 +195,40 @@ describe("edge tiers, which do not depend on the theme", () => {
     // Every tier is drawn exactly once, or something silently never appears.
     expect(new Set(NODE_ORDER).size).toBe(NODE_ORDER.length);
     expect(NODE_ORDER).toHaveLength(5);
+  });
+});
+
+describe("size says how many relations somebody has", () => {
+  // The ordinary expectation of a knowledge graph, and the page was ignoring
+  // it: every laureate was the same dot whether they had fifteen documented
+  // relations or none.
+  it("puts area in proportion to degree, not width", () => {
+    // Nine times the relations should look like nine times the dot, and the
+    // eye reads area. Radius therefore goes with the square root.
+    const at = (degree: number) => baseRadius(degree, true) - baseRadius(0, true);
+    expect(at(4) / at(1)).toBeCloseTo(2, 6);
+    expect(at(9) / at(1)).toBeCloseTo(3, 6);
+  });
+
+  it("makes Rutherford's fifteen visibly bigger than the median two", () => {
+    expect(baseRadius(15, true)).toBeGreaterThan(baseRadius(2, true) * 1.5);
+  });
+
+  it("still draws somebody with no relations at all", () => {
+    // 247 laureates have none, and they are the page's second question rather
+    // than an absence. Smallest dot, never no dot.
+    expect(baseRadius(0, true)).toBeGreaterThan(1);
+    expect(baseRadius(0, false)).toBeGreaterThan(0.5);
+  });
+
+  it("keeps a laureate larger than a non-laureate of the same degree", () => {
+    for (const degree of [0, 2, 15]) {
+      expect(baseRadius(degree, true)).toBeGreaterThan(baseRadius(degree, false));
+    }
+  });
+
+  it("never returns something nonsensical for a degree it should not see", () => {
+    expect(baseRadius(-3, true)).toBe(baseRadius(0, true));
   });
 });
 

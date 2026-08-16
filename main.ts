@@ -20,6 +20,7 @@ import {
   edgeStyle,
   edgeTier,
   nodeStyle,
+  radiusFor,
   tierOf,
 } from "./render.ts";
 import type { EdgeTier, Tier } from "./render.ts";
@@ -30,6 +31,7 @@ import {
   MAX_DOT,
   MAX_SCALE,
   MIN_SCALE,
+  PORTRAIT_RADIUS,
   clampView,
   dotRadius,
   fitRadius,
@@ -72,6 +74,9 @@ const portraitBook = portraitsJson as unknown as {
 const credits = portraitBook.portraits;
 
 const ids = [...graph.people.keys()].filter((id) => layout.positions[id]);
+
+/** How many documented relations somebody has. Their dot's area is this. */
+const degreeOf = (id: string) => graph.neighbours.get(id)?.length ?? 0;
 
 /**
  * How close each node's nearest neighbour is, in layout units.
@@ -200,13 +205,50 @@ let direct = new Set<string>();
 let reached = new Set<string>();
 let view: View = HOME;
 
-function select(id: string | null): void {
+/**
+ * Choose somebody.
+ *
+ * `reveal` brings them into view: the graph moves so they are in the middle of
+ * the canvas, and zooms in far enough to show their face. It is on for the
+ * search results and the relation links and off for a click on the canvas --
+ * you were already looking at the person you clicked, and yanking the view out
+ * from under a pointer is disorienting. Searching a name and being left to
+ * hunt for the dot in a thousand-node hairball is the thing this fixes.
+ */
+function select(id: string | null, reveal = false): void {
   selected = id !== null && graph.people.has(id) ? id : null;
   direct = new Set(selected ? directOf(graph, selected) : []);
   reached = new Set(selected ? reachedFrom(graph, selected) : []);
+  if (reveal && selected !== null && layout.positions[selected]) bring(selected);
   drawReadout();
   drawResults(searchBox.value);
   draw();
+}
+
+/** Put somebody in the middle of the canvas, big enough to have a face. */
+function bring(id: string): void {
+  syncCanvas();
+  const side = Math.min(width, height);
+  const person = graph.people.get(id)!;
+
+  // Two things have to be true at once for a portrait to appear: the dot has
+  // to be PORTRAIT_RADIUS wide, and the no-overlap cap has to allow that --
+  // near a crowded neighbour the cap is what binds, so both are solved for and
+  // the larger answer wins.
+  const base = radiusFor(degreeOf(id), person.laureate, "seed", currentTheme());
+  const forSize = PORTRAIT_RADIUS / base;
+  const gap = nearestNeighbour.get(id)! * side;
+  const forRoom = gap > 0 ? ((PORTRAIT_RADIUS + GAP) * 2) / gap : MAX_SCALE;
+  const scale = Math.min(MAX_SCALE, Math.max(view.scale, forSize, forRoom));
+
+  const point = layout.positions[id]!;
+  const left = (width - side) / 2;
+  const top = (height - side) / 2;
+  setView({
+    scale,
+    x: width / 2 - (left + point[0] * side) * scale,
+    y: height / 2 - (top + point[1] * side) * scale,
+  });
 }
 
 /** Zoom and pan change the view and nothing else. Selection is not theirs. */
@@ -393,12 +435,12 @@ function draw(): void {
   for (const tier of NODE_ORDER) {
     for (const id of nodeTiers.get(tier) ?? []) {
       const person = graph.people.get(id)!;
-      const style = nodeStyle(person.laureate, tier, theme);
       const [x, y] = at(id);
-      // Half the distance to the nearest neighbour is the ceiling, so two dots
-      // can never touch however far in you go.
+      // Size says how many relations this person has; the tier only scales it.
+      // Half the distance to the nearest neighbour is still the ceiling, so two
+      // dots can never touch however far in you go.
       const radius = fitRadius(
-        style.radius,
+        radiusFor(degreeOf(id), person.laureate, tier, theme),
         view.scale,
         nearestNeighbour.get(id)! * side * view.scale,
       );
@@ -582,7 +624,7 @@ function drawResults(query: string): void {
     button.textContent = label(person);
     button.dataset.id = person.id;
     if (person.id === selected) button.setAttribute("aria-current", "true");
-    button.addEventListener("click", () => select(person.id));
+    button.addEventListener("click", () => select(person.id, true));
     item.append(button);
     resultList.append(item);
   }
@@ -665,7 +707,7 @@ function drawReadout(): void {
     who.textContent = other.name;
     who.dataset.id = other.id;
     who.setAttribute("aria-label", other.laureate ? `${other.name}, Nobel laureate` : `${other.name}, no Nobel Prize`);
-    who.addEventListener("click", () => select(other.id));
+    who.addEventListener("click", () => select(other.id, true));
 
     // Provenance is printed, not smoothed over: a claim with no reference
     // behind it looks different from one that has three.
